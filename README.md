@@ -28,3 +28,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 Testing if connection with Jira works
 Testing compilation github-actions
+Testing sonarcloud
