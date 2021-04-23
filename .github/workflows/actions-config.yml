@@ -42,7 +42,7 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_USERNAME: Nemo
-          SLACK_ICON: https://www.freude-kinder.com/wp-content/uploads/2020/06/7-1.jpg
+          SLACK_ICON: 'nemo.jpg'
           SLACK_COLOR: ${{ job.status }}
           SLACK_WEBHOOK: ${{ secrets.SLACK_TOKEN }}
         if: always()
