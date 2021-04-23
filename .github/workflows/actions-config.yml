@@ -45,3 +45,4 @@ jobs:
           fields: repo,author,commit,author,workflow,
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_TOKEN }}
+        if: always()
