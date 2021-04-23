@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test-coverage": "ng test --no-watch --code-coverage",
+    "test-coverage": "ng test --no-watch --code-coverage --browsers=ChromeHeadlessCI",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
