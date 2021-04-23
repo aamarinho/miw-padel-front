@@ -31,4 +31,4 @@ jobs:
           npm ci
           npm run-script build
       - name: Run tests
-        run: ng test --no-watch --code-coverage
+        run: npm run-script test-coverage
