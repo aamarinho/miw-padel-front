@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "https://miw-padel-back.herokuapp.com",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}
