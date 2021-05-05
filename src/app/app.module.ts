@@ -12,6 +12,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { LoginComponent } from './login/login.component';
 import {FormsModule} from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HttpClientModule } from "@angular/common/http";
     MatIconModule,
     MatButtonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientTestingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
