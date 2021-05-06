@@ -9,13 +9,18 @@ import {LoginComponent} from "./login/login.component";
 })
 export class AppComponent {
   title = 'miw-padel-front';
+  navbarCollapsed = true;
 
   constructor(private dialog: MatDialog) {
   }
 
   login(): void {
-    this.dialog.open(LoginComponent)
+    this.dialog.open(LoginComponent, {
+      minWidth: '340px',
+      minHeight: '200px'
+    })
       .afterClosed()
-      .subscribe(result=>console.log("Closing login"));
+      .subscribe(()=>console.log("Closing login"));
   }
+
 }
