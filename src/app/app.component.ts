@@ -9,7 +9,7 @@ import {LoginComponent} from "./login/login.component";
 })
 export class AppComponent {
   title = 'miw-padel-front';
-  navbarCollapsed = true;
+  isShown:boolean = false;
 
   constructor(private dialog: MatDialog) {
   }
