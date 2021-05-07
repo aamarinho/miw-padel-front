@@ -8,7 +8,7 @@ import { TokenDto } from "./token.model";
 })
 export class LoginService {
 
-  url: string = '/api';
+  url: string = 'https://miw-padel-back.herokuapp.com/user';
 
   constructor(private http: HttpClient) {
   }
@@ -16,7 +16,7 @@ export class LoginService {
   login(email:string, password:string): Observable<TokenDto> {
     const headers = { 'content-type': 'application/json' };
     const body=JSON.stringify({email: email, password: password});
-    console.log(body);
+    //console.log(body);
     return this.http.post<TokenDto>(this.url + '/login', body,{'headers':headers});
   }
 
