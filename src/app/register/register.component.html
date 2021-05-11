@@ -1,0 +1,92 @@
+<h3 mat-dialog-title>Register</h3>
+<mat-dialog-content [formGroup]="form">
+
+  <mat-form-field>
+    <mat-label id="register_first_name">First name</mat-label>
+    <input formControlName="firstName" matInput type="text"/>
+  </mat-form-field>
+  <div *ngIf="getFormControl.firstName.touched && getFormControl.firstName.invalid"
+       class="alert alert-danger">
+    <small *ngIf="getFormControl.firstName.errors?.required">
+      First name is required.
+    </small>
+  </div>
+  <br/>
+
+  <mat-form-field>
+    <mat-label id="register_family_name">Family name</mat-label>
+    <input formControlName="familyName" matInput type="text"/>
+  </mat-form-field>
+  <div *ngIf="getFormControl.familyName.touched && getFormControl.familyName.invalid"
+       class="alert alert-danger">
+    <small *ngIf="getFormControl.familyName.errors?.required">
+      Family name is required.
+    </small>
+  </div>
+  <br/>
+
+  <mat-form-field>
+    <mat-label id="register_email">Email</mat-label>
+    <input formControlName="email" matInput type="text"/>
+  </mat-form-field>
+  <div *ngIf="getFormControl.email.touched && getFormControl.email.invalid"
+       class="alert alert-danger">
+    <small *ngIf="getFormControl.email.errors?.required">
+      Email is required.
+    </small>
+    <small *ngIf="getFormControl.email.errors?.email">
+      Email must be an email.
+    </small>
+  </div>
+  <br/>
+
+  <mat-form-field>
+    <mat-label id="register_gender">Gender</mat-label>
+    <mat-select formControlName="gender" ngDefaultControl>
+      <mat-option *ngFor="let gender of genders" [value]="gender">{{gender}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div *ngIf="getFormControl.gender.touched && getFormControl.gender.invalid"
+       class="alert alert-danger">
+    <small *ngIf="getFormControl.gender.errors?.required">
+      Gender is required.
+    </small>
+  </div>
+  <br/>
+
+  <mat-form-field appearance="fill">
+    <mat-label id="register_birth_date">Birth date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="birthDate">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <div *ngIf="getFormControl.birthDate.touched && getFormControl.birthDate.invalid"
+       class="alert alert-danger">
+    <small *ngIf="getFormControl.birthDate.errors?.required">
+      Birth date is required.
+    </small>
+  </div>
+  <br/>
+
+  <mat-form-field>
+    <mat-label id="register_password">Password</mat-label>
+    <input formControlName="password" matInput type="password"/>
+  </mat-form-field>
+  <div *ngIf="getFormControl.password.touched && getFormControl.password.invalid"
+       class="alert alert-danger">
+    <small *ngIf="getFormControl.password.errors?.required">
+      Password is required.
+    </small>
+    <small *ngIf="getFormControl.password.errors?.minlength">
+      Password must be at least 5 characters long.
+    </small>
+    <small *ngIf="getFormControl.password.errors?.maxlength">
+      Password must have a maximum of 14 characters long.
+    </small>
+  </div>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button (click)="register()">Submit</button>
+</mat-dialog-actions>
