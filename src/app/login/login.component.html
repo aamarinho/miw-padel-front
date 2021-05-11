@@ -1,7 +1,7 @@
 <h3 mat-dialog-title>Login</h3>
 <mat-dialog-content [formGroup]="form">
   <mat-form-field>
-    <input formControlName="email" matInput placeholder="Email" type="text"/>
+    <input formControlName="email" matInput placeholder="Email" type="text" id="input_email"/>
   </mat-form-field>
 
   <div *ngIf="getFormControl.email.touched && getFormControl.email.invalid"

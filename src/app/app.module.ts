@@ -12,6 +12,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import {CommonModule} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HttpClientModule } from "@angular/common/http";
     LoginComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
