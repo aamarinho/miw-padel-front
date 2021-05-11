@@ -52,8 +52,10 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     app.login();
     fixture.detectChanges();
-    const emailPlaceHolder = document.getElementById('input_email') as HTMLHeadElement;
-    expect(emailPlaceHolder.getAttribute('placeholder')).toEqual('Email');
+    const email = document.getElementById('input_email') as HTMLHeadElement;
+    expect(email.getAttribute('placeholder')).toEqual('Email');
+    const password = document.getElementById('input_password') as HTMLHeadElement;
+    expect(password.getAttribute('placeholder')).toEqual('Password');
   });
 
 });
