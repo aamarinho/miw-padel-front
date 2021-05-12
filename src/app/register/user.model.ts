@@ -1,4 +1,4 @@
-import {Role} from "./role.model";
+import {Role} from "../core/role.model";
 import {Gender} from "./gender.model";
 
 export interface User{
@@ -7,7 +7,7 @@ export interface User{
   email: string;
   roles?: Role[];
   password: string;
-  gender: Gender;
+  gender?: Gender;
   enabled?: boolean;
-  birthDate: Date;
+  birthDate?: Date;
 }

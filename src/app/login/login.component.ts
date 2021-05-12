@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {LoginService} from "./login.service";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import { AuthService } from "../core/auth.service";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   password: string;
   form!: FormGroup;
 
-  constructor(private loginService: LoginService, private fb: FormBuilder) {
+  constructor(private authService: AuthService, private fb: FormBuilder, private dialog: MatDialog) {
     this.email = '';
     this.password = '';
   }
@@ -26,16 +27,15 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    console.log("peticion");
-    //console.log(this.form.get('email')?.value+ ' + ' + this.form.get('password')?.value);
-    this.loginService.login(this.form.get('email')?.value,this.form.get('password')?.value).subscribe(result=>{
-      console.log(result);
-    },error => {
-      console.log(error);
-    });
+    this.authService.login(this.form.get('email')?.value,this.form.get('password')?.value).subscribe(()=> {
+        this.dialog.closeAll();
+      }
+    );
   }
 
   get getFormControl(){
     return this.form.controls;
   }
+
+  //getFormValue
 }

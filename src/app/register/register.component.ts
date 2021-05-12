@@ -3,7 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Gender} from "./gender.model";
 import {User} from "./user.model";
 import {LoginService} from "../login/login.service";
-import {Role} from "./role.model";
+import {Role} from "../core/role.model";
 
 @Component({
   selector: 'app-register',

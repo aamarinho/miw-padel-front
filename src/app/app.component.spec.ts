@@ -13,6 +13,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RegisterComponent } from "./register/register.component";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material/core";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -30,7 +31,8 @@ describe('AppComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         MatDatepickerModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        MatSnackBarModule
       ],
       declarations: [
         AppComponent,
