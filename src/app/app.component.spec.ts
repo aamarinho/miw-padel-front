@@ -1,4 +1,3 @@
-/*
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
@@ -19,26 +18,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        CommonModule,
-        RouterTestingModule,
-        BrowserModule,
-        BrowserAnimationsModule,
-        NoopAnimationsModule,
-        MatDialogModule,
-        MatMenuModule,
-        HttpClientModule,
-        BrowserModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatSnackBarModule
-      ],
       declarations: [
-        AppComponent,
-        LoginComponent,
-        RegisterComponent
+        AppComponent
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
@@ -50,13 +31,7 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'miw-padel-front'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('miw-padel-front');
-  });
-
-  it('should call login', () => {
+ /* it('should call login', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     app.login();
@@ -65,26 +40,8 @@ describe('AppComponent', () => {
     expect(email.getAttribute('placeholder')).toEqual('Email');
     const password = document.getElementById('login_password') as HTMLHeadElement;
     expect(password.getAttribute('placeholder')).toEqual('Password');
-  });
-
-  it('should call register', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    app.register();
-    fixture.detectChanges();
-    const firstName = document.getElementById('register_first_name') as HTMLHeadElement;
-    expect(firstName.innerText).toEqual('First name');
-    const familyName = document.getElementById('register_family_name') as HTMLHeadElement;
-    expect(familyName.innerText).toEqual('Family name');
-    const email = document.getElementById('register_email') as HTMLHeadElement;
-    expect(email.innerText).toEqual('Email');
-    const gender = document.getElementById('register_gender') as HTMLHeadElement;
-    expect(gender.innerText).toEqual('Gender');
-    const birthDate = document.getElementById('register_birth_date') as HTMLHeadElement;
-    expect(birthDate.innerText).toEqual('Birth date');
-    const password = document.getElementById('register_password') as HTMLHeadElement;
-    expect(password.innerText).toEqual('Password');
-  });
+  });*/
 
 });
-*/
+
+

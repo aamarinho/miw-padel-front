@@ -1,4 +1,5 @@
 /*
+
 import { TestBed } from '@angular/core/testing';
 import { LoginService } from './login.service';
 import { HttpClientTestingModule, HttpTestingController } from "@angular/common/http/testing";
@@ -23,7 +24,7 @@ describe('LoginService', () => {
     httpTestingController.verify()
   );
 
-  /!*it('should exist email and password and return token', () => {
+  it('should exist email and password and return token', () => {
     const user = {email:"registered@gmail.com",password:"11111"}
     const token = {token: "abc"}
 
@@ -37,9 +38,9 @@ describe('LoginService', () => {
     expect(req.request.body).toEqual(JSON.stringify(user));
 
     req.flush(token);
-  });*!/
+  });
 
-  /!*it('should turn 404 error because of unregistered email', () => {
+  it('should turn 404 error because of unregistered email', () => {
     const user = {email:"unregistered@gmail.com",password:"11111"};
 
     loginService.login(user.email,user.password).subscribe(
@@ -51,7 +52,8 @@ describe('LoginService', () => {
     );
     const req = httpTestingController.expectOne(loginService.url+'/login');
     req.flush('404 Not Found', { status: 404, statusText: 'Not Found' });
-  });*!/
+  });
 
 });
+
 */
