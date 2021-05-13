@@ -1,4 +1,4 @@
-import {Role} from "../core/role.model";
+import {Role} from "../../core/role.model";
 import {Gender} from "./gender.model";
 
 export interface User{

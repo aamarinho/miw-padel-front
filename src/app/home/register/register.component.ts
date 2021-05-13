@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {Gender} from "./gender.model";
-import {User} from "./user.model";
-import {LoginService} from "../login/login.service";
-import {Role} from "../core/role.model";
+import {Gender} from "../../shared/models/gender.model";
+import {User} from "../../shared/models/user.model";
+import {HomeService} from "../home.service";
+import {Role} from "../../core/role.model";
 
 @Component({
   selector: 'app-register',
@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   genders: Gender[];
   user: User = {} as User;
 
-  constructor(private loginservice: LoginService, private fb: FormBuilder) {
+  constructor(private loginservice: HomeService, private fb: FormBuilder) {
     this.genders = Object.values(Gender);
   }
 

@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { TokenDto } from "./token.model";
-import { User } from "../register/user.model";
+import { TokenDto } from "../shared/models/token.model";
+import { User } from "../shared/models/user.model";
 import {HttpService} from "../core/http.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class HomeService {
 
   url: string = 'https://miw-padel-back.herokuapp.com/user';
 
