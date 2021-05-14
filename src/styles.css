@@ -7,5 +7,14 @@ body{
   background-size: cover;
 }
 
+.submit_button{
+  background: linear-gradient(to left, #C3DC19, #07d3dd);
+}
+
+.cancel_button{
+  background-color: #2d2929;
+  color:white;
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginComponent} from "./login/login.component";
-import {RegisterComponent} from "./register/register.component";
-import {MatDialog} from "@angular/material/dialog";
-import {HomeService} from "./home.service";
+import { RegisterComponent } from "./register/register.component";
+import { MatDialog } from "@angular/material/dialog";
+import { HomeService } from "./home.service";
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { AuthService } from "../core/auth.service";
 
 @Component({
   selector: 'app-home',
@@ -11,20 +12,28 @@ import {HomeService} from "./home.service";
 })
 export class HomeComponent implements OnInit {
 
+  email: string;
+  password: string;
+  form!: FormGroup;
   isShown:boolean = false;
 
-  constructor(private dialog: MatDialog, private loginService: HomeService) { }
+  constructor(private authService: AuthService, private fb: FormBuilder, private dialog: MatDialog, private loginService: HomeService) {
+    this.email = '';
+    this.password = '';
+  }
 
   ngOnInit(): void {
+    this.form = this.fb.group({
+      email: new FormControl(this.email, [Validators.required, Validators.email]),
+      password: new FormControl(this.password, [Validators.required, Validators.minLength(5), Validators.maxLength(14)])
+    });
   }
 
   login(): void {
-    this.dialog.open(LoginComponent, {
-      minWidth: '340px',
-      minHeight: '200px'
-    })
-      .afterClosed()
-      .subscribe(()=>console.log("Closing login"));
+    this.authService.login(this.form.get('email')?.value,this.form.get('password')?.value).subscribe(()=> {
+        this.dialog.closeAll();
+      }
+    );
   }
 
   register(): void {
@@ -40,4 +49,9 @@ export class HomeComponent implements OnInit {
     this.loginService.prueba().subscribe(result=>console.log(result));
   }
 
+  get getFormControl(){
+    return this.form.controls;
+  }
+
+  //getFormValue
 }

@@ -1,3 +1,32 @@
 .menu{
   background-color: #07d3dd !important;
 }
+
+.login{
+  color: #4b4b4b !important;
+}
+
+.form{
+  margin-top: 8%;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 10px;
+  padding: 5%;
+}
+
+.input{
+  border-bottom: 1px solid black;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  background-color: transparent!important;
+  width: 100%;
+}
+
+.button_register{
+  width: 55%!important;
+}
+
+.button_login{
+  width: 100%!important;
+}

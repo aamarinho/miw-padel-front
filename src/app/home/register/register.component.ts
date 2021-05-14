@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {Gender} from "../../shared/models/gender.model";
-import {User} from "../../shared/models/user.model";
-import {HomeService} from "../home.service";
-import {Role} from "../../core/role.model";
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { Gender } from "../../shared/models/gender.model";
+import { User } from "../../shared/models/user.model";
+import { HomeService } from "../home.service";
+import { Role } from "../../core/role.model";
 
 @Component({
   selector: 'app-register',
@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   genders: Gender[];
   user: User = {} as User;
 
-  constructor(private loginservice: HomeService, private fb: FormBuilder) {
+  constructor(private homeService: HomeService, private fb: FormBuilder) {
     this.genders = Object.values(Gender);
   }
 
@@ -33,20 +33,26 @@ export class RegisterComponent implements OnInit {
 
   register(): void{
     this.user = {
-      firstName: this.form.get('firstName')?.value,
-      familyName: this.form.get('familyName')?.value,
-      email: this.form.get('email')?.value,
+      firstName: this.getFormValue('firstName'),
+      familyName: this.getFormValue('familyName'),
+      email: this.getFormValue('email'),
       roles: [Role.ROLE_PLAYER],
-      password: this.form.get('password')?.value,
-      gender: this.form.get('gender')?.value,
-      birthDate: this.form.get('birthDate')?.value
+      password: this.getFormValue('password'),
+      gender: this.getFormValue('gender'),
+      birthDate: this.getFormValue('birthDate')
     }
     console.log(this.user);
-    this.loginservice.register(this.user).subscribe(result=>console.log(result), error => console.log(error));
+    this.homeService.register(this.user).subscribe(
+      result=>console.log(result),
+      error => console.log(error));
   }
 
   get getFormControl(){
     return this.form.controls;
+  }
+
+  getFormValue(value:string): any{
+    return this.form.get(value)?.value;
   }
 
 }
