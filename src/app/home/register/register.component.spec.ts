@@ -8,6 +8,7 @@ import { RouterTestingModule } from "@angular/router/testing";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material/core";
+import {DatePipe} from "@angular/common";
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -28,6 +29,7 @@ describe('RegisterComponent', () => {
       declarations: [
         RegisterComponent
       ],
+      providers: [DatePipe],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();

@@ -13,6 +13,7 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material/core";
+import {DatePipe} from "@angular/common";
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -36,6 +37,7 @@ describe('HomeComponent', () => {
         HomeComponent,
         RegisterComponent
       ],
+      providers: [DatePipe],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();

@@ -4,6 +4,7 @@ import { Gender } from "../../shared/models/gender.model";
 import { User } from "../../shared/models/user.model";
 import { HomeService } from "../home.service";
 import { Role } from "../../core/role.model";
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-register',
@@ -16,7 +17,9 @@ export class RegisterComponent implements OnInit {
   genders: Gender[];
   user: User = {} as User;
 
-  constructor(private homeService: HomeService, private fb: FormBuilder) {
+  constructor(private homeService: HomeService,
+              private fb: FormBuilder,
+              public datePipe: DatePipe) {
     this.genders = Object.values(Gender);
   }
 
@@ -39,9 +42,8 @@ export class RegisterComponent implements OnInit {
       roles: [Role.ROLE_PLAYER],
       password: this.getFormValue('password'),
       gender: this.getFormValue('gender'),
-      birthDate: this.getFormValue('birthDate')
+      birthDate: this.datePipe.transform(this.getFormValue('birthDate'), 'yyyy-MM-dd')
     }
-    console.log(this.user);
     this.homeService.register(this.user).subscribe(
       result=>console.log(result),
       error => console.log(error));

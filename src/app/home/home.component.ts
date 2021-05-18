@@ -4,6 +4,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { HomeService } from "./home.service";
 import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from "../core/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,11 @@ export class HomeComponent implements OnInit {
   form!: FormGroup;
   isShown:boolean = false;
 
-  constructor(private authService: AuthService, private fb: FormBuilder, private dialog: MatDialog, private loginService: HomeService) {
+  constructor(private authService: AuthService,
+              private fb: FormBuilder,
+              private dialog: MatDialog,
+              private loginService: HomeService,
+              private router: Router) {
     this.email = '';
     this.password = '';
   }
@@ -31,7 +36,8 @@ export class HomeComponent implements OnInit {
 
   login(): void {
     this.authService.login(this.form.get('email')?.value,this.form.get('password')?.value).subscribe(()=> {
-        this.dialog.closeAll();
+      console.log("login correcto");
+      this.router.navigate(['paddle']).then().finally(() => this.dialog.closeAll());
       }
     );
   }

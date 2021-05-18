@@ -9,5 +9,5 @@ export interface User{
   password: string;
   gender?: Gender;
   enabled?: boolean;
-  birthDate?: Date;
+  birthDate?: Date | string | null;
 }

@@ -12,7 +12,8 @@ import { MaterialModule } from './material.module';
   ],
   declarations: [
   ],
-  providers: [],
+  providers: [
+  ],
   exports: [
     CommonModule,
     MaterialModule,
