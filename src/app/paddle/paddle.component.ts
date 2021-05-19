@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from "../core/auth.service";
 
 @Component({
@@ -6,14 +6,11 @@ import { AuthService } from "../core/auth.service";
   templateUrl: './paddle.component.html',
   styleUrls: ['./paddle.component.css']
 })
-export class PaddleComponent implements OnInit {
+export class PaddleComponent{
 
   isShown:boolean = false;
 
   constructor(private authService: AuthService) { }
-
-  ngOnInit(): void {
-  }
 
   isAuthenticated(): boolean {
     return this.authService.isAuthenticated();

@@ -1,12 +1,11 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, Output, EventEmitter} from '@angular/core';
 import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-booking-date',
-  templateUrl: './booking-date.component.html',
-  styleUrls: ['./booking-date.component.css']
+  templateUrl: './booking-date.component.html'
 })
-export class BookingDateComponent implements OnInit {
+export class BookingDateComponent {
 
   date: Date;
   @Output() newItemEvent = new EventEmitter<any>();
@@ -14,13 +13,8 @@ export class BookingDateComponent implements OnInit {
   constructor(private datePipe: DatePipe) {
     this.date = new Date();
   }
-
-  ngOnInit(): void {
-  }
-
   submit() {
     let transformDate = this.datePipe.transform(this.date, 'yyyy-MM-dd');
     this.newItemEvent.emit(transformDate);
-    //this.router.navigate(['/paddle/bookings']);
   }
 }

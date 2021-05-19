@@ -1,30 +1,31 @@
 <app-booking-date (newItemEvent)="getBookingByDate($event)"></app-booking-date>
-<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" aria-describedby="bookings">
+
 
   <!-- Email Column -->
   <ng-container matColumnDef="user">
-    <mat-header-cell class="header" *matHeaderCellDef mat-sort-header> USER </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>
+    <th scope="col" mat-header-cell class="header" *matHeaderCellDef mat-sort-header> USER </th>
+    <td mat-cell *matCellDef="let row"> {{row.email}} </td>
   </ng-container>
 
   <!-- Paddle Court Column -->
   <ng-container matColumnDef="paddleCourt">
-    <mat-header-cell class="header" *matHeaderCellDef mat-sort-header> PADDLE COURT </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.paddleCourtName}} </mat-cell>
+    <th scope="col" mat-header-cell class="header" *matHeaderCellDef mat-sort-header> PADDLE COURT </th>
+    <td mat-cell *matCellDef="let row"> {{row.paddleCourtName}} </td>
   </ng-container>
 
   <!-- Date Column -->
   <ng-container matColumnDef="date">
-    <mat-header-cell class="header" *matHeaderCellDef mat-sort-header> DATE </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.date}} </mat-cell>
+    <th scope="col" mat-header-cell class="header" *matHeaderCellDef mat-sort-header> DATE </th>
+    <td mat-cell *matCellDef="let row"> {{row.date}} </td>
   </ng-container>
 
   <!-- Time range Column -->
   <ng-container matColumnDef="timeRange">
-    <mat-header-cell class="header" *matHeaderCellDef mat-sort-header> TIME RANGE </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.timeRange}} </mat-cell>
+    <th scope="col" mat-header-cell class="header" *matHeaderCellDef mat-sort-header> TIME RANGE </th>
+    <td mat-cell *matCellDef="let row"> {{row.timeRange}} </td>
   </ng-container>
 
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>

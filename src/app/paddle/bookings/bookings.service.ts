@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from "../../core/http.service";
 import { Observable } from "rxjs";
-import { BookingDto } from "./bookingdto-model";
+import { BookingDto } from "../../shared/models/bookingdto-model";
 
 @Injectable({
   providedIn: 'root'
