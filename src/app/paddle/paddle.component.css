@@ -1,10 +1,7 @@
 .menu{
   background-color: #07d3dd !important;
 }
+
 .center{
   vertical-align: middle;
-}
-
-.logout{
-  cursor: pointer;
 }

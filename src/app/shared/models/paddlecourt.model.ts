@@ -1,4 +1,4 @@
-import {PaddleCourtType} from "./paddlecourttype-model";
+import {PaddleCourtType} from "./paddlecourttype.model";
 
 export interface PaddleCourt{
   name: string;

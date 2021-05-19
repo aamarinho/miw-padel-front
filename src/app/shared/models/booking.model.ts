@@ -1,5 +1,5 @@
 import {User} from "./user.model";
-import {PaddleCourt} from "./paddlecourt-model";
+import {PaddleCourt} from "./paddlecourt.model";
 
 export interface Booking{
   user: User;

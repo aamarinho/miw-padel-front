@@ -16,7 +16,7 @@ export class HomeService {
   }
 
   register(user: User): Observable<User> {
-    return this.httpService.successful('User created successfully')
+    return this.httpService.successful('User successfully created')
       .post(this.url+'/register',user);
   }
 

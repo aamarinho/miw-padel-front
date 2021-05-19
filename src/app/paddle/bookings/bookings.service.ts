@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from "../../core/http.service";
 import { Observable } from "rxjs";
-import { BookingDto } from "../../shared/models/bookingdto-model";
+import { BookingDto } from "../../shared/models/bookingdto.model";
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +16,12 @@ export class BookingsService {
     return this.httpService
       .param("date",date)
       .get(this.url);
+  }
+
+  delete(id: string) {
+    return this.httpService
+      .successful('Booking successfully deleted')
+      .param("id",id)
+      .delete(this.url);
   }
 }

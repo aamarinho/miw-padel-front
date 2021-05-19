@@ -4,7 +4,7 @@
     <h2>LOG IN TO YOUR ACCOUNT</h2>
     <label for="login_email">Email</label>
     <br/>
-    <input formControlName="email" class="input" type="text"  id="login_email">
+    <input formControlName="email" class="input" type="text" id="login_email">
     <div *ngIf="getFormControl.email.touched && getFormControl.email.invalid" class="alert alert-danger">
       <small id="required_error" *ngIf="getFormControl.email.errors?.required">
         Email is required.
