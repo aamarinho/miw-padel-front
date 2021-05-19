@@ -30,7 +30,7 @@ export class HttpService {
     this.errorNotification = undefined;
   }
 
-  param(key: string, value: string): HttpService {
+  param(key: string, value: string | undefined): HttpService {
     if (value != null) {
       this.params = this.params.append(key, value); // This class is immutable
     }

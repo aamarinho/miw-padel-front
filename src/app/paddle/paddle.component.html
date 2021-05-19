@@ -13,6 +13,11 @@
         <a class="nav-link" routerLink="/paddle/bookings">BOOKINGS</a>
       </li>
     </ul>
+    <div *ngIf="isAuthenticated()">
+      <mat-icon class="center">person_outline</mat-icon>
+      <span>{{getUsername()}}</span>
+      <mat-icon class="ml-1 center logout" (click)="logout()">exit_to_app</mat-icon>
+    </div>
   </div>
 </nav>
 

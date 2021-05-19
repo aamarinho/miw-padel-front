@@ -1,0 +1,9 @@
+table{
+  width: 100%;
+}
+
+.header{
+  font-size: 1.1em;
+  color: white;
+  background-color: #2d2929;
+}

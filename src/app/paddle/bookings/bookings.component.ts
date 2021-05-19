@@ -1,7 +1,8 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatTableDataSource} from "@angular/material/table";
-import {MatSort} from "@angular/material/sort";
-import {BookingsService} from "./bookings.service";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatTableDataSource } from "@angular/material/table";
+import { MatSort } from "@angular/material/sort";
+import { BookingsService } from "./bookings.service";
+import { AuthService } from "../../core/auth.service";
 
 @Component({
   selector: 'app-bookings',
@@ -10,24 +11,47 @@ import {BookingsService} from "./bookings.service";
 })
 export class BookingsComponent implements OnInit{
 
-  displayedColumns: string[] = ['user', 'paddleCourt', 'date', 'timeRange'];
+  displayedColumns: string[];
   dataSource:any;
 
-  constructor(private bookingsService: BookingsService) {
+  constructor(private bookingsService: BookingsService, private authService: AuthService) {
+    if(this.authService.isAdmin()){
+      this.displayedColumns = ['user', 'paddleCourt', 'timeRange'];
+    } else{
+      this.displayedColumns = ['user', 'paddleCourt', 'date', 'timeRange'];
+    }
   }
 
   @ViewChild(MatSort) sort!: MatSort;
 
   ngOnInit() {
+    if(!this.authService.isAdmin()){
+      this.bookingsService.get().subscribe(result=>{
+        this.dataSource = new MatTableDataSource(result);
+        this.dataSource.sort = this.sort;
+      });
+    } else{
+      this.bookingsService.get(this.getTodayDate()).subscribe(result=>{
+        this.dataSource = new MatTableDataSource(result);
+        this.dataSource.sort = this.sort;
+      });
+    }
   }
 
-  addItem(date: any) {
+  getBookingByDate(date: any) {
     this.bookingsService.get(date).subscribe(result=>{
-      console.log("BIEN");
-      console.log(result);
       this.dataSource = new MatTableDataSource(result);
       this.dataSource.sort = this.sort;
     } );
+  }
+
+  getTodayDate(): string{
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let yyyy = today.getFullYear();
+
+    return yyyy + '-' + mm + '-' + dd;
   }
 
 }

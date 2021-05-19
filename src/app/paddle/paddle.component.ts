@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from "../core/auth.service";
 
 @Component({
   selector: 'app-paddle',
@@ -9,9 +10,20 @@ export class PaddleComponent implements OnInit {
 
   isShown:boolean = false;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
+  isAuthenticated(): boolean {
+    return this.authService.isAuthenticated();
+  }
+
+  getUsername(): string | undefined{
+    return this.authService.getEmail();
+  }
+
+  logout() {
+    this.authService.logout();
+  }
 }
