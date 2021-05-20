@@ -5,12 +5,16 @@ import {SharedModule} from "../shared/shared-module";
 import { BookingsComponent } from './bookings/bookings.component';
 import { BookingDateComponent } from './bookings/booking-date/booking-date.component';
 import {DatePipe} from "@angular/common";
+import { BookingPaddleCourtComponent } from './bookings/booking-paddle-court/booking-paddle-court.component';
+import { PaddleCourtComponent } from './bookings/booking-paddle-court/paddle-court/paddle-court.component';
 
 @NgModule({
   declarations: [
     PaddleComponent,
     BookingsComponent,
-    BookingDateComponent
+    BookingDateComponent,
+    BookingPaddleCourtComponent,
+    PaddleCourtComponent
   ],
   entryComponents: [
     //ArticleCreationUpdatingDialogComponent,

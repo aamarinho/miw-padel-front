@@ -1,0 +1,5 @@
+<app-booking-date (newItemEvent)="getAvailabilityPaddleCourtByDate($event)"></app-booking-date>
+
+<div *ngFor="let elem of data">
+  <app-paddle-court [paddleCourtAvailabilityDto]="elem"></app-paddle-court>
+</div>

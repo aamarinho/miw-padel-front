@@ -29,13 +29,14 @@ export class BookingsComponent implements OnInit{
     if(!this.authService.isAdmin()){
       this.bookingsService.get().subscribe(result=>{
         this.dataSource = new MatTableDataSource(result);
+        this.dataSource.sort = this.sort;
       });
     } else{
       this.bookingsService.get(this.getTodayDate()).subscribe(result=>{
         this.dataSource = new MatTableDataSource(result);
+        this.dataSource.sort = this.sort;
       });
     }
-    this.dataSource.sort = this.sort;
   }
 
   getBookingByDate(date: string) {
@@ -48,6 +49,9 @@ export class BookingsComponent implements OnInit{
   delete(row: BookingDto): void {
     this.bookingsService.delete(row.id).subscribe(result=>{
       console.log(result);
+      const index = this.dataSource.data.indexOf(row.id);
+      this.dataSource.data.splice(index, 1);
+      this.dataSource._updateChangeSubscription();
     }, error=>{
       console.log(error);
     });

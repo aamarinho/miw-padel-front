@@ -36,7 +36,6 @@ export class HomeComponent implements OnInit {
 
   login(): void {
     this.authService.login(this.form.get('email')?.value,this.form.get('password')?.value).subscribe(()=> {
-      console.log("login correcto");
       this.router.navigate(['paddle']).then().finally(() => this.dialog.closeAll());
       }
     );

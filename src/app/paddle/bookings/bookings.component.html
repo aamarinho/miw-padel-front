@@ -1,7 +1,6 @@
 <app-booking-date (newItemEvent)="getBookingByDate($event)"></app-booking-date>
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" aria-describedby="bookings">
 
-
   <!-- Email Column -->
   <ng-container matColumnDef="user">
     <th scope="col" mat-header-cell class="header" *matHeaderCellDef mat-sort-header> USER </th>

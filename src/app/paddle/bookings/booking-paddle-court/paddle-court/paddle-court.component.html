@@ -1,0 +1,25 @@
+<h2> {{paddleCourtAvailabilityDto.name}} </h2>
+<table mat-table [dataSource]="timesAvailability" class="mat-elevation-z8" aria-describedby="PaddleCourt table">
+  <ng-container matColumnDef="initialHour">
+    <th scope="col" class="header" mat-header-cell *matHeaderCellDef> INITIAL HOUR </th>
+    <td mat-cell class="enabled" [class.disabled]="!element.availability" *matCellDef="let element"> {{element.initialHour}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="endHour">
+    <th scope="col" class="header" mat-header-cell *matHeaderCellDef> END HOUR </th>
+    <td mat-cell class="enabled" [class.disabled]="!element.availability" *matCellDef="let element"> {{element.endHour}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="book">
+    <th scope="col" class="header" mat-header-cell *matHeaderCellDef> - </th>
+    <td mat-cell class="enabled" [class.disabled]="!element.availability" *matCellDef="let element">
+      <button mat-raised-button [disabled]="!element.availability" type="button" class="cancel_button">BOOK</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+
+

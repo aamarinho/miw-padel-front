@@ -20,5 +20,11 @@ body{
   cursor: pointer;
 }
 
+.header{
+  font-size: 1.1em;
+  color: white;
+  background-color: #2d2929;
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

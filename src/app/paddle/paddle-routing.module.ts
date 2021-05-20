@@ -6,6 +6,7 @@ import {RoleGuardService} from "../core/role-guard.service";
 import {PaddleComponent} from "./paddle.component";
 import {BookingsComponent} from "./bookings/bookings.component";
 import {BookingDateComponent} from "./bookings/booking-date/booking-date.component";
+import {BookingPaddleCourtComponent} from "./bookings/booking-paddle-court/booking-paddle-court.component";
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
     data: {roles: [Role.ROLE_ADMIN, Role.ROLE_PLAYER]},
     children: [ // or path: 'shop/articles'
       {path: 'bookings', component: BookingsComponent},
-      {path: 'booking-date', component: BookingDateComponent}
+      {path: 'booking-date', component: BookingDateComponent},
+      {path: 'booking-paddle-court', component: BookingPaddleCourtComponent}
     ]
   }
 ];
