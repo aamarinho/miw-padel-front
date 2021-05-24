@@ -1,5 +1,5 @@
+<p class="titles">BOOK A PADDLE COURT</p>
 <app-booking-date (newItemEvent)="getAvailabilityPaddleCourtByDate($event)"></app-booking-date>
-
 <div *ngFor="let elem of data">
-  <app-paddle-court [paddleCourtAvailabilityDto]="elem"></app-paddle-court>
+  <app-paddle-court class="mt-2" [paddleCourtAvailabilityDto]="elem"></app-paddle-court>
 </div>

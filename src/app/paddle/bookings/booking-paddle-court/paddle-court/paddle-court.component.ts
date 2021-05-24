@@ -1,5 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {PaddleCourtAvailabilityDto} from "../../../../shared/models/paddlecourtavailabilitydto.model";
+import {BookingsService} from "../../bookings.service";
+import {BookingDto} from "../../../../shared/models/bookingdto.model";
+import {AuthService} from "../../../../core/auth.service";
 
 export interface TimeAvailability{
   initialHour: string;
@@ -22,17 +25,35 @@ export class PaddleCourtComponent implements OnInit {
     availabilityHours: new Map()
   };
 
-  constructor() {
+  constructor(private bookingsService: BookingsService, private authService: AuthService) {
     this.timesAvailability = new Array<TimeAvailability>();
   }
 
   ngOnInit(): void {
+    this.timesAvailability = new Array<TimeAvailability>();
     let i = 0;
     this.paddleCourtAvailabilityDto.availabilityHours.forEach((value: boolean, key: string) => {
       let hours = key.split('-');
-      this.timesAvailability[i] = {initialHour: hours[0], endHour: hours[1], availability: value};
+      this.timesAvailability[i] = {initialHour: hours[0].trim(), endHour: hours[1].trim(), availability: value};
       i++;
     });
   }
+
+  book(booking: TimeAvailability) {
+    let bookingDto : BookingDto = {
+      id: '',
+      email: this.authService.getEmail(),
+      paddleCourtName: this.paddleCourtAvailabilityDto.name,
+      date: this.paddleCourtAvailabilityDto.date,
+      timeRange: booking.initialHour.trim()+' - '+booking.endHour.trim()
+    }
+    this.bookingsService.create(bookingDto).subscribe(result=>{
+      booking.availability = false;
+      console.log(result);
+    }, error=>{
+      console.log(error);
+    });
+  }
+
 
 }

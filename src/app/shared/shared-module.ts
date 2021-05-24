@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
+import {ConfirmationDialogComponent} from "./dialogs/confirmation-dialog/confirmation-dialog.component";
 
 @NgModule({
   imports: [
@@ -11,16 +12,18 @@ import { MaterialModule } from './material.module';
     ReactiveFormsModule,
   ],
   declarations: [
+    ConfirmationDialogComponent
   ],
   providers: [
   ],
   exports: [
     CommonModule,
+    FormsModule,
     MaterialModule,
     ReactiveFormsModule,
-    FormsModule,
   ],
   entryComponents: [
+    ConfirmationDialogComponent
   ]
 })
 export class SharedModule {

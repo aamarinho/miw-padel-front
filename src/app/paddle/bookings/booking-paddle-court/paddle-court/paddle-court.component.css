@@ -1,7 +1,3 @@
-table{
-  width: 100%;
-}
-
 .disabled{
   background-color: darkred!important;
 }
@@ -9,4 +5,19 @@ table{
 .enabled{
   background-color: forestgreen;
   color:white;
+}
+
+.background{
+  color: white;
+  background-color: #2d2929;
+  padding: 1%;
+  margin-bottom: 0;
+}
+
+p{
+  display: inline-block;
+}
+
+.numbers{
+  font-size: 1.3em;
 }

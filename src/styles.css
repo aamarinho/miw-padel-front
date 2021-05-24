@@ -1,10 +1,27 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
+@font-face {
+  font-family: 'Raleway';
+  src: url("assets/fonts/Raleway-VariableFont_wght.ttf") format("truetype");
+}
+
+*{
+  font-family: "Raleway", "Century Gothic", "SansSerif", Roboto, serif;
+}
+
+html, body {
+  height: 100%;
+}
+
 body{
   background-image: url('assets/images/background.jpg');
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
+}
+
+table{
+  width: 100%;
 }
 
 .submit_button{
@@ -21,10 +38,16 @@ body{
 }
 
 .header{
-  font-size: 1.1em;
+  font-size: 1.2em;
   color: white;
   background-color: #2d2929;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.font_size_higher{
+  font-size: 1.1em;
+}
+
+
+.titles{
+  font-size: 1.4em;
+}

@@ -1,18 +1,16 @@
-
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { HomeComponent } from './home.component';
-import { RegisterComponent } from "./register/register.component";
-import { RouterTestingModule } from "@angular/router/testing";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MatDialogModule } from "@angular/material/dialog";
-import { MatMenuModule } from "@angular/material/menu";
-import { HttpClientModule } from "@angular/common/http";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { MatSnackBarModule } from "@angular/material/snack-bar";
-import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-import { MatDatepickerModule } from "@angular/material/datepicker";
-import { MatNativeDateModule } from "@angular/material/core";
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {HomeComponent} from './home.component';
+import {RegisterComponent} from "./register/register.component";
+import {RouterTestingModule} from "@angular/router/testing";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatMenuModule} from "@angular/material/menu";
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
 import {DatePipe} from "@angular/common";
 
 describe('HomeComponent', () => {

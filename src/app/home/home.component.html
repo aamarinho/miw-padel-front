@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center">
 
   <form [formGroup]="form" class="form">
-    <h2>LOG IN TO YOUR ACCOUNT</h2>
+    <p class="titles mb-4">LOG IN TO YOUR ACCOUNT</p>
     <label for="login_email">Email</label>
     <br/>
     <input formControlName="email" class="input" type="text" id="login_email">
@@ -32,9 +32,8 @@
     </div>
     <br/>
     <br/>
-
     <div class="text-center">
-      <button mat-raised-button class="submit_button button_login" (click)="login()">SUBMIT</button>
+      <button mat-raised-button class="submit_button button_login" [disabled]="!form.valid" (click)="login()">SUBMIT</button>
       <hr>
       <button mat-raised-button class="cancel_button button_register" (click)="register()">REGISTER</button>
     </div>

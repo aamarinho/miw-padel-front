@@ -1,13 +1,13 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RegisterComponent } from './register.component';
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-import { HttpClientTestingModule } from "@angular/common/http/testing";
-import { MatSnackBarModule } from "@angular/material/snack-bar";
-import { RouterTestingModule } from "@angular/router/testing";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MatDatepickerModule } from "@angular/material/datepicker";
-import { MatNativeDateModule } from "@angular/material/core";
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {RegisterComponent} from './register.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {RouterTestingModule} from "@angular/router/testing";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
 import {DatePipe} from "@angular/common";
 
 describe('RegisterComponent', () => {

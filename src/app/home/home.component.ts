@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { RegisterComponent } from "./register/register.component";
-import { MatDialog } from "@angular/material/dialog";
-import { HomeService } from "./home.service";
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
-import { AuthService } from "../core/auth.service";
+import {Component, OnInit} from '@angular/core';
+import {RegisterComponent} from "./register/register.component";
+import {MatDialog} from "@angular/material/dialog";
+import {HomeService} from "./home.service";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {AuthService} from "../core/auth.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -35,10 +35,8 @@ export class HomeComponent implements OnInit {
   }
 
   login(): void {
-    this.authService.login(this.form.get('email')?.value,this.form.get('password')?.value).subscribe(()=> {
-      this.router.navigate(['paddle']).then().finally(() => this.dialog.closeAll());
-      }
-    );
+    this.authService.login(this.form.get('email')?.value,this.form.get('password')?.value).subscribe(()=>
+      this.router.navigate(['paddle']).then().finally(() => this.dialog.closeAll()) );
   }
 
   register(): void {

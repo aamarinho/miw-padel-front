@@ -1,6 +1,5 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { BookingDateComponent } from './booking-date.component';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {BookingDateComponent} from './booking-date.component';
 
 describe('BookingDateComponent', () => {
   let component: BookingDateComponent;
@@ -19,7 +18,4 @@ describe('BookingDateComponent', () => {
     fixture.detectChanges();
   });
 
-  /*it('should create', () => {
-    expect(component).toBeTruthy();
-  });*/
 });

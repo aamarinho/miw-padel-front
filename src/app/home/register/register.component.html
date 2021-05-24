@@ -1,4 +1,4 @@
-<h3 mat-dialog-title>Register</h3>
+<p class="titles mb-4">REGISTER</p>
 <mat-dialog-content [formGroup]="form">
 
   <mat-form-field>
@@ -87,6 +87,6 @@
 
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button class="submit_button" (click)="register()">SUBMIT</button>
+  <button mat-button class="submit_button" [disabled]="!form.valid" (click)="register()">SUBMIT</button>
   <button mat-button mat-dialog-close class="cancel_button">CANCEL</button>
 </mat-dialog-actions>

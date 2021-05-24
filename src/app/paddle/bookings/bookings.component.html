@@ -1,33 +1,36 @@
+<p class="titles">{{title}}</p>
+
 <app-booking-date (newItemEvent)="getBookingByDate($event)"></app-booking-date>
+
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" aria-describedby="bookings">
 
   <!-- Email Column -->
   <ng-container matColumnDef="user">
-    <th scope="col" mat-header-cell class="header" *matHeaderCellDef mat-sort-header> USER </th>
-    <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+    <th scope="col" mat-header-cell class="header" *matHeaderCellDef mat-sort-header>USER</th>
+    <td mat-cell class="font_size_higher" *matCellDef="let row">{{row.email}}</td>
   </ng-container>
 
   <!-- Paddle Court Column -->
   <ng-container matColumnDef="paddleCourt">
-    <th scope="col" mat-header-cell class="header" *matHeaderCellDef mat-sort-header> PADDLE COURT </th>
-    <td mat-cell *matCellDef="let row"> {{row.paddleCourtName}} </td>
+    <th scope="col" mat-header-cell class="header" *matHeaderCellDef mat-sort-header>PADDLE COURT</th>
+    <td mat-cell class="font_size_higher" *matCellDef="let row">{{row.paddleCourtName}}</td>
   </ng-container>
 
   <!-- Date Column -->
   <ng-container matColumnDef="date">
-    <th scope="col" mat-header-cell class="header" *matHeaderCellDef mat-sort-header> DATE </th>
-    <td mat-cell *matCellDef="let row"> {{row.date}} </td>
+    <th scope="col" mat-header-cell class="header" *matHeaderCellDef mat-sort-header>DATE</th>
+    <td mat-cell class="font_size_higher" *matCellDef="let row">{{row.date}}</td>
   </ng-container>
 
   <!-- Time range Column -->
   <ng-container matColumnDef="timeRange">
-    <th scope="col" mat-header-cell class="header" *matHeaderCellDef mat-sort-header> TIME RANGE </th>
-    <td mat-cell *matCellDef="let row"> {{row.timeRange}} </td>
+    <th scope="col" mat-header-cell class="header" *matHeaderCellDef mat-sort-header>TIME RANGE</th>
+    <td mat-cell class="font_size_higher" *matCellDef="let row">{{row.timeRange}}</td>
   </ng-container>
 
   <ng-container matColumnDef="cancel">
     <th scope="col" mat-header-cell class="header" *matHeaderCellDef mat-sort-header> - </th>
-    <td mat-cell *matCellDef="let row"> <mat-icon class="cursor_pointer" (click)="delete(row)">delete_outline</mat-icon> </td>
+    <td mat-cell class="font_size_higher" *matCellDef="let row"> <mat-icon class="cursor_pointer" (click)="delete(row)">delete_outline</mat-icon> </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

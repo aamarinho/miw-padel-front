@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-
 import {Role} from "../core/role.model";
 import {RoleGuardService} from "../core/role-guard.service";
 import {PaddleComponent} from "./paddle.component";
@@ -10,11 +9,11 @@ import {BookingPaddleCourtComponent} from "./bookings/booking-paddle-court/booki
 
 const routes: Routes = [
   {
-    path: '', // 'shop' to forRoot
+    path: '',
     component: PaddleComponent,
     canActivate: [RoleGuardService],
     data: {roles: [Role.ROLE_ADMIN, Role.ROLE_PLAYER]},
-    children: [ // or path: 'shop/articles'
+    children: [
       {path: 'bookings', component: BookingsComponent},
       {path: 'booking-date', component: BookingDateComponent},
       {path: 'booking-paddle-court', component: BookingPaddleCourtComponent}
