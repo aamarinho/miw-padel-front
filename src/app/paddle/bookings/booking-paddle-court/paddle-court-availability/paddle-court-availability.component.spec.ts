@@ -1,5 +1,5 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {PaddleCourtComponent} from './paddle-court.component';
+import {PaddleCourtAvailabilityComponent} from './paddle-court-availability.component';
 import {MatTableModule} from "@angular/material/table";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
@@ -7,8 +7,8 @@ import {RouterTestingModule} from "@angular/router/testing";
 import {PaddleCourtAvailabilityDto} from "../../../../shared/models/paddlecourtavailabilitydto.model";
 
 describe('PaddleCourtComponent', () => {
-  let component: PaddleCourtComponent;
-  let fixture: ComponentFixture<PaddleCourtComponent>;
+  let component: PaddleCourtAvailabilityComponent;
+  let fixture: ComponentFixture<PaddleCourtAvailabilityComponent>;
 
   const availabilityHours = new Map([
     ["10:00 - 12:00", true],
@@ -25,13 +25,13 @@ describe('PaddleCourtComponent', () => {
         MatSnackBarModule,
         RouterTestingModule
       ],
-      declarations: [ PaddleCourtComponent ]
+      declarations: [ PaddleCourtAvailabilityComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PaddleCourtComponent);
+    fixture = TestBed.createComponent(PaddleCourtAvailabilityComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

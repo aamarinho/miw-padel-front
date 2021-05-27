@@ -11,11 +11,11 @@ export interface TimeAvailability{
 }
 
 @Component({
-  selector: 'app-paddle-court',
-  templateUrl: './paddle-court.component.html',
-  styleUrls: ['./paddle-court.component.css']
+  selector: 'app-paddle-court-availability',
+  templateUrl: './paddle-court-availability.component.html',
+  styleUrls: ['./paddle-court-availability.component.css']
 })
-export class PaddleCourtComponent implements OnInit {
+export class PaddleCourtAvailabilityComponent implements OnInit {
 
   displayedColumns: string[] = ['initialHour', 'endHour', 'book'];
   timesAvailability: TimeAvailability[];

@@ -6,7 +6,7 @@ import {BookingsComponent} from './bookings/bookings.component';
 import {BookingDateComponent} from './bookings/booking-date/booking-date.component';
 import {DatePipe} from "@angular/common";
 import {BookingPaddleCourtComponent} from './bookings/booking-paddle-court/booking-paddle-court.component';
-import {PaddleCourtComponent} from './bookings/booking-paddle-court/paddle-court/paddle-court.component';
+import {PaddleCourtAvailabilityComponent} from './bookings/booking-paddle-court/paddle-court-availability/paddle-court-availability.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import {PaddleCourtComponent} from './bookings/booking-paddle-court/paddle-court
     BookingsComponent,
     BookingPaddleCourtComponent,
     PaddleComponent,
-    PaddleCourtComponent
+    PaddleCourtAvailabilityComponent
   ],
   entryComponents: [
   ],
