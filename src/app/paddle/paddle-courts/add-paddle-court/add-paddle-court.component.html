@@ -30,9 +30,10 @@
     <div formArrayName="startTimes" class="col-6">
       <div *ngFor="let item of startTimes.controls; let startIndex=index" [formGroupName]="startIndex">
         <label>
-          Start time <input formControlName="start" />
+          Start time <input formControlName="start" [format]=24 [ngxTimepicker]="picker">
+          <ngx-material-timepicker #picker [enableKeyboardInput]=true></ngx-material-timepicker>
         </label>
-        <button mat-raised-button type="button" class="hidden">Delete range time</button>
+        <button mat-raised-button type="button" class="hidden mb-1">Delete range time</button>
       </div>
       <button mat-raised-button type="button" color="primary" (click)="add()">Add range time</button>
     </div>
@@ -40,9 +41,10 @@
     <div formArrayName="endTimes" class="col-6">
       <div *ngFor="let item of endTimes.controls; let endIndex=index" [formGroupName]="endIndex">
         <label>
-          End time <input type="text" formControlName="end" />
+          End time <input formControlName="end" [format]=24 [ngxTimepicker]="picker">
+          <ngx-material-timepicker #picker [enableKeyboardInput]=true></ngx-material-timepicker>
         </label>
-        <button mat-raised-button type="button" class="cancel_button" (click)="delete(endIndex)">Delete range time</button>
+        <button mat-raised-button type="button" class="cancel_button mb-1" (click)="delete(endIndex)">Delete range time</button>
       </div>
     </div>
   </div>

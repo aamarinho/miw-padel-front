@@ -47,7 +47,6 @@ table{
   font-size: 1.1em;
 }
 
-
 .titles{
   font-size: 1.4em;
 }
@@ -59,4 +58,12 @@ table{
 .enabled{
   background-color: forestgreen;
   color:white;
+}
+
+.timepicker-overlay {
+  z-index: 10000000 !important;
+}
+
+.timepicker-backdrop-overlay {
+  z-index: 10000000 !important;
 }

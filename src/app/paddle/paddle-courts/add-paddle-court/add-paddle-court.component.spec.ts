@@ -6,6 +6,7 @@ import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {RouterTestingModule} from "@angular/router/testing";
 import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
+import {NgxMaterialTimepickerModule} from "ngx-material-timepicker";
 
 describe('AddPaddleCourtComponent', () => {
   let component: AddPaddleCourtComponent;
@@ -18,7 +19,8 @@ describe('AddPaddleCourtComponent', () => {
         ReactiveFormsModule,
         HttpClientTestingModule,
         MatSnackBarModule,
-        RouterTestingModule
+        RouterTestingModule,
+        NgxMaterialTimepickerModule
       ],
       declarations: [ AddPaddleCourtComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]

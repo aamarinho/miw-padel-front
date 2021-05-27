@@ -7,8 +7,9 @@ import {BookingDateComponent} from './bookings/booking-date/booking-date.compone
 import {DatePipe} from "@angular/common";
 import {BookingPaddleCourtComponent} from './bookings/booking-paddle-court/booking-paddle-court.component';
 import {PaddleCourtAvailabilityComponent} from './bookings/booking-paddle-court/paddle-court-availability/paddle-court-availability.component';
-import { PaddleCourtsComponent } from './paddle-courts/paddle-courts.component';
-import { AddPaddleCourtComponent } from './paddle-courts/add-paddle-court/add-paddle-court.component';
+import {PaddleCourtsComponent} from './paddle-courts/paddle-courts.component';
+import {AddPaddleCourtComponent} from './paddle-courts/add-paddle-court/add-paddle-court.component';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AddPaddleCourtComponent } from './paddle-courts/add-paddle-court/add-pa
   ],
   imports: [
     PaddleRoutingModule,
-    SharedModule
+    SharedModule,
+    NgxMaterialTimepickerModule/*.setLocale('ar-AE')*/
   ],
   providers: [
     DatePipe
