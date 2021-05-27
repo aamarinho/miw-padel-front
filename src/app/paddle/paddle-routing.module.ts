@@ -6,6 +6,7 @@ import {PaddleComponent} from "./paddle.component";
 import {BookingsComponent} from "./bookings/bookings.component";
 import {BookingDateComponent} from "./bookings/booking-date/booking-date.component";
 import {BookingPaddleCourtComponent} from "./bookings/booking-paddle-court/booking-paddle-court.component";
+import {PaddleCourtsComponent} from "./paddle-courts/paddle-courts.component";
 
 const routes: Routes = [
   {
@@ -16,7 +17,8 @@ const routes: Routes = [
     children: [
       {path: 'bookings', component: BookingsComponent},
       {path: 'booking-date', component: BookingDateComponent},
-      {path: 'booking-paddle-court', component: BookingPaddleCourtComponent}
+      {path: 'booking-paddle-court', component: BookingPaddleCourtComponent},
+      {path: 'paddle-courts', component: PaddleCourtsComponent},
     ]
   }
 ];

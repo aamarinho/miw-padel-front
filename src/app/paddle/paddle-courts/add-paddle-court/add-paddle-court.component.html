@@ -1,0 +1,69 @@
+<p class="titles mb-4">ADD PADDLE COURT</p>
+<mat-dialog-content [formGroup]="form">
+
+  <mat-form-field>
+    <label id="paddle_court_name">Name</label>
+    <input formControlName="name" matInput type="text"/>
+  </mat-form-field>
+  <div *ngIf="getFormControl.name.touched && getFormControl.name.invalid" class="alert alert-danger">
+    <small *ngIf="getFormControl.name.errors?.required">
+      Name is required.
+    </small>
+  </div>
+  <br/>
+
+  <mat-form-field>
+    <label id="paddle_court_type">Paddle court type</label>
+    <mat-select formControlName="paddleCourtType" ngDefaultControl>
+      <mat-option *ngFor="let type of paddleCourtType" [value]="type">{{type}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div *ngIf="getFormControl.paddleCourtType.touched && getFormControl.paddleCourtType.invalid" class="alert alert-danger">
+    <small *ngIf="getFormControl.paddleCourtType.errors?.required">
+      Paddle court type is required.
+    </small>
+  </div>
+  <br/>
+
+  <label>Range times</label>
+  <div class="row">
+    <div formArrayName="startTimes" class="col-6">
+      <div *ngFor="let item of startTimes.controls; let startIndex=index" [formGroupName]="startIndex">
+        <label>
+          Start time <input formControlName="start" />
+        </label>
+        <button mat-raised-button type="button" class="hidden">Delete range time</button>
+      </div>
+      <button mat-raised-button type="button" color="primary" (click)="add()">Add range time</button>
+    </div>
+
+    <div formArrayName="endTimes" class="col-6">
+      <div *ngFor="let item of endTimes.controls; let endIndex=index" [formGroupName]="endIndex">
+        <label>
+          End time <input type="text" formControlName="end" />
+        </label>
+        <button mat-raised-button type="button" class="cancel_button" (click)="delete(endIndex)">Delete range time</button>
+      </div>
+    </div>
+  </div>
+  <br/>
+
+  <mat-form-field>
+    <label id="paddle_court_disabled">Availability</label>
+    <mat-select formControlName="disabled" ngDefaultControl>
+      <mat-option [value]="true">TRUE</mat-option>
+      <mat-option [value]="false">FALSE</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div *ngIf="getFormControl.disabled.touched && getFormControl.disabled.invalid" class="alert alert-danger">
+    <small *ngIf="getFormControl.disabled.errors?.required">
+      Availability is required.
+    </small>
+  </div>
+  <br/>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button class="submit_button" [disabled]="!form.valid" (click)="submit()">SUBMIT</button>
+  <button mat-button mat-dialog-close class="cancel_button">CANCEL</button>
+</mat-dialog-actions>

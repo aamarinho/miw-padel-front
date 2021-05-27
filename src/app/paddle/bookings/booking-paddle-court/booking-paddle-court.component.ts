@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {PaddleCourtAvailabilityDto} from "../../../shared/models/paddlecourtavailabilitydto.model";
-import {PaddleCourtService} from "../paddle-court.service";
+import {PaddleCourtService} from "../../paddle-courts/paddle-court.service";
 import {CommonMethods} from "../../../shared/common-methods";
 
 @Component({

@@ -51,3 +51,12 @@ table{
 .titles{
   font-size: 1.4em;
 }
+
+.disabled{
+  background-color: darkred!important;
+}
+
+.enabled{
+  background-color: forestgreen;
+  color:white;
+}

@@ -16,6 +16,10 @@ export class PaddleComponent{
     return this.authService.isAuthenticated();
   }
 
+  isAdmin(): boolean {
+    return this.authService.isAdmin();
+  }
+
   getUsername(): string | undefined{
     return this.authService.getEmail();
   }
