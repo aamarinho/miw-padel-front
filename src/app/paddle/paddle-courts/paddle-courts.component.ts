@@ -21,7 +21,7 @@ export class PaddleCourtsComponent implements OnInit {
 
   constructor(private paddleCourtService: PaddleCourtService,
               private dialog: MatDialog) {
-    this.displayedColumns = ['name','paddleCourtType','disabled','delete'];
+    this.displayedColumns = ['name','paddleCourtType','disabled','update','delete'];
   }
 
   @ViewChild(MatSort) sort!: MatSort;
@@ -35,8 +35,21 @@ export class PaddleCourtsComponent implements OnInit {
 
   openAddPaddleCourt(): void {
     this.dialog.open(AddPaddleCourtComponent,{
-      maxWidth:'700px'
+      maxWidth:'700px',
+      data:{
+        add: true,
+        data: {}
+      }
     }).afterClosed().subscribe(()=> this.ngOnInit());
+  }
+
+  openUpdatePaddleCourt(row: PaddleCourt): void{
+    this.dialog.open(AddPaddleCourtComponent, {
+      data: {
+        add: false,
+        data: row
+      }
+    }).afterClosed().subscribe(()=>this.ngOnInit());
   }
 
   delete(row: PaddleCourt): void {

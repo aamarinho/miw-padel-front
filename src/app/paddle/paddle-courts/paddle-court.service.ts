@@ -37,4 +37,10 @@ export class PaddleCourtService {
       .delete(this.url);
   }
 
+  update(paddleCourt: PaddleCourt): Observable<PaddleCourt>{
+    return this.httpService
+      .successful('Paddle court successfully updated')
+      .put(this.url,paddleCourt);
+  }
+
 }

@@ -19,6 +19,11 @@
     <td mat-cell class="font_size_higher enabled" [class.disabled]="row.disabled" *matCellDef="let row"> </td>
   </ng-container>
 
+  <ng-container matColumnDef="update">
+    <th scope="col" mat-header-cell class="header" *matHeaderCellDef mat-sort-header> - </th>
+    <td mat-cell class="font_size_higher" *matCellDef="let row"><mat-icon class="cursor_pointer" (click)="openUpdatePaddleCourt(row)">edit</mat-icon></td>
+  </ng-container>
+
   <ng-container matColumnDef="delete">
     <th scope="col" mat-header-cell class="header" *matHeaderCellDef mat-sort-header> - </th>
     <td mat-cell class="font_size_higher" *matCellDef="let row"><mat-icon class="cursor_pointer" (click)="delete(row)">delete_outline</mat-icon></td>
