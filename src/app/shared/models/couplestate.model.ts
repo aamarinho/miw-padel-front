@@ -1,0 +1,5 @@
+export enum CoupleState{
+  PENDING = "PENDING",
+  REJECTED = "REJECTED",
+  CONSOLIDATE = "CONSOLIDATE"
+}

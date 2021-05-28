@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>SEND COUPLE REQUEST</h1>
+<mat-dialog-content class="mt-4" [formGroup]="form">
+  <mat-form-field>
+    <label>Email of the player</label>
+    <input formControlName="email" matInput type="text"/>
+  </mat-form-field>
+  <div *ngIf="getFormControl.email.touched && getFormControl.email.invalid"
+       class="alert alert-danger">
+    <small *ngIf="getFormControl.email.errors?.required">
+      Email is required.
+    </small>
+    <small *ngIf="getFormControl.email.errors?.email">
+      Email must be an email.
+    </small>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button class="submit_button" [disabled]="!form.valid" (click)="submit()">SEND</button>
+  <button mat-button mat-dialog-close class="cancel_button">CANCEL</button>
+</mat-dialog-actions>

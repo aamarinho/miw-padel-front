@@ -1,5 +1,5 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {AddPaddleCourtComponent} from './add-paddle-court.component';
+import {AddUpdatePaddleCourtComponent} from './add-update-paddle-court.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
@@ -10,8 +10,8 @@ import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {PaddleCourtType} from "../../../shared/models/paddlecourttype.model";
 
 describe('AddPaddleCourtComponent', () => {
-  let component: AddPaddleCourtComponent;
-  let fixture: ComponentFixture<AddPaddleCourtComponent>;
+  let component: AddUpdatePaddleCourtComponent;
+  let fixture: ComponentFixture<AddUpdatePaddleCourtComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -23,7 +23,7 @@ describe('AddPaddleCourtComponent', () => {
         RouterTestingModule,
         NgxMaterialTimepickerModule
       ],
-      declarations: [ AddPaddleCourtComponent ],
+      declarations: [ AddUpdatePaddleCourtComponent ],
       providers: [
         { provide: MAT_DIALOG_DATA, useValue: {} },
       ],
@@ -33,7 +33,7 @@ describe('AddPaddleCourtComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddPaddleCourtComponent);
+    fixture = TestBed.createComponent(AddUpdatePaddleCourtComponent);
     component = fixture.componentInstance;
     component.isAdd = true;
     component.ngOnInit();
@@ -79,6 +79,49 @@ describe('AddPaddleCourtComponent', () => {
 
     disabled.setValue("TRUE");
     expect(disabled.hasError('required')).toBeFalsy();
+  });
+
+  it('form valid when edit', ()=>{
+    component.form.controls['name'].setValue('PC 2');
+    component.form.controls['disabled'].setValue('TRUE');
+    component.update();
+    expect(component.form.valid).toBeFalsy();
+    component.form.controls['paddleCourtType'].setValue(PaddleCourtType.OUTDOOR);
+    expect(component.form.valid).toBeTruthy();
+  });
+
+  it('form valid when register', ()=>{
+    component.form.controls['name'].setValue('PC 2');
+    component.form.controls['paddleCourtType'].setValue(PaddleCourtType.OUTDOOR);
+    component.create();
+    expect(component.form.valid).toBeFalsy();
+    component.form.controls['disabled'].setValue('TRUE');
+    expect(component.form.valid).toBeTruthy();
+  });
+
+  it('correct data on view when edit', ()=>{
+    let startTimes = new Array<string>('12:00','14:00');
+    let endTimes = new Array<string>('14:00','16:00');
+    component.isAdd = false;
+    component.paddleCourt = {
+      id: '',
+      name: 'PC 2',
+      paddleCourtType: PaddleCourtType.INDOOR,
+      startTimes: startTimes,
+      endTimes: endTimes,
+      disabled: false
+    }
+    component.ngOnInit();
+    fixture.detectChanges();
+
+    expect(component.paddleCourt.name).toEqual('PC 2');
+    expect(component.paddleCourt.paddleCourtType).toEqual(PaddleCourtType.INDOOR);
+    expect(component.paddleCourt.startTimes).toEqual(startTimes);
+    expect(component.paddleCourt.endTimes).toEqual(endTimes);
+    expect(component.paddleCourt.disabled).toEqual(false);
+    expect(component.form.controls['name'].value).toEqual('PC 2');
+    expect(component.form.controls['paddleCourtType'].value).toEqual(PaddleCourtType.INDOOR);
+    expect(component.form.controls['disabled'].value).toEqual(false);
   });
 
 });

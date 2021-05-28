@@ -5,27 +5,27 @@
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" aria-describedby="paddleCourts">
 
   <ng-container matColumnDef="name">
-    <th scope="col" mat-header-cell class="header" *matHeaderCellDef mat-sort-header>NAME</th>
+    <th scope="col" mat-header-cell class="header" *matHeaderCellDef>NAME</th>
     <td mat-cell class="font_size_higher" *matCellDef="let row">{{row.name}}</td>
   </ng-container>
 
   <ng-container matColumnDef="paddleCourtType">
-    <th scope="col" mat-header-cell class="header" *matHeaderCellDef mat-sort-header>PADDLE COURT TYPE</th>
+    <th scope="col" mat-header-cell class="header" *matHeaderCellDef>PADDLE COURT TYPE</th>
     <td mat-cell class="font_size_higher" *matCellDef="let row">{{row.paddleCourtType}}</td>
   </ng-container>
 
   <ng-container matColumnDef="disabled">
-    <th scope="col" mat-header-cell class="header" *matHeaderCellDef mat-sort-header>AVAILABILITY</th>
+    <th scope="col" mat-header-cell class="header" *matHeaderCellDef>AVAILABILITY</th>
     <td mat-cell class="font_size_higher enabled" [class.disabled]="row.disabled" *matCellDef="let row"> </td>
   </ng-container>
 
   <ng-container matColumnDef="update">
-    <th scope="col" mat-header-cell class="header" *matHeaderCellDef mat-sort-header> - </th>
+    <th scope="col" mat-header-cell class="header" *matHeaderCellDef> - </th>
     <td mat-cell class="font_size_higher" *matCellDef="let row"><mat-icon class="cursor_pointer" (click)="openUpdatePaddleCourt(row)">edit</mat-icon></td>
   </ng-container>
 
   <ng-container matColumnDef="delete">
-    <th scope="col" mat-header-cell class="header" *matHeaderCellDef mat-sort-header> - </th>
+    <th scope="col" mat-header-cell class="header" *matHeaderCellDef> - </th>
     <td mat-cell class="font_size_higher" *matCellDef="let row"><mat-icon class="cursor_pointer" (click)="delete(row)">delete_outline</mat-icon></td>
   </ng-container>
 

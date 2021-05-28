@@ -1,11 +1,9 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {ConfirmationDialogComponent} from "../../shared/dialogs/confirmation-dialog/confirmation-dialog.component";
 import {PaddleCourtService} from "./paddle-court.service";
-import {MatSort} from "@angular/material/sort";
-import {MatTableDataSource} from "@angular/material/table";
 import {PaddleCourt} from "../../shared/models/paddlecourt.model";
-import {AddPaddleCourtComponent} from "./add-paddle-court/add-paddle-court.component";
+import {AddUpdatePaddleCourtComponent} from "./add-update-paddle-court/add-update-paddle-court.component";
 
 @Component({
   selector: 'app-paddle-courts',
@@ -24,17 +22,14 @@ export class PaddleCourtsComponent implements OnInit {
     this.displayedColumns = ['name','paddleCourtType','disabled','update','delete'];
   }
 
-  @ViewChild(MatSort) sort!: MatSort;
-
   ngOnInit(): void {
     this.paddleCourtService.get().subscribe(result=>{
-      this.dataSource = new MatTableDataSource(result);
-      this.dataSource.sort = this.sort;
+      this.dataSource = result;
     });
   }
 
   openAddPaddleCourt(): void {
-    this.dialog.open(AddPaddleCourtComponent,{
+    this.dialog.open(AddUpdatePaddleCourtComponent,{
       maxWidth:'700px',
       data:{
         add: true,
@@ -44,7 +39,7 @@ export class PaddleCourtsComponent implements OnInit {
   }
 
   openUpdatePaddleCourt(row: PaddleCourt): void{
-    this.dialog.open(AddPaddleCourtComponent, {
+    this.dialog.open(AddUpdatePaddleCourtComponent, {
       data: {
         add: false,
         data: row

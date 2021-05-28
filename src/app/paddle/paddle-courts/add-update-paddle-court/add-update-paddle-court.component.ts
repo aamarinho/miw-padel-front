@@ -6,11 +6,11 @@ import {PaddleCourtService} from "../paddle-court.service";
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 
 @Component({
-  selector: 'app-add-paddle-court',
-  templateUrl: './add-paddle-court.component.html',
-  styleUrls: ['./add-paddle-court.component.css']
+  selector: 'app-add-update-paddle-court',
+  templateUrl: './add-update-paddle-court.component.html',
+  styleUrls: ['./add-update-paddle-court.component.css']
 })
-export class AddPaddleCourtComponent implements OnInit {
+export class AddUpdatePaddleCourtComponent implements OnInit {
 
   form!: FormGroup;
   paddleCourt: PaddleCourt;

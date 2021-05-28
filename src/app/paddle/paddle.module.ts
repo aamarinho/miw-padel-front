@@ -8,8 +8,11 @@ import {DatePipe} from "@angular/common";
 import {BookingPaddleCourtComponent} from './bookings/booking-paddle-court/booking-paddle-court.component';
 import {PaddleCourtAvailabilityComponent} from './bookings/booking-paddle-court/paddle-court-availability/paddle-court-availability.component';
 import {PaddleCourtsComponent} from './paddle-courts/paddle-courts.component';
-import {AddPaddleCourtComponent} from './paddle-courts/add-paddle-court/add-paddle-court.component';
+import {AddUpdatePaddleCourtComponent} from './paddle-courts/add-update-paddle-court/add-update-paddle-court.component';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { CouplesComponent } from './couples/couples.component';
+import { PendingCoupleRequestsDialogComponent } from './couples/pending-couple-requests-dialog/pending-couple-requests-dialog.component';
+import { SendCoupleRequestDialogComponent } from './couples/send-couple-request-dialog/send-couple-request-dialog.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     PaddleComponent,
     PaddleCourtAvailabilityComponent,
     PaddleCourtsComponent,
-    AddPaddleCourtComponent
+    AddUpdatePaddleCourtComponent,
+    CouplesComponent,
+    PendingCoupleRequestsDialogComponent,
+    SendCoupleRequestDialogComponent
   ],
   entryComponents: [
   ],

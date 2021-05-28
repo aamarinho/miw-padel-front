@@ -1,3 +1,4 @@
 export enum PaddleCourtType{
-  INDOOR="INDOOR",OUTDOOR="OUTDOOR"
+  INDOOR = "INDOOR",
+  OUTDOOR = "OUTDOOR"
 }

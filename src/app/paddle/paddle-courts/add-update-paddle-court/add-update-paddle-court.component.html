@@ -25,7 +25,7 @@
   </div>
   <br/>
 
-  <label>Range times</label>
+  <label id="paddle_court_range_times">Range times</label>
   <div class="row">
     <div formArrayName="startTimes" class="col-6">
       <div *ngFor="let item of startTimes.controls; let startIndex=index" [formGroupName]="startIndex">
@@ -51,7 +51,7 @@
   <br/>
 
   <mat-form-field>
-    <label id="paddle_court_disabled">Availability</label>
+    <label id="paddle_court_disabled">Disabled</label>
     <mat-select formControlName="disabled" ngDefaultControl>
       <mat-option [value]="true">TRUE</mat-option>
       <mat-option [value]="false">FALSE</mat-option>

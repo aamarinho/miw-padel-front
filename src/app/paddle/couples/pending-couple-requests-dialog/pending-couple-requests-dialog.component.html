@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>PENDING COUPLE REQUESTS</h1>
+<mat-dialog-content class="mt-4">
+  <div *ngFor="let couple of couples">
+    <div class="row">
+      <div class="col-9">
+      {{couple.playerName}}
+      </div>
+      <div class="col-3">
+        <mat-icon class="cursor_pointer titles">check_circle_outline</mat-icon>
+        <mat-icon class="cursor_pointer titles">highlight_off</mat-icon>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close class="cancel_button">CANCEL</button>
+</mat-dialog-actions>
