@@ -3,6 +3,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SendCoupleRequestDialogComponent } from './send-couple-request-dialog.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {RouterTestingModule} from "@angular/router/testing";
 
 describe('SendCoupleRequestDialogComponent', () => {
   let component: SendCoupleRequestDialogComponent;
@@ -11,8 +14,11 @@ describe('SendCoupleRequestDialogComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
+        MatSnackBarModule,
+        HttpClientTestingModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        RouterTestingModule
       ],
       declarations: [ SendCoupleRequestDialogComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]

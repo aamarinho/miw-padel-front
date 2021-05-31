@@ -22,14 +22,15 @@ export class LeaguesComponent implements OnInit {
 
   ngOnInit(): void {
     this.leaguesService.get().subscribe(result=>{
-      console.log(result);
       this.dataSource = result;
     });
   }
 
   openCouples(couples: Couple[]) {
     this.dialog.open(CouplesLeagueComponent,{
-      data: couples
-    }).afterClosed().subscribe(()=>this.ngOnInit());
+      data: {
+        couples
+      }
+    }).afterClosed().subscribe(result=>console.log(result));
   }
 }

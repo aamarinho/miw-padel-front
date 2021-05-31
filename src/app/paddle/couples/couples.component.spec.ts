@@ -16,6 +16,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 const COUPLES: Couple[] =[
+  {id:'',captainEmail:"admin@admin.com",captainName:"Diego Lusquiños Otero",playerEmail:"player1@player.com",playerName:"Juan",coupleState:CoupleState.CONSOLIDATED,gender:Gender.MALE,creationDate:new Date()},
+  {id:'',captainEmail:"admin@admin.com",captainName:"Diego Lusquiños Otero",playerEmail:"player2@player.com",playerName:"Andrea",coupleState:CoupleState.CONSOLIDATED,gender:Gender.MIXED,creationDate:new Date()},
   {id:'',captainEmail:"admin@admin.com",captainName:"Diego Lusquiños Otero",playerEmail:"player1@player.com",playerName:"Juan",coupleState:CoupleState.PENDING,gender:Gender.MALE,creationDate:new Date()},
   {id:'',captainEmail:"admin@admin.com",captainName:"Diego Lusquiños Otero",playerEmail:"player2@player.com",playerName:"Andrea",coupleState:CoupleState.PENDING,gender:Gender.MIXED,creationDate:new Date()},
 ]
@@ -58,12 +60,13 @@ describe('CouplesComponent', () => {
   });
 
   it('should set couples property with the items returned from server',()=>{
-    spyOn(mockService, 'getConsolidate').and.callFake(()=> {
+    const consolidated_couples = new Array<Couple>(COUPLES[0],COUPLES[1]);
+    spyOn(mockService, 'get').and.callFake(()=> {
       return of(COUPLES);
     });
 
     component.ngOnInit();
-    expect(component.couples).toEqual(COUPLES);
+    expect(component.couples).toEqual(consolidated_couples);
   });
 
   /*it('should set the error property if server returns an error when getting products', () => {

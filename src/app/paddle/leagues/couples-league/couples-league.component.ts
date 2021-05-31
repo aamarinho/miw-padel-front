@@ -11,8 +11,8 @@ export class CouplesLeagueComponent {
 
   couples: Couple[];
 
-  constructor(@Inject(MAT_DIALOG_DATA) data: Couple[]) {
-    this.couples = data ? data : {} as Couple[];
+  constructor(@Inject(MAT_DIALOG_DATA) data: any) {
+    this.couples = data.data;
   }
 
 }
