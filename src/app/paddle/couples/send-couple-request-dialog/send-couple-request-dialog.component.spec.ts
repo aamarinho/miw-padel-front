@@ -29,4 +29,19 @@ describe('SendCoupleRequestDialogComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('email field validity', () => {
+    let email = component.form.controls['email'];
+    expect(email.valid).toBeFalsy();
+
+    email.setValue("");
+    expect(email.hasError('required')).toBeTruthy();
+
+    email.setValue("Invalid email");
+    expect(email.hasError('email')).toBeTruthy();
+
+    email.setValue("valid_email@gmail.com");
+    expect(email.hasError('required')).toBeFalsy();
+    expect(email.hasError('email')).toBeFalsy();
+  });
 });

@@ -12,6 +12,8 @@ import {CouplesService} from "./couples.service";
 import {of} from "rxjs";
 import {SendCoupleRequestDialogComponent} from "./send-couple-request-dialog/send-couple-request-dialog.component";
 import {PendingCoupleRequestsDialogComponent} from "./pending-couple-requests-dialog/pending-couple-requests-dialog.component";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 const COUPLES: Couple[] =[
   {id:'',captainEmail:"admin@admin.com",captainName:"Diego Lusquiños Otero",playerEmail:"player1@player.com",playerName:"Juan",coupleState:CoupleState.PENDING,gender:Gender.MALE,creationDate:new Date()},
@@ -26,10 +28,13 @@ describe('CouplesComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
+        FormsModule,
+        ReactiveFormsModule,
         HttpClientTestingModule,
         MatSnackBarModule,
         RouterTestingModule,
-        MatDialogModule
+        MatDialogModule,
+        BrowserAnimationsModule
       ],
       declarations: [
         CouplesComponent,
@@ -70,5 +75,19 @@ describe('CouplesComponent', () => {
     expect(component.couples).not.toBeDefined();
     //expect(component.couples).toBeNull();
   });*/
+
+  it('should open send couple requests', () => {
+    component.openSendCoupleRequest();
+    fixture.detectChanges();
+    const emailLabel = document.getElementsByTagName('label') as HTMLCollectionOf<HTMLLabelElement>;
+    expect(emailLabel[0].innerText).toEqual('Email of the player');
+  });
+
+  it('should open pending couple requests', () => {
+    component.openPendingCoupleRequests();
+    fixture.detectChanges();
+    const title = document.getElementsByTagName('h1') as HTMLCollectionOf<HTMLHeadingElement>;
+    expect(title[0].innerText).toEqual('PENDING COUPLE REQUESTS');
+  });
 
 });

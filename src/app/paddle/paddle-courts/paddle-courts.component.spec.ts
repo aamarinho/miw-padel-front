@@ -92,5 +92,22 @@ describe('PaddleCourtsComponent', () => {
     expect(inputs[4].value).toEqual('16:00');
   });
 
+  /*it('should delete the item if confirm',()=>{
+    const spy = spyOn(mockService,'delete').and.returnValue(
+      of(PADDLECOURTS[0])
+    );
+    component.dataSource = PADDLECOURTS;
+    component.delete(PADDLECOURTS[0]);
+    //const button = fixture.nativeElement.querySelector('mat-icon');
+    const deleteButton = document.getElementsByTagName('button') as HTMLCollectionOf<HTMLHeadElement>;
+    deleteButton[1].dispatchEvent(new Event('click'));
+    fixture.detectChanges();
+    const confirmButton = document.getElementById('confirmButton') as HTMLHeadElement;
+    //const buttons = document.getElementsByTagName('button') as HTMLCollectionOf<HTMLButtonElement>;
+    confirmButton.dispatchEvent(new Event('click'));
+    fixture.detectChanges();
+    expect(spy).toHaveBeenCalledWith(PADDLECOURTS[0].name);
+  });*/
+
 
 });
