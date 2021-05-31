@@ -1,0 +1,19 @@
+<p class="titles">COUPLES</p>
+<div class="text-center row mt-3">
+  <div class="col-4 mt-2" *ngFor="let couple of couples">
+    <mat-card class="mat-elevation-z4 leaf">
+      <mat-card-content>
+        <div class="row">
+          <div class="col-6 couple">
+            <p>{{couple.playerEmail}}</p>
+            <p>{{couple.playerName}}</p>
+          </div>
+          <div class="col-6 couple">
+            <p>{{couple.captainEmail}}</p>
+            <p>{{couple.captainName}}</p>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

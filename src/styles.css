@@ -67,3 +67,7 @@ table{
 .timepicker-backdrop-overlay {
   z-index: 10000000 !important;
 }
+
+.couple{
+  border: 2px solid #07d3dd;
+}

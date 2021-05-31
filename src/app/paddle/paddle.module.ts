@@ -14,6 +14,7 @@ import { CouplesComponent } from './couples/couples.component';
 import { PendingCoupleRequestsDialogComponent } from './couples/pending-couple-requests-dialog/pending-couple-requests-dialog.component';
 import { SendCoupleRequestDialogComponent } from './couples/send-couple-request-dialog/send-couple-request-dialog.component';
 import { LeaguesComponent } from './leagues/leagues.component';
+import { CouplesLeagueComponent } from './leagues/couples-league/couples-league.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { LeaguesComponent } from './leagues/leagues.component';
     CouplesComponent,
     PendingCoupleRequestsDialogComponent,
     SendCoupleRequestDialogComponent,
-    LeaguesComponent
+    LeaguesComponent,
+    CouplesLeagueComponent
   ],
   entryComponents: [
   ],

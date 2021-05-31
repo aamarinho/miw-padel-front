@@ -1,4 +1,3 @@
-import {User} from "./user.model";
 import {Gender} from "./gender.model";
 import {CoupleState} from "./couplestate.model";
 
@@ -11,4 +10,7 @@ export interface Couple {
   coupleState: CoupleState;
   gender: Gender;
   creationDate: Date
+
 }
+
+

@@ -4,6 +4,38 @@
 </div>
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" aria-describedby="paddleCourts">
 
+  <ng-container matColumnDef="name">
+    <th scope="col" mat-header-cell class="header" *matHeaderCellDef>NAME</th>
+    <td mat-cell class="font_size_higher" *matCellDef="let row">{{row.name}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="gender">
+    <th scope="col" mat-header-cell class="header" *matHeaderCellDef>GENDER</th>
+    <td mat-cell class="font_size_higher" *matCellDef="let row">{{row.gender}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="maxCouples">
+    <th scope="col" mat-header-cell class="header" *matHeaderCellDef>MAX COUPLES</th>
+    <td mat-cell class="font_size_higher" *matCellDef="let row">{{row.maxCouples}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="initDate">
+    <th scope="col" mat-header-cell class="header" *matHeaderCellDef>INITIAL DATE</th>
+    <td mat-cell class="font_size_higher" *matCellDef="let row">{{row.initDate | date}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="endDate">
+    <th scope="col" mat-header-cell class="header" *matHeaderCellDef>END DATE</th>
+    <td mat-cell class="font_size_higher" *matCellDef="let row">{{row.endDate | date}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="couples">
+    <th scope="col" mat-header-cell class="header" *matHeaderCellDef>COUPLES</th>
+    <td mat-cell class="font_size_higher" *matCellDef="let row">
+      <mat-icon class="cursor_pointer" (click)="openCouples(row.couples)">group</mat-icon>
+    </td>
+  </ng-container>
+
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>

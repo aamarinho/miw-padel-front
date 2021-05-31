@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {MatDialogRef} from "@angular/material/dialog";
-import {ConfirmationDialogComponent} from "../../shared/dialogs/confirmation-dialog/confirmation-dialog.component";
+import {Component, OnInit} from '@angular/core';
+import {MatDialog} from "@angular/material/dialog";
 import {LeaguesService} from "./leagues.service";
+import {League} from "../../shared/models/league.model";
+import {Couple} from "../../shared/models/couple.model";
+import {CouplesLeagueComponent} from "./couples-league/couples-league.component";
 
 @Component({
   selector: 'app-leagues',
@@ -11,11 +13,11 @@ import {LeaguesService} from "./leagues.service";
 export class LeaguesComponent implements OnInit {
 
   displayedColumns: string[];
-  dataSource:any;
-  dialogRef!: MatDialogRef<ConfirmationDialogComponent> | null;
+  dataSource:League[];
 
-  constructor(private leaguesService: LeaguesService) {
-    this.displayedColumns = ['name','gender','couples','maxCouples','initDate','endDate'];
+  constructor(private leaguesService: LeaguesService, private dialog: MatDialog) {
+    this.dataSource = new Array<League>();
+    this.displayedColumns = ['name','gender','maxCouples','initDate','endDate','couples'];
   }
 
   ngOnInit(): void {
@@ -25,4 +27,9 @@ export class LeaguesComponent implements OnInit {
     });
   }
 
+  openCouples(couples: Couple[]) {
+    this.dialog.open(CouplesLeagueComponent,{
+      data: couples
+    }).afterClosed().subscribe(()=>this.ngOnInit());
+  }
 }
