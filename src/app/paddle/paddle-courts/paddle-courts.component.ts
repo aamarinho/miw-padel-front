@@ -12,7 +12,6 @@ import {AddUpdatePaddleCourtComponent} from "./add-update-paddle-court/add-updat
 })
 export class PaddleCourtsComponent implements OnInit {
 
-
   displayedColumns: string[];
   dataSource:any;
   dialogRef!: MatDialogRef<ConfirmationDialogComponent> | null;

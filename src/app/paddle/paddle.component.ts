@@ -20,6 +20,10 @@ export class PaddleComponent{
     return this.authService.isAdmin();
   }
 
+  isPlayer(): boolean {
+    return this.authService.isPlayer();
+  }
+
   getUsername(): string | undefined{
     return this.authService.getEmail();
   }

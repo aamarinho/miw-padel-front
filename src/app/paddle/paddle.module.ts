@@ -13,6 +13,7 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { CouplesComponent } from './couples/couples.component';
 import { PendingCoupleRequestsDialogComponent } from './couples/pending-couple-requests-dialog/pending-couple-requests-dialog.component';
 import { SendCoupleRequestDialogComponent } from './couples/send-couple-request-dialog/send-couple-request-dialog.component';
+import { LeaguesComponent } from './leagues/leagues.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SendCoupleRequestDialogComponent } from './couples/send-couple-request-
     AddUpdatePaddleCourtComponent,
     CouplesComponent,
     PendingCoupleRequestsDialogComponent,
-    SendCoupleRequestDialogComponent
+    SendCoupleRequestDialogComponent,
+    LeaguesComponent
   ],
   entryComponents: [
   ],

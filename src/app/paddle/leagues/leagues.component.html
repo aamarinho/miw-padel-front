@@ -1,0 +1,10 @@
+<div class="row mb-4">
+  <p class="titles col-10">LEAGUES</p>
+  <button mat-raised-button class="submit_button">ADD PADDLE COURT</button>
+</div>
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" aria-describedby="paddleCourts">
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+

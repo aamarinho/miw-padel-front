@@ -21,4 +21,17 @@ export class PendingCoupleRequestsDialogComponent implements OnInit {
     });
   }
 
+  accept(couple: Couple) {
+    this.couplesService.accept(couple).subscribe(result=>{
+      this.ngOnInit();
+      console.log(result);
+    });
+  }
+
+  decline(couple: Couple) {
+    this.couplesService.decline(couple).subscribe(result=>{
+      this.ngOnInit();
+      console.log(result);
+    });
+  }
 }

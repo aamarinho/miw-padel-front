@@ -12,11 +12,14 @@
       <li *ngIf="isAdmin()" class="nav-item">
         <a class="nav-link" routerLink="/paddle/paddle-courts">PADDLE COURTS</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/paddle/bookings">BOOKINGS</a>
+      <li *ngIf="isAdmin()" class="nav-item">
+        <a class="nav-link" routerLink="/paddle/leagues">LEAGUES</a>
+      </li>
+      <li *ngIf="isPlayer()" class="nav-item">
+        <a class="nav-link" routerLink="/paddle/couples">COUPLES</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/paddle/couples">COUPLES</a>
+        <a class="nav-link" routerLink="/paddle/bookings">BOOKINGS</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/paddle/booking-paddle-court">BOOK A PADDLE COURT</a>

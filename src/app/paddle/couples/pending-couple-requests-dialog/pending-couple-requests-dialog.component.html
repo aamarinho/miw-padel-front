@@ -6,8 +6,8 @@
       {{couple.playerName}}
       </div>
       <div class="col-3">
-        <mat-icon class="cursor_pointer titles">check_circle_outline</mat-icon>
-        <mat-icon class="cursor_pointer titles">highlight_off</mat-icon>
+        <mat-icon (click)="accept(couple)" class="cursor_pointer titles">check_circle_outline</mat-icon>
+        <mat-icon (click)="decline(couple)" class="cursor_pointer titles">highlight_off</mat-icon>
       </div>
     </div>
   </div>

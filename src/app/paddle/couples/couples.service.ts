@@ -38,4 +38,12 @@ export class CouplesService {
     return of(COUPLES_PENDING);
   }
 
+  accept(couple: Couple): Observable<Couple> {
+    return of(COUPLES_PENDING[0]);
+  }
+
+  decline(couple: Couple): Observable<Couple> {
+    return of(COUPLES_PENDING[0]);
+  }
+
 }
