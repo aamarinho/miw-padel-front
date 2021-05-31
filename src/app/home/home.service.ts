@@ -15,9 +15,9 @@ export class HomeService {
   constructor(private http: HttpClient, private httpService: HttpService) {
   }
 
-  register(user: User): Observable<User> {
+  register(formData: any): Observable<User> {
     return this.httpService.successful('User successfully created')
-      .post(this.url+'/register',user);
+      .post(this.url+'/register',formData);
   }
 
   prueba(): Observable<TokenDto>{

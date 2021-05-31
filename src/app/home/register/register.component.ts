@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
   form!: FormGroup;
   genders: Gender[];
   user: User = {} as User;
+  image: any;
 
   constructor(private homeService: HomeService,
               private fb: FormBuilder,
@@ -24,6 +25,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
+      image: new FormControl(this.user.firstName, [Validators.required]),
       firstName: new FormControl(this.user.firstName, [Validators.required]),
       familyName: new FormControl(this.user.familyName, [Validators.required]),
       email: new FormControl(this.user.email, [Validators.required, Validators.email]),
@@ -43,7 +45,11 @@ export class RegisterComponent implements OnInit {
       gender: this.getFormValue('gender'),
       birthDate: this.datePipe.transform(this.getFormValue('birthDate'), 'yyyy-MM-dd')
     }
-    this.homeService.register(this.user).subscribe(
+    console.log(this.getFormValue('image'));
+    let formData = new FormData();
+    formData.append('image',this.image);
+    formData.append('user',JSON.parse(JSON.stringify(this.user)));
+    this.homeService.register(formData).subscribe(
       result=>console.log(result),
       error => console.log(error));
   }
@@ -56,4 +62,7 @@ export class RegisterComponent implements OnInit {
     return this.form.get(value)?.value;
   }
 
+  onSelectedFile(event: any) {
+    this.image = event.target.files[0];
+  }
 }
