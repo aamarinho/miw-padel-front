@@ -5,6 +5,7 @@ import {League} from "../../shared/models/league.model";
 import {Couple} from "../../shared/models/couple.model";
 import {CoupleState} from "../../shared/models/couplestate.model";
 import {Gender} from "../../shared/models/gender.model";
+import {CommonMethods} from "../../shared/common-methods";
 
 const COUPLES: Couple[] = [
   {id:'',captainEmail:"admin@admin.com",captainName:"Diego Lusquiños Otero",playerEmail:"player3@player.com",playerName:"Juan Álvarez Mariño",coupleState:CoupleState.PENDING,gender:Gender.MALE,creationDate:new Date()},
@@ -15,8 +16,8 @@ const COUPLES: Couple[] = [
 ];
 
 const LEAGUES: League[] = [
-  {id:'1',name:'Europa League',gender:Gender.FEMALE,couples:COUPLES,maxCouples:20,initDate:new Date(),endDate:new Date()},
-  {id:'2',name:'Second League',gender:Gender.MIXED,couples:COUPLES,maxCouples:15,initDate:new Date(),endDate:new Date()},
+  {id:'1',name:'Europa League',gender:Gender.FEMALE,couples:COUPLES,maxCouples:20,startDate:CommonMethods.getTodayDate(),endDate:CommonMethods.getTodayDate()},
+  {id:'2',name:'Second League',gender:Gender.MIXED,couples:COUPLES,maxCouples:15,startDate:CommonMethods.getTodayDate(),endDate:CommonMethods.getTodayDate()},
 ]
 
 @Injectable({

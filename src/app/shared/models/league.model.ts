@@ -7,7 +7,7 @@ export interface League {
   gender: Gender;
   couples?: Couple[];
   maxCouples: number;
-  initDate: Date;
-  endDate: Date;
+  startDate: string | null;
+  endDate: string | null;
 
 }

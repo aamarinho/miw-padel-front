@@ -1,6 +1,6 @@
 <div class="row mb-4">
   <p class="titles col-10">LEAGUES</p>
-  <button mat-raised-button class="submit_button">ADD PADDLE COURT</button>
+  <button mat-raised-button class="submit_button" (click)="openAddLeague()">ADD LEAGUE</button>
 </div>
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" aria-describedby="paddleCourts">
 
@@ -19,9 +19,9 @@
     <td mat-cell class="font_size_higher" *matCellDef="let row">{{row.maxCouples}}</td>
   </ng-container>
 
-  <ng-container matColumnDef="initDate">
+  <ng-container matColumnDef="startDate">
     <th scope="col" mat-header-cell class="header" *matHeaderCellDef>INITIAL DATE</th>
-    <td mat-cell class="font_size_higher" *matCellDef="let row">{{row.initDate | date}}</td>
+    <td mat-cell class="font_size_higher" *matCellDef="let row">{{row.startDate | date}}</td>
   </ng-container>
 
   <ng-container matColumnDef="endDate">

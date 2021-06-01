@@ -4,6 +4,7 @@ import {LeaguesService} from "./leagues.service";
 import {League} from "../../shared/models/league.model";
 import {Couple} from "../../shared/models/couple.model";
 import {CouplesLeagueComponent} from "./couples-league/couples-league.component";
+import {AddUpdateLeagueComponent} from "./add-update-league/add-update-league.component";
 
 @Component({
   selector: 'app-leagues',
@@ -17,7 +18,7 @@ export class LeaguesComponent implements OnInit {
 
   constructor(private leaguesService: LeaguesService, private dialog: MatDialog) {
     this.dataSource = new Array<League>();
-    this.displayedColumns = ['name','gender','maxCouples','initDate','endDate','couples'];
+    this.displayedColumns = ['name','gender','maxCouples','startDate','endDate','couples'];
   }
 
   ngOnInit(): void {
@@ -33,5 +34,13 @@ export class LeaguesComponent implements OnInit {
       }
 
     }).afterClosed().subscribe(result=>console.log(result));
+  }
+
+  openAddLeague() {
+    this.dialog.open(AddUpdateLeagueComponent,{
+      data: {
+        data: {}
+      }
+    }).afterClosed().subscribe(()=>console.log("close add league"));
   }
 }

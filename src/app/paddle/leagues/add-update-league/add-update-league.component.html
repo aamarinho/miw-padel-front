@@ -1,0 +1,64 @@
+<p class="titles mb-4">ADD PADDLE COURT</p>
+<mat-dialog-content [formGroup]="form">
+
+  <mat-form-field>
+    <label id="league_name">Name</label>
+    <input formControlName="name" matInput type="text"/>
+  </mat-form-field>
+  <div *ngIf="getFormControl.name.touched && getFormControl.name.invalid" class="alert alert-danger">
+    <small *ngIf="getFormControl.name.errors?.required">
+      Name is required.
+    </small>
+  </div>
+  <br/>
+
+  <mat-form-field>
+    <label id="league_gender">Gender</label>
+    <mat-select formControlName="gender" ngDefaultControl>
+      <mat-option *ngFor="let gender of genders" [value]="gender">{{gender}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div *ngIf="getFormControl.gender.touched && getFormControl.gender.invalid"
+       class="alert alert-danger">
+    <small *ngIf="getFormControl.gender.errors?.required">
+      Gender is required.
+    </small>
+  </div>
+  <br/>
+
+  <mat-form-field>
+    <label id="league_max_couples">Max couples</label>
+    <input formControlName="maxCouples" matInput type="text"/>
+  </mat-form-field>
+  <div *ngIf="getFormControl.maxCouples.touched && getFormControl.maxCouples.invalid" class="alert alert-danger">
+    <small *ngIf="getFormControl.maxCouples.errors?.required">
+      Max couples is required.
+    </small>
+  </div>
+  <br/>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Enter a date range</mat-label>
+    <mat-date-range-input [rangePicker]="picker">
+      <input matStartDate formControlName="startDate" placeholder="Start date">
+      <input matEndDate formControlName="endDate" placeholder="End date">
+    </mat-date-range-input>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  </mat-form-field>
+  <div *ngIf="getFormControl.startDate.touched && getFormControl.startDate.invalid" class="alert alert-danger">
+    <small *ngIf="getFormControl.startDate.errors?.required">
+      Start date is required.
+    </small>
+  </div>
+  <div *ngIf="getFormControl.endDate.touched && getFormControl.endDate.invalid" class="alert alert-danger">
+    <small *ngIf="getFormControl.endDate.errors?.required">
+      End date is required.
+    </small>
+  </div>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button class="submit_button" [disabled]="!form.valid" (click)="submit()">SUBMIT</button>
+  <button mat-button mat-dialog-close class="cancel_button">CANCEL</button>
+</mat-dialog-actions>
