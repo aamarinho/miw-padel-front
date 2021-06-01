@@ -29,8 +29,9 @@ export class LeaguesComponent implements OnInit {
   openCouples(couples: Couple[]) {
     this.dialog.open(CouplesLeagueComponent,{
       data: {
-        couples
+        data: couples
       }
+
     }).afterClosed().subscribe(result=>console.log(result));
   }
 }
