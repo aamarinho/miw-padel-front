@@ -19,7 +19,7 @@
   <!-- Date Column -->
   <ng-container matColumnDef="date">
     <th scope="col" mat-header-cell class="header" *matHeaderCellDef mat-sort-header>DATE</th>
-    <td mat-cell class="font_size_higher" *matCellDef="let row">{{row.date}}</td>
+    <td mat-cell class="font_size_higher" *matCellDef="let row">{{row.date | date}}</td>
   </ng-container>
 
   <!-- Time range Column -->

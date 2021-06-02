@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
   constructor(private homeService: HomeService,
               private fb: FormBuilder,
               public datePipe: DatePipe) {
-    this.genders = Object.values(Gender);
+    this.genders = Object.values(Gender).filter(gender=>gender!=Gender.MIXED);
   }
 
   ngOnInit(): void {

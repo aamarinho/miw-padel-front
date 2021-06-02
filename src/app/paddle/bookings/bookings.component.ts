@@ -10,8 +10,7 @@ import {ConfirmationDialogComponent} from "../../shared/dialogs/confirmation-dia
 
 @Component({
   selector: 'app-bookings',
-  templateUrl: './bookings.component.html',
-  styleUrls: ['./bookings.component.css']
+  templateUrl: './bookings.component.html'
 })
 export class BookingsComponent implements OnInit{
 

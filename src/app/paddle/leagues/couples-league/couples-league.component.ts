@@ -4,8 +4,7 @@ import {Couple} from "../../../shared/models/couple.model";
 
 @Component({
   selector: 'app-couples-league',
-  templateUrl: './couples-league.component.html',
-  styleUrls: ['./couples-league.component.css']
+  templateUrl: './couples-league.component.html'
 })
 export class CouplesLeagueComponent {
 

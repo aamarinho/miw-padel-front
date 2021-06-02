@@ -12,7 +12,7 @@
       <li *ngIf="isAdmin()" class="nav-item">
         <a class="nav-link" routerLink="/paddle/paddle-courts">PADDLE COURTS</a>
       </li>
-      <li *ngIf="isAdmin()" class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" routerLink="/paddle/leagues">LEAGUES</a>
       </li>
       <li *ngIf="isPlayer()" class="nav-item">
@@ -26,7 +26,7 @@
       </li>
     </ul>
     <div *ngIf="isAuthenticated()">
-      <mat-icon class="center">person_outline</mat-icon>
+      <mat-icon class="center cursor_pointer" (click)="openProfile()">person_outline</mat-icon>
       <span>{{getUsername()}}</span>
       <mat-icon class="ml-1 center cursor_pointer" (click)="logout()">exit_to_app</mat-icon>
     </div>

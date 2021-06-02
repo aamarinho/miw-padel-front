@@ -1,4 +1,4 @@
-<p class="titles mb-4">ADD PADDLE COURT</p>
+<p class="titles mb-4">ADD LEAGUE</p>
 <mat-dialog-content [formGroup]="form">
 
   <mat-form-field>
@@ -28,11 +28,14 @@
 
   <mat-form-field>
     <label id="league_max_couples">Max couples</label>
-    <input formControlName="maxCouples" matInput type="text"/>
+    <input formControlName="maxCouples" matInput type="number"/>
   </mat-form-field>
   <div *ngIf="getFormControl.maxCouples.touched && getFormControl.maxCouples.invalid" class="alert alert-danger">
     <small *ngIf="getFormControl.maxCouples.errors?.required">
       Max couples is required.
+    </small>
+    <small *ngIf="getFormControl.maxCouples.errors?.min">
+      Max couples should have a minimum of 2.
     </small>
   </div>
   <br/>

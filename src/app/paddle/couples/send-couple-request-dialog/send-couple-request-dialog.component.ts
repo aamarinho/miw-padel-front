@@ -5,8 +5,7 @@ import {EmailDto} from "../../../shared/models/emaildto.model";
 
 @Component({
   selector: 'app-send-couple-request-dialog',
-  templateUrl: './send-couple-request-dialog.component.html',
-  styleUrls: ['./send-couple-request-dialog.component.css']
+  templateUrl: './send-couple-request-dialog.component.html'
 })
 export class SendCoupleRequestDialogComponent implements OnInit {
 

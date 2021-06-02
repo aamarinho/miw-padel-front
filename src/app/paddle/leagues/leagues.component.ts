@@ -4,21 +4,23 @@ import {LeaguesService} from "./leagues.service";
 import {League} from "../../shared/models/league.model";
 import {Couple} from "../../shared/models/couple.model";
 import {CouplesLeagueComponent} from "./couples-league/couples-league.component";
-import {AddUpdateLeagueComponent} from "./add-update-league/add-update-league.component";
+import {AddLeagueComponent} from "./add-league/add-league.component";
+import {AuthService} from "../../core/auth.service";
 
 @Component({
   selector: 'app-leagues',
-  templateUrl: './leagues.component.html',
-  styleUrls: ['./leagues.component.css']
+  templateUrl: './leagues.component.html'
 })
 export class LeaguesComponent implements OnInit {
 
   displayedColumns: string[];
   dataSource:League[];
 
-  constructor(private leaguesService: LeaguesService, private dialog: MatDialog) {
+  constructor(private leaguesService: LeaguesService, private dialog: MatDialog, private authService: AuthService) {
+    this.displayedColumns = ['name','gender','maxCouples','startDate','endDate','signUp'];
+    if(this.isAdmin())
+      this.displayedColumns.push('couples');
     this.dataSource = new Array<League>();
-    this.displayedColumns = ['name','gender','maxCouples','startDate','endDate','couples'];
   }
 
   ngOnInit(): void {
@@ -37,10 +39,11 @@ export class LeaguesComponent implements OnInit {
   }
 
   openAddLeague() {
-    this.dialog.open(AddUpdateLeagueComponent,{
-      data: {
-        data: {}
-      }
-    }).afterClosed().subscribe(()=>console.log("close add league"));
+    this.dialog.open(AddLeagueComponent).afterClosed().subscribe(()=>console.log("close add league"));
   }
+
+  isAdmin(): boolean{
+    return this.authService.isAdmin();
+  }
+
 }

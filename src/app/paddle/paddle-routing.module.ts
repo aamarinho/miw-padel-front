@@ -9,6 +9,7 @@ import {BookingPaddleCourtComponent} from "./bookings/booking-paddle-court/booki
 import {PaddleCourtsComponent} from "./paddle-courts/paddle-courts.component";
 import {CouplesComponent} from "./couples/couples.component";
 import {LeaguesComponent} from "./leagues/leagues.component";
+import {ProfileComponent} from "./profile/profile.component";
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
     canActivate: [RoleGuardService],
     data: {roles: [Role.ROLE_ADMIN, Role.ROLE_PLAYER]},
     children: [
+      {path: 'profile', component: ProfileComponent},
       {path: 'bookings', component: BookingsComponent},
       {path: 'booking-date', component: BookingDateComponent},
       {path: 'booking-paddle-court', component: BookingPaddleCourtComponent},

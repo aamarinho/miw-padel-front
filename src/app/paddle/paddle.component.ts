@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from "../core/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-paddle',
@@ -10,7 +11,7 @@ export class PaddleComponent{
 
   isShown:boolean = false;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   isAuthenticated(): boolean {
     return this.authService.isAuthenticated();
@@ -30,5 +31,9 @@ export class PaddleComponent{
 
   logout() {
     this.authService.logout();
+  }
+
+  openProfile() {
+    this.router.navigate(["/paddle/profile"]);
   }
 }

@@ -1,9 +1,9 @@
-<h1 mat-dialog-title>PENDING COUPLE REQUESTS</h1>
+<p class="titles">PENDING COUPLE REQUESTS</p>
 <mat-dialog-content class="mt-4">
   <div *ngFor="let couple of couples">
     <div class="row">
       <div class="col-9">
-      {{couple.captainName}}
+        <p>{{couple.captainName}}</p>
       </div>
       <div class="col-3">
         <mat-icon (click)="accept(couple)" class="cursor_pointer titles">check_circle_outline</mat-icon>

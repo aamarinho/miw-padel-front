@@ -7,8 +7,7 @@ import {AddUpdatePaddleCourtComponent} from "./add-update-paddle-court/add-updat
 
 @Component({
   selector: 'app-paddle-courts',
-  templateUrl: './paddle-courts.component.html',
-  styleUrls: ['./paddle-courts.component.css']
+  templateUrl: './paddle-courts.component.html'
 })
 export class PaddleCourtsComponent implements OnInit {
 

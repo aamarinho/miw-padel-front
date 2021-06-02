@@ -32,4 +32,16 @@ describe('BookingPaddlecourtComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should test the name of the couple request', (done)=>{
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
+
+      let title = fixture.nativeElement.querySelectorAll('p');
+      expect(title.length).toBe(1);
+
+      expect(title[0].innerHTML).toEqual('BOOK A PADDLE COURT');
+      done();
+    });
+  });
 });

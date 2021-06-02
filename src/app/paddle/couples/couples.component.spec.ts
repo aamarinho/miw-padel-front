@@ -14,6 +14,8 @@ import {SendCoupleRequestDialogComponent} from "./send-couple-request-dialog/sen
 import {PendingCoupleRequestsDialogComponent} from "./pending-couple-requests-dialog/pending-couple-requests-dialog.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {CommonMethods} from "../../shared/common-methods";
+import {DatePipe} from "@angular/common";
 
 const COUPLES: Couple[] =[
   {id:'',captainEmail:"admin@admin.com",captainName:"Diego Lusquiños Otero",playerEmail:"player1@player.com",playerName:"Juan",coupleState:CoupleState.CONSOLIDATED,gender:Gender.MALE,creationDate:new Date()},
@@ -26,6 +28,7 @@ describe('CouplesComponent', () => {
   let component: CouplesComponent;
   let mockService: CouplesService;
   let fixture: ComponentFixture<CouplesComponent>;
+  let datePipe = new DatePipe('en');
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -69,19 +72,11 @@ describe('CouplesComponent', () => {
     expect(component.couples).toEqual(consolidated_couples);
   });
 
-  /*it('should set the error property if server returns an error when getting products', () => {
-    const error = new Error('server error');
-    spyOn(mockService, 'getConsolidate').and.returnValue(throwError({status:404}));
-
-    component.ngOnInit();
-
-    expect(component.couples).not.toBeDefined();
-    //expect(component.couples).toBeNull();
-  });*/
-
   it('should open send couple requests', () => {
     component.openSendCoupleRequest();
     fixture.detectChanges();
+    const title = document.getElementsByTagName('p') as HTMLCollectionOf<HTMLHeadElement>;
+    expect(title[0].innerText).toEqual('SEND COUPLE REQUEST');
     const emailLabel = document.getElementsByTagName('label') as HTMLCollectionOf<HTMLLabelElement>;
     expect(emailLabel[0].innerText).toEqual('Email of the player');
   });
@@ -89,8 +84,27 @@ describe('CouplesComponent', () => {
   it('should open pending couple requests', () => {
     component.openPendingCoupleRequests();
     fixture.detectChanges();
-    const title = document.getElementsByTagName('h1') as HTMLCollectionOf<HTMLHeadingElement>;
+    const title = document.getElementsByTagName('p') as HTMLCollectionOf<HTMLHeadElement>;
     expect(title[0].innerText).toEqual('PENDING COUPLE REQUESTS');
+  });
+
+  it('should test the table', (done)=>{
+    component.couples=COUPLES;
+    fixture.detectChanges();
+
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
+
+      let allP = fixture.nativeElement.querySelectorAll('p');
+      expect(allP.length).toBe(20);
+
+      expect(allP[0].innerHTML).toEqual('player1@player.com');
+      expect(allP[1].innerHTML).toEqual('Juan');
+      expect(allP[2].innerHTML).toEqual('admin@admin.com');
+      expect(allP[3].innerHTML).toEqual('Diego Lusquiños Otero');
+      expect(datePipe.transform(allP[4].innerHTML,'yyyy-MM-dd')).toEqual(CommonMethods.getTodayDate());
+      done();
+    });
   });
 
 });
