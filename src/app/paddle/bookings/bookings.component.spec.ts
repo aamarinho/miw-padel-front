@@ -8,18 +8,17 @@ import {RouterTestingModule} from "@angular/router/testing";
 import {MatDialogModule} from "@angular/material/dialog";
 import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {CommonMethods} from "../../shared/common-methods";
+import {Common} from "../../shared/common";
 import {DatePipe} from "@angular/common";
 
 describe('BookingsComponent', () => {
-  let component: BookingsComponent;
-  let fixture: ComponentFixture<BookingsComponent>;
-  let datePipe = new DatePipe('en');
-
   const myBookings: BookingDto[] = [
     {id:'',email:"player@player.com",paddleCourtName:"Paddle Court 2",date:new Date(),timeRange:"12:00-14:00"},
     {id:'',email:"player@player.com",paddleCourtName:"Paddle Court 4",date:new Date(),timeRange:"16:00-18:00"},
   ];
+  let component: BookingsComponent;
+  let fixture: ComponentFixture<BookingsComponent>;
+  let datePipe = new DatePipe('en');
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -66,7 +65,7 @@ describe('BookingsComponent', () => {
       let row1 = tableRows[1];
       expect(row1.cells[0].innerHTML).toEqual('player@player.com');
       expect(row1.cells[1].innerHTML).toEqual('Paddle Court 2');
-      expect(datePipe.transform(row1.cells[2].innerHTML,'yyyy-MM-dd')).toEqual(CommonMethods.getTodayDate());
+      expect(datePipe.transform(row1.cells[2].innerHTML,'yyyy-MM-dd')).toEqual(Common.getTodayDate());
       expect(row1.cells[3].innerHTML).toEqual('12:00-14:00');
 
       done();

@@ -9,6 +9,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {DatePipe} from "@angular/common";
+import {Gender} from "../../shared/models/gender.model";
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -122,6 +123,19 @@ describe('RegisterComponent', () => {
     expect(password.hasError('required')).toBeFalsy();
     expect(password.hasError('minlength')).toBeFalsy();
     expect(password.hasError('maxlength')).toBeFalsy();
+  });
+
+  it('form valid when register', ()=>{
+    component.form.controls['firstName'].setValue('first name');
+    component.form.controls['familyName'].setValue('family name')
+    component.form.controls['email'].setValue('not valid email');
+    component.form.controls['gender'].setValue(Gender.FEMALE);
+    component.form.controls['birthDate'].setValue(new Date());
+    component.form.controls['password'].setValue('123123');
+    expect(component.form.valid).toBeFalsy();
+    component.form.controls['email'].setValue('valid@valid.com');
+    component.register();
+    expect(component.form.valid).toBeTruthy();
   });
 
 });

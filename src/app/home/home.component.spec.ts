@@ -51,18 +51,13 @@ describe('HomeComponent', () => {
   it('should call register', () => {
     component.register();
     fixture.detectChanges();
-    const firstName = document.getElementById('register_first_name') as HTMLHeadElement;
-    expect(firstName.innerText).toEqual('First name');
-    const familyName = document.getElementById('register_family_name') as HTMLHeadElement;
-    expect(familyName.innerText).toEqual('Family name');
-    const email = document.getElementById('register_email') as HTMLHeadElement;
-    expect(email.innerText).toEqual('Email');
-    const gender = document.getElementById('register_gender') as HTMLHeadElement;
-    expect(gender.innerText).toEqual('Gender');
-    const birthDate = document.getElementById('register_birth_date') as HTMLHeadElement;
-    expect(birthDate.innerText).toEqual('Birth date');
-    const password = document.getElementById('register_password') as HTMLHeadElement;
-    expect(password.innerText).toEqual('Password');
+    const labels = document.getElementsByTagName('mat-label') as HTMLCollectionOf<HTMLLabelElement>;
+    expect(labels[0].innerText).toEqual('First name');
+    expect(labels[1].innerText).toEqual('Family name');
+    expect(labels[2].innerText).toEqual('Email');
+    expect(labels[3].innerText).toEqual('Gender');
+    expect(labels[4].innerText).toEqual('Birth date');
+    expect(labels[5].innerText).toEqual('Password');
   });
 
   it('form invalid when empty', ()=>{

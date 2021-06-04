@@ -2,7 +2,7 @@
 <mat-dialog-content [formGroup]="form">
 
   <mat-form-field>
-    <mat-label id="register_first_name">First name</mat-label>
+    <mat-label>First name</mat-label>
     <input formControlName="firstName" matInput type="text"/>
   </mat-form-field>
   <div *ngIf="getFormControl.firstName.touched && getFormControl.firstName.invalid"
@@ -14,7 +14,7 @@
   <br/>
 
   <mat-form-field>
-    <mat-label id="register_family_name">Family name</mat-label>
+    <mat-label>Family name</mat-label>
     <input formControlName="familyName" matInput type="text"/>
   </mat-form-field>
   <div *ngIf="getFormControl.familyName.touched && getFormControl.familyName.invalid"
@@ -26,7 +26,7 @@
   <br/>
 
   <mat-form-field>
-    <mat-label id="register_email">Email</mat-label>
+    <mat-label>Email</mat-label>
     <input formControlName="email" matInput type="text"/>
   </mat-form-field>
   <div *ngIf="getFormControl.email.touched && getFormControl.email.invalid"
@@ -41,7 +41,7 @@
   <br/>
 
   <mat-form-field>
-    <mat-label id="register_gender">Gender</mat-label>
+    <mat-label>Gender</mat-label>
     <mat-select formControlName="gender" ngDefaultControl>
       <mat-option *ngFor="let gender of genders" [value]="gender">{{gender}}</mat-option>
     </mat-select>
@@ -55,7 +55,7 @@
   <br/>
 
   <mat-form-field appearance="fill">
-    <mat-label id="register_birth_date">Birth date</mat-label>
+    <mat-label>Birth date</mat-label>
     <input matInput [matDatepicker]="picker" formControlName="birthDate">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
@@ -69,7 +69,7 @@
   <br/>
 
   <mat-form-field>
-    <mat-label id="register_password">Password</mat-label>
+    <mat-label>Password</mat-label>
     <input formControlName="password" matInput type="password"/>
   </mat-form-field>
   <div *ngIf="getFormControl.password.touched && getFormControl.password.invalid"

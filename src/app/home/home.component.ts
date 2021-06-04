@@ -48,10 +48,6 @@ export class HomeComponent implements OnInit {
       .subscribe(()=> console.log("Closing register"));
   }
 
-  prueba() {
-    this.loginService.prueba().subscribe(result=>console.log(result));
-  }
-
   get getFormControl(){
     return this.form.controls;
   }

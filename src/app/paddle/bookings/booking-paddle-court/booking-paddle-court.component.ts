@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {PaddleCourtAvailabilityDto} from "../../../shared/models/paddlecourtavailabilitydto.model";
 import {PaddleCourtService} from "../../paddle-courts/paddle-court.service";
-import {CommonMethods} from "../../../shared/common-methods";
+import {Common} from "../../../shared/common";
 
 @Component({
   selector: 'app-booking-paddlecourt',
@@ -16,7 +16,7 @@ export class BookingPaddleCourtComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.getAvailabilityPaddleCourtByDate(CommonMethods.getTodayDate());
+    this.getAvailabilityPaddleCourtByDate(Common.getTodayDate());
   }
 
   getAvailabilityPaddleCourtByDate(date: string) {

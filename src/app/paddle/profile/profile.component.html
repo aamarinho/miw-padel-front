@@ -1,7 +1,7 @@
 <p class="titles mb-4">COMPLETE THE PROFILE</p>
 
-<form method="post" enctype="multipart/form-data">
-  <input type="file"/>
+<form>
+  <input accept="image/png, image/jpeg, image/jpg" type="file" (change)="onSelectedFile($event)"/>
   <br/><br/>
-  <button mat-raised-button type="submit" class="submit_button">COMPLETE</button>
+  <button mat-raised-button type="button" (click)="submit()" class="submit_button">COMPLETE</button>
 </form>

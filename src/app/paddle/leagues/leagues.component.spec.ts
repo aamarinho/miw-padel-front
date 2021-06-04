@@ -6,25 +6,9 @@ import {RouterTestingModule} from "@angular/router/testing";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatTableModule} from "@angular/material/table";
 import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
-import {Couple} from "../../shared/models/couple.model";
-import {CoupleState} from "../../shared/models/couplestate.model";
 import {Gender} from "../../shared/models/gender.model";
-import {League} from "../../shared/models/league.model";
-import {CommonMethods} from "../../shared/common-methods";
+import {Common} from "../../shared/common";
 import {DatePipe} from "@angular/common";
-
-const COUPLES: Couple[] = [
-  {id:'',captainEmail:"admin@admin.com",captainName:"Diego Lusquiños Otero",playerEmail:"player3@player.com",playerName:"Juan Álvarez Mariño",coupleState:CoupleState.PENDING,gender:Gender.MALE,creationDate:new Date()},
-  {id:'',captainEmail:"admin@admin.com",captainName:"Diego Lusquiños Otero",playerEmail:"player@player.com",playerName:"Perico Álvarez Mariño",coupleState:CoupleState.PENDING,gender:Gender.FEMALE,creationDate:new Date()},
-  {id:'',captainEmail:"admin@admin.com",captainName:"Diego Lusquiños Otero",playerEmail:"player2@player.com",playerName:"Andrés Álvarez Mariño",coupleState:CoupleState.PENDING,gender:Gender.MIXED,creationDate:new Date()},
-  {id:'',captainEmail:"admin@admin.com",captainName:"Diego Lusquiños Otero",playerEmail:"player@player.com",playerName:"Andrea Álvarez Mariño",coupleState:CoupleState.PENDING,gender:Gender.FEMALE,creationDate:new Date()},
-  {id:'',captainEmail:"admin@admin.com",captainName:"Diego Lusquiños Otero",playerEmail:"player2@player.com",playerName:"Misil Álvarez Mariño",coupleState:CoupleState.PENDING,gender:Gender.MIXED,creationDate:new Date()},
-];
-
-const LEAGUES: League[] = [
-  {id:'1',name:'Europa League',gender:Gender.FEMALE,couples:COUPLES,maxCouples:20,startDate:CommonMethods.getTodayDate(),endDate:CommonMethods.getTodayDate()},
-  {id:'2',name:'Second League',gender:Gender.MIXED,couples:COUPLES,maxCouples:15,startDate:CommonMethods.getTodayDate(),endDate:CommonMethods.getTodayDate()},
-]
 
 describe('LeaguesComponent', () => {
   let component: LeaguesComponent;
@@ -57,7 +41,7 @@ describe('LeaguesComponent', () => {
   });
 
   it('should test the table', (done)=>{
-    component.dataSource=LEAGUES;
+    component.dataSource = Common.LEAGUES;
     fixture.detectChanges();
 
     fixture.whenStable().then(() => {
@@ -75,11 +59,11 @@ describe('LeaguesComponent', () => {
       expect(headerRow.cells[5].innerHTML).toBe('-');
 
       let row1 = tableRows[1];
-      expect(row1.cells[0].innerHTML).toEqual('Europa League');
+      expect(row1.cells[0].innerHTML).toEqual('First League');
       expect(row1.cells[1].innerHTML).toEqual(Gender.FEMALE);
       expect(row1.cells[2].innerHTML).toEqual('20');
-      expect(datePipe.transform(row1.cells[3].innerHTML,'yyyy-MM-dd')).toEqual(CommonMethods.getTodayDate());
-      expect(datePipe.transform(row1.cells[4].innerHTML,'yyyy-MM-dd')).toEqual(CommonMethods.getTodayDate());
+      expect(datePipe.transform(row1.cells[3].innerHTML,'yyyy-MM-dd')).toEqual(Common.getTodayDate());
+      expect(datePipe.transform(row1.cells[4].innerHTML,'yyyy-MM-dd')).toEqual(Common.getTodayDate());
 
       done();
     });

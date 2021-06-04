@@ -9,6 +9,7 @@ import {DatePipe} from "@angular/common";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
+import {Gender} from "../../../shared/models/gender.model";
 
 describe('AddLeagueComponent', () => {
   let component: AddLeagueComponent;
@@ -103,4 +104,17 @@ describe('AddLeagueComponent', () => {
     endDate.setValue("22/03/2021");
     expect(endDate.hasError('required')).toBeFalsy();
   });
+
+  it('form valid when create', ()=>{
+    component.form.controls['name'].setValue('name');
+    component.form.controls['gender'].setValue(Gender.FEMALE)
+    component.form.controls['maxCouples'].setValue(1);
+    component.form.controls['startDate'].setValue('2020-06-03');
+    component.form.controls['endDate'].setValue('2020-06-30');
+    expect(component.form.valid).toBeFalsy();
+    component.form.controls['maxCouples'].setValue(10);
+    component.submit();
+    expect(component.form.valid).toBeTruthy();
+  });
+
 });

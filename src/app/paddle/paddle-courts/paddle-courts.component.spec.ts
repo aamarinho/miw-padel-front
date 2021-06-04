@@ -15,15 +15,13 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AddUpdatePaddleCourtComponent} from "./add-update-paddle-court/add-update-paddle-court.component";
 import {NgxMaterialTimepickerModule} from "ngx-material-timepicker";
 
-const STARTTIMES: string[]= [ "12:00","14:00" ]
-const ENDTIMES: string[]= [ "14:00","16:00" ]
-
-const PADDLECOURTS: PaddleCourt[] = [
-  {id:'1',name:'PC 1',paddleCourtType:PaddleCourtType.OUTDOOR,startTimes:STARTTIMES,endTimes:ENDTIMES,disabled:false},
-  {id:'2',name:'PC 2',paddleCourtType:PaddleCourtType.INDOOR,startTimes:STARTTIMES,endTimes:ENDTIMES,disabled:true},
-]
-
 describe('PaddleCourtsComponent', () => {
+  const STARTTIMES: string[]= [ "12:00","14:00" ];
+  const ENDTIMES: string[]= [ "14:00","16:00" ];
+  const PADDLECOURTS: PaddleCourt[] = [
+    {id:'1',name:'PC 1',paddleCourtType:PaddleCourtType.OUTDOOR,startTimes:STARTTIMES,endTimes:ENDTIMES,disabled:false},
+    {id:'2',name:'PC 2',paddleCourtType:PaddleCourtType.INDOOR,startTimes:STARTTIMES,endTimes:ENDTIMES,disabled:true},
+  ];
   let component: PaddleCourtsComponent;
   let fixture: ComponentFixture<PaddleCourtsComponent>;
   let mockService: PaddleCourtService;
@@ -108,6 +106,5 @@ describe('PaddleCourtsComponent', () => {
     fixture.detectChanges();
     expect(spy).toHaveBeenCalledWith(PADDLECOURTS[0].name);
   });*/
-
 
 });

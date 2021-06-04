@@ -13,9 +13,8 @@ describe('PaddleCourtComponent', () => {
   const availabilityHours = new Map([
     ["10:00 - 12:00", true],
     ["12:00 - 14:00", false],
-  ])
-  const paddleCourtAvailabilityDto: PaddleCourtAvailabilityDto =
-    {name:'Paddle Court 3',date:new Date(),availabilityHours}
+  ]);
+  const paddleCourtAvailabilityDto: PaddleCourtAvailabilityDto = {name:'Paddle Court 3',date:new Date(),availabilityHours};
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

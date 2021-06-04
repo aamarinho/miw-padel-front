@@ -26,7 +26,7 @@
       </li>
     </ul>
     <div *ngIf="isAuthenticated()">
-      <mat-icon class="center cursor_pointer" (click)="openProfile()">person_outline</mat-icon>
+      <img class="profile_image mr-1" [src]="image" (click)="openProfile()" alt="profileImage" />
       <span>{{getUsername()}}</span>
       <mat-icon class="ml-1 center cursor_pointer" (click)="logout()">exit_to_app</mat-icon>
     </div>

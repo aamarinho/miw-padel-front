@@ -33,7 +33,7 @@ describe('BookingPaddlecourtComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should test the name of the couple request', (done)=>{
+  it('should test the title of the view', (done)=>{
     fixture.whenStable().then(() => {
       fixture.detectChanges();
 

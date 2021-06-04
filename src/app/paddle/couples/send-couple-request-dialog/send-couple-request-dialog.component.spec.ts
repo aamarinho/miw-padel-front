@@ -1,6 +1,5 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { SendCoupleRequestDialogComponent } from './send-couple-request-dialog.component';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {SendCoupleRequestDialogComponent} from './send-couple-request-dialog.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
 import {HttpClientTestingModule} from "@angular/common/http/testing";

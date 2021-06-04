@@ -4,7 +4,7 @@ import {MatSort} from "@angular/material/sort";
 import {BookingsService} from "./bookings.service";
 import {AuthService} from "../../core/auth.service";
 import {BookingDto} from "../../shared/models/bookingdto.model";
-import {CommonMethods} from "../../shared/common-methods";
+import {Common} from "../../shared/common";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {ConfirmationDialogComponent} from "../../shared/dialogs/confirmation-dialog/confirmation-dialog.component";
 
@@ -35,7 +35,7 @@ export class BookingsComponent implements OnInit{
     if(!this.authService.isAdmin()){
       this.getBookingByDate();
     } else{
-      this.getBookingByDate(CommonMethods.getTodayDate());
+      this.getBookingByDate(Common.getTodayDate());
     }
   }
 

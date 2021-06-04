@@ -32,8 +32,8 @@ export class AuthService {
       .pipe(
         map<any,any>(jsonToken => {
           const jwtHelper = new JwtHelperService();
-          this.user = jsonToken; // {token:jwt} => user.token = jwt
-          this.user.email = jwtHelper.decodeToken(jsonToken.token).sub;  // secret key is not necessary
+          this.user = jsonToken;
+          this.user.email = jwtHelper.decodeToken(jsonToken.token).sub;
           this.user.roles = jwtHelper.decodeToken(jsonToken.token).role;
 
           this.password = password;
@@ -43,9 +43,6 @@ export class AuthService {
         })
       );
   }
- /* onLogin(): Observable<User> {
-    return this.onLogin$.asObservable();
-  }*/
 
   logout(): void {
     this.user = {
@@ -67,14 +64,6 @@ export class AuthService {
   isAdmin(): boolean {
     return this.hasRoles([Role.ROLE_ADMIN]);
   }
-
-  /*untilManager(): boolean {
-    return this.hasRoles([Role.ADMIN, Role.MANAGER]);
-  }
-
-  untilOperator(): boolean {
-    return this.hasRoles([Role.ADMIN, Role.MANAGER, Role.OPERATOR]);
-  }*/
 
   isPlayer(): boolean {
     return this.hasRoles([Role.ROLE_PLAYER]);
