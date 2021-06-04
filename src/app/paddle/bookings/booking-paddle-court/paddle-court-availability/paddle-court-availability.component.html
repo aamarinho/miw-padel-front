@@ -13,7 +13,7 @@
   <ng-container matColumnDef="book">
     <th scope="col" class="header" mat-header-cell *matHeaderCellDef> - </th>
     <td mat-cell class="enabled numbers" [class.disabled]="!element.availability" *matCellDef="let element">
-      <button mat-raised-button [disabled]="!element.availability" type="button" (click)="book(element)" class="cancel_button">BOOK</button>
+      <button mat-raised-button [disabled]="!element.availability" type="button" (click)="book(element)" class="secondary_button">BOOK</button>
     </td>
   </ng-container>
 

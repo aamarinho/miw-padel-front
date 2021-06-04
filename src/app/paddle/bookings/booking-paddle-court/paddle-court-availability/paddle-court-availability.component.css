@@ -1,12 +1,3 @@
-.disabled{
-  background-color: darkred!important;
-}
-
-.enabled{
-  background-color: forestgreen;
-  color:white;
-}
-
 .background{
   color: white;
   background-color: #2d2929;

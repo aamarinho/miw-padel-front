@@ -13,11 +13,12 @@ html, body {
   height: 100%;
 }
 
-body{
-  background-image: url('assets/images/background.jpg');
+.bg-img{
+  background-image: url('assets/images/racket.png');
   background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
+  background-position: unset;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 table{
@@ -25,12 +26,22 @@ table{
 }
 
 .submit_button{
-  background: linear-gradient(to left, #C3DC19, #07d3dd);
+  background: linear-gradient(to right, #1c5253, #85a7a8);
+  color:white!important;
 }
 
 .cancel_button{
-  background-color: #2d2929;
-  color:white;
+  background-color: #393838;
+  color: white;
+}
+
+.primary_button{
+  background-color: #b6174b;
+  color:white!important;
+}
+
+.secondary_button{
+  background-color: #f3ffc6;
 }
 
 .cursor_pointer{
@@ -39,7 +50,7 @@ table{
 
 .header{
   font-size: 1.2em;
-  color: white;
+  color:white;
   background-color: #2d2929;
 }
 
@@ -52,12 +63,11 @@ table{
 }
 
 .disabled{
-  background-color: darkred!important;
+  background-color: #b6174b!important;
 }
 
 .enabled{
-  background-color: forestgreen;
-  color:white;
+  background-color: #c3eb78;
 }
 
 .timepicker-overlay {
@@ -69,7 +79,7 @@ table{
 }
 
 .couple{
-  border: 2px solid #07d3dd;
+  border: 2px solid #b6174b;
 }
 
 .profile_image{

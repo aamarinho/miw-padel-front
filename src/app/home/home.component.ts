@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    document.body.classList.add('bg-img');
     this.form = this.fb.group({
       email: new FormControl(this.email, [Validators.required, Validators.email]),
       password: new FormControl(this.password, [Validators.required, Validators.minLength(5), Validators.maxLength(14)])
@@ -35,9 +36,11 @@ export class HomeComponent implements OnInit {
   }
 
   login(): void {
-    this.authService.login(this.form.get('email')?.value,this.form.get('password')?.value).subscribe(()=>
-      this.router.navigate(['paddle']).then().finally(() => this.dialog.closeAll()) );
-  }
+    this.authService.login(this.form.get('email')?.value,this.form.get('password')?.value).subscribe(()=>{
+      document.body.classList.remove('bg-img');
+      this.router.navigate(['paddle']).then().finally(() => this.dialog.closeAll());
+    });
+    }
 
   register(): void {
     this.dialog.open(RegisterComponent, {

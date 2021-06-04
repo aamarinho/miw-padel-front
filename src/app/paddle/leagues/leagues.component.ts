@@ -31,6 +31,7 @@ export class LeaguesComponent implements OnInit {
 
   openCouples(couples: Couple[]) {
     this.dialog.open(CouplesLeagueComponent,{
+
       data: {
         data: couples
       }

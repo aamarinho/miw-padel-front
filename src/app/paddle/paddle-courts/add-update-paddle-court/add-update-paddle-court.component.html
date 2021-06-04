@@ -35,7 +35,7 @@
         </label>
         <button mat-raised-button type="button" class="hidden mb-1">Delete range time</button>
       </div>
-      <button mat-raised-button type="button" color="primary" (click)="add()">Add range time</button>
+      <button mat-raised-button type="button" class="primary_button" (click)="add()">Add range time</button>
     </div>
 
     <div formArrayName="endTimes" class="col-6">
@@ -66,6 +66,6 @@
 
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button class="submit_button" [disabled]="!form.valid" (click)="submit()">SUBMIT</button>
-  <button mat-button mat-dialog-close class="cancel_button">CANCEL</button>
+  <button mat-button class="primary_button" [disabled]="!form.valid" (click)="submit()">SUBMIT</button>
+  <button mat-button mat-dialog-close class="secondary_button">CANCEL</button>
 </mat-dialog-actions>

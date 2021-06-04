@@ -42,10 +42,10 @@ describe('CouplesLeagueComponent', () => {
       expect(allP.length).toBe(17);
 
       expect(allP[0].innerHTML).toEqual('COUPLES');
-      expect(allP[1].innerHTML).toEqual('player2@player.com');
-      expect(allP[2].innerHTML).toEqual('Player2 player2');
-      expect(allP[3].innerHTML).toEqual('player@player.com');
-      expect(allP[4].innerHTML).toEqual('Player player');
+      expect(allP[1].innerHTML).toEqual('player@player.com');
+      expect(allP[2].innerHTML).toEqual('Player player');
+      expect(allP[3].innerHTML).toEqual('player2@player.com');
+      expect(allP[4].innerHTML).toEqual('Player2 player2');
 
       done();
     });

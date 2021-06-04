@@ -6,40 +6,14 @@
 
 // define a real custom palette (using http://mcg.mbitson.com)
 $my-green: (
-  50: #F8FBE3,
-  100: #EDF5BA,
-  200: #E1EE8C,
-  300: #D5E75E,
-  400: #CCE13C,
-  500: #C3DC19,
-  600: #BDD816,
-  700: #B5D312,
-  800: #AECE0E,
-  900: #A1C508,
-  A100: #FCFFEF,
-  A200: #F1FFBC,
-  A400: #E6FF89,
-  A700: #E0FF6F,
+  500: #1c5253,
   contrast: (
-    50: $black-87-opacity,
-    100: $black-87-opacity,
-    200: $black-87-opacity,
-    300: $black-87-opacity,
-    400: $black-87-opacity,
     500: white,
-    600: white,
-    700: white,
-    800: white,
-    900: white,
-    A100: $black-87-opacity,
-    A200: $black-87-opacity,
-    A400: $black-87-opacity,
-    A700: white,
   )
 );
 
 $my-blue: (
-  500: #07d3dd,
+  500: #1c5253,
   contrast: (
     500: white,
   )

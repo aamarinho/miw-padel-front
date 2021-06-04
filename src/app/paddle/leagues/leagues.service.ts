@@ -1,23 +1,23 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpService} from "../../core/http.service";
-import {Observable, of} from "rxjs";
+import {Observable} from "rxjs";
 import {League} from "../../shared/models/league.model";
-import {Common} from "../../shared/common";
 
 @Injectable({
   providedIn: 'root'
 })
 export class LeaguesService {
 
-  url: string = 'https://miw-padel-back.herokuapp.com/paddle-court'
+  url: string = 'https://miw-padel-back.herokuapp.com/league'
 
   constructor(private httpService: HttpService) { }
 
   get(): Observable<League[]>{
-    return of(Common.LEAGUES);
+    return this.httpService.get(this.url);
   }
 
   create(league: League): Observable<League>{
-    return of(Common.LEAGUES[0]);
+    return this.httpService.successful('league successfully created')
+      .post(this.url,league);
   }
 }

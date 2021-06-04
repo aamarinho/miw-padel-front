@@ -1,5 +1,6 @@
 .menu{
-  background-color: #07d3dd !important;
+  background-color: #1c5253   !important;
+  color:white!important;
 }
 
 .center{
@@ -8,4 +9,8 @@
 
 .items{
   font-size: 1.2em;
+}
+
+.nav-link{
+  color:white!important;
 }
