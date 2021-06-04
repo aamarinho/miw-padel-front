@@ -9,5 +9,4 @@ export interface League {
   maxCouples: number;
   startDate: string | null;
   endDate: string | null;
-
 }

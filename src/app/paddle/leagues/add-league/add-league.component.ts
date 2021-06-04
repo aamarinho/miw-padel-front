@@ -41,7 +41,7 @@ export class AddLeagueComponent implements OnInit {
       startDate: this.datePipe.transform(this.getFormValue('startDate'), 'yyyy-MM-dd'),
       endDate: this.datePipe.transform(this.getFormValue('endDate'), 'yyyy-MM-dd')
     }
-    this.leaguesService.create(this.league).subscribe(result=>console.log(result));
+    this.leaguesService.create(this.league).subscribe(()=>console.log(""));
   }
 
   get getFormControl(){

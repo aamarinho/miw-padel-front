@@ -25,7 +25,6 @@ export class SendCoupleRequestDialogComponent implements OnInit {
   submit(): void{
     let emailDto: EmailDto = { email: this.form.get('email')?.value };
     this.couplesService.create(emailDto).subscribe(result=>console.log(result));
-    console.log();
   }
 
   get getFormControl(){
