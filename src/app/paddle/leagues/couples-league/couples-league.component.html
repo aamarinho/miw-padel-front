@@ -3,12 +3,14 @@
   <div class="mt-2" *ngFor="let couple of couples">
     <mat-card class="leaf">
       <mat-card-content>
-        <div class="row">
-          <div class="col-6 couple">
+        <div class="row pt-2">
+          <div class="col-6">
+            <img class="profile_image" [src]="couple.captainImage" alt="profileImage" />
             <p>{{couple.captainEmail}}</p>
             <p>{{couple.captainName}}</p>
           </div>
-          <div class="col-6 couple">
+          <div class="col-6">
+            <img class="profile_image" [src]="couple.playerImage" alt="profileImage" />
             <p>{{couple.playerEmail}}</p>
             <p>{{couple.playerName}}</p>
           </div>
@@ -17,3 +19,6 @@
     </mat-card>
   </div>
 </div>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close class="secondary_button">CANCEL</button>
+</mat-dialog-actions>

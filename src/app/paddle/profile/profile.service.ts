@@ -8,17 +8,17 @@ import {HttpService} from "../../core/http.service";
 })
 export class ProfileService {
 
-  url: string = 'https://miw-padel-back.herokuapp.com/user/image';
+  url: string = 'https://miw-padel-back.herokuapp.com/user/photo';
 
   constructor(private http: HttpClient, private httpService: HttpService) {
   }
 
   getImage(email: string | undefined): Observable<Blob>{
-    return this.http.get(this.url,{responseType: 'blob'});
+    return this.http.get(this.url+'?email='+email,{responseType: 'blob'});
   }
 
   setImage(formData: FormData): Observable<any>{
-    return this.httpService.post('https://miw-padel-back.herokuapp.com/user/register/photo',formData);
+    return this.httpService.post(this.url,formData);
   }
 
 }

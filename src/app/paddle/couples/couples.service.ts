@@ -19,17 +19,18 @@ export class CouplesService {
   }
 
   create(emailDto: EmailDto): Observable<Couple> {
-    return this.httpService.successful('request successfully sent')
+    return this.httpService.successful('Request successfully sent')
       .post(this.url,emailDto);
   }
 
   accept(idDto: IdDto): Observable<Couple> {
     return this.httpService
+      .successful('Request successfully accepted')
       .post(this.url+'/acceptance',idDto)
   }
 
   decline(id: string): Observable<Couple> {
-    return this.httpService.successful('request successfully rejected')
+    return this.httpService.successful('Request successfully rejected')
       .param("id",id)
       .delete(this.url);
   }

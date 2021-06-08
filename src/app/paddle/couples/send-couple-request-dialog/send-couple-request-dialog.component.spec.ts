@@ -5,6 +5,7 @@ import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {RouterTestingModule} from "@angular/router/testing";
+import {MatDialogRef} from "@angular/material/dialog";
 
 describe('SendCoupleRequestDialogComponent', () => {
   let component: SendCoupleRequestDialogComponent;
@@ -20,6 +21,9 @@ describe('SendCoupleRequestDialogComponent', () => {
         RouterTestingModule
       ],
       declarations: [ SendCoupleRequestDialogComponent ],
+      providers: [
+        { provide: MatDialogRef, useValue: {} },
+      ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();

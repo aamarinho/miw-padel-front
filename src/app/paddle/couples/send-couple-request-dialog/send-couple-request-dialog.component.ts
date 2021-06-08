@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {CouplesService} from "../couples.service";
 import {EmailDto} from "../../../shared/models/emaildto.model";
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-send-couple-request-dialog',
@@ -12,7 +13,9 @@ export class SendCoupleRequestDialogComponent implements OnInit {
   form!: FormGroup;
   email: string;
 
-  constructor(private fb: FormBuilder, private couplesService: CouplesService) {
+  constructor(private fb: FormBuilder,
+              private couplesService: CouplesService,
+              private dialogRef: MatDialogRef<SendCoupleRequestDialogComponent>) {
     this.email = '';
   }
 
@@ -22,9 +25,9 @@ export class SendCoupleRequestDialogComponent implements OnInit {
     });
   }
 
-  submit(): void{
+  submit(): void {
     let emailDto: EmailDto = { email: this.form.get('email')?.value };
-    this.couplesService.create(emailDto).subscribe(result=>console.log(result));
+    this.couplesService.create(emailDto).subscribe(()=>this.dialogRef.close());
   }
 
   get getFormControl(){

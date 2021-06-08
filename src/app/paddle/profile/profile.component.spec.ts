@@ -1,9 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { ProfileComponent } from './profile.component';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {ProfileComponent} from './profile.component';
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {RouterTestingModule} from "@angular/router/testing";
+import {MatDialogRef} from "@angular/material/dialog";
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -16,7 +16,10 @@ describe('ProfileComponent', () => {
         MatSnackBarModule,
         RouterTestingModule
       ],
-      declarations: [ ProfileComponent ]
+      declarations: [ ProfileComponent ],
+      providers:[
+        { provide: MatDialogRef, useValue: {} },
+      ]
     })
     .compileComponents();
   });
@@ -29,5 +32,16 @@ describe('ProfileComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('correct title', () => {
+    expect(fixture.debugElement.nativeElement.querySelector('p').innerText).toEqual('COMPLETE THE PROFILE');
+  });
+
+  it('button disabled when not image', () => {
+    expect(fixture.debugElement.nativeElement.querySelector('button').disabled).toBeTruthy();
+    component.imageBack = "file.png";
+    fixture.detectChanges();
+    expect(fixture.debugElement.nativeElement.querySelector('button').disabled).toBeFalsy();
   });
 });

@@ -65,6 +65,7 @@ describe('CouplesComponent', () => {
     });
 
     component.ngOnInit();
+    fixture.detectChanges();
     expect(component.couples).toEqual(Common.CONSOLIDATED_COUPLES);
   });
 

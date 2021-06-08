@@ -4,6 +4,10 @@ import {Couple} from "../../../shared/models/couple.model";
 import {CoupleState} from "../../../shared/models/couplestate.model";
 import {AuthService} from "../../../core/auth.service";
 import {IdDto} from "../../../shared/models/iddto.model";
+import {ProfileService} from "../../profile/profile.service";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {ConfirmationDialogComponent} from "../../../shared/dialogs/confirmation-dialog/confirmation-dialog.component";
+import {Common} from "../../../shared/common";
 
 @Component({
   selector: 'app-pending-couple-requests-dialog',
@@ -14,7 +18,11 @@ export class PendingCoupleRequestsDialogComponent implements OnInit {
 
   couples: Couple[];
 
-  constructor(private couplesService: CouplesService, private authService: AuthService) {
+  constructor(private couplesService: CouplesService,
+              private profileService: ProfileService,
+              private dialogRef: MatDialogRef<ConfirmationDialogComponent>,
+              private dialog: MatDialog,
+              public authService: AuthService) {
     this.couples = new Array<Couple>();
   }
 
@@ -22,21 +30,29 @@ export class PendingCoupleRequestsDialogComponent implements OnInit {
     this.couplesService.get().subscribe(result=>{
       this.couples = result;
       this.couples = this.couples.filter(couple=>couple.coupleState==CoupleState.PENDING && couple.captainEmail!=this.authService.getEmail());
+      this.couples.forEach(couple => {
+        couple.captainImage = "../../../assets/images/default.png";
+        Common.getCaptainImageAndPut(this.profileService,couple);
+      });
     });
   }
 
   accept(couple: Couple) {
     let idDto : IdDto = { id: couple.id };
-    this.couplesService.accept(idDto).subscribe(result=>{
-      this.ngOnInit();
-      console.log(result);
-    });
+    this.couplesService.accept(idDto).subscribe(()=> this.ngOnInit());
   }
 
   decline(couple: Couple) {
-    this.couplesService.decline(couple.id).subscribe(result=>{
-      this.ngOnInit();
-      console.log(result);
+    this.dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      disableClose: false
+    });
+    this.dialogRef.componentInstance.confirmMessage = "Are you sure you want to decline?";
+
+    this.dialogRef.afterClosed().subscribe(result=> {
+      if(result)
+        this.couplesService.decline(couple.id).subscribe(()=> this.ngOnInit());
+      this.dialogRef.close();
     });
   }
+
 }

@@ -1,11 +1,12 @@
 <p class="titles">PENDING COUPLE REQUESTS</p>
 <mat-dialog-content class="mt-4">
   <div *ngFor="let couple of couples">
-    <div class="row">
-      <div class="col-9">
+    <div class="row group">
+      <div class="col-8">
+        <img class="profile_image" [src]="couple.captainImage" alt="profileImage" />
         <p>{{couple.captainName}}</p>
       </div>
-      <div class="col-3">
+      <div class="col-4">
         <mat-icon (click)="accept(couple)" class="cursor_pointer titles">check_circle_outline</mat-icon>
         <mat-icon (click)="decline(couple)" class="cursor_pointer titles">highlight_off</mat-icon>
       </div>

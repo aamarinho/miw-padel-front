@@ -10,6 +10,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {DatePipe} from "@angular/common";
 import {Gender} from "../../shared/models/gender.model";
+import {MatDialogRef} from "@angular/material/dialog";
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -30,7 +31,10 @@ describe('RegisterComponent', () => {
       declarations: [
         RegisterComponent
       ],
-      providers: [DatePipe],
+      providers: [
+        DatePipe,
+        { provide: MatDialogRef, useValue: {} },
+      ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
@@ -91,7 +95,7 @@ describe('RegisterComponent', () => {
     gender.setValue("");
     expect(gender.hasError('required')).toBeTruthy();
 
-    gender.setValue("FEMALE");
+    gender.setValue(Gender.FEMALE);
     expect(gender.hasError('required')).toBeFalsy();
   });
 

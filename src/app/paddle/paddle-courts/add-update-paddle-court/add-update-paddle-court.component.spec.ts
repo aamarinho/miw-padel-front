@@ -6,7 +6,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {RouterTestingModule} from "@angular/router/testing";
 import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
 import {NgxMaterialTimepickerModule} from "ngx-material-timepicker";
-import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {PaddleCourtType} from "../../../shared/models/paddlecourttype.model";
 
 describe('AddPaddleCourtComponent', () => {
@@ -26,6 +26,7 @@ describe('AddPaddleCourtComponent', () => {
       declarations: [ AddUpdatePaddleCourtComponent ],
       providers: [
         { provide: MAT_DIALOG_DATA, useValue: {} },
+        { provide: MatDialogRef, useValue: {} },
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })

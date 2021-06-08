@@ -14,6 +14,7 @@ import {HttpService} from "./http.service";
 export class AuthService {
   static END_POINT = "https://miw-padel-back.herokuapp.com/user/login";
   private user: User;
+  image: any;
   password: any = undefined;
   private onLogin$ = new Subject<User>();
 
@@ -23,6 +24,7 @@ export class AuthService {
       email: "",
       roles: []
     }
+    this.image = "../../assets/images/default.png";
   }
 
   login(email: string, password: string): Observable<User> {
@@ -69,6 +71,10 @@ export class AuthService {
     return this.hasRoles([Role.ROLE_PLAYER]);
   }
 
+  getImage(): any {
+    return this.image;
+  }
+
   getEmail(): string | undefined {
     return this.user ? this.user.email : undefined;
   }
@@ -83,6 +89,16 @@ export class AuthService {
 
   getPassword(): string{
     return this.user ? this.password : undefined;
+  }
+
+  setImage(image:any): void{
+    let reader = new FileReader();
+    reader.addEventListener("load",()=>{
+      this.image = reader.result;
+    },false);
+    if(image) {
+      reader.readAsDataURL(image);
+    }
   }
 
   setEmail(email: string): void {

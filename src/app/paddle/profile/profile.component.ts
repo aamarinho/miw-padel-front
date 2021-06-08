@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {ProfileService} from "./profile.service";
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-profile',
@@ -9,14 +10,15 @@ export class ProfileComponent{
 
   imageBack:any;
 
-  constructor(private profileService: ProfileService) {
+  constructor(private profileService: ProfileService, private dialogRef: MatDialogRef<ProfileComponent>) {
   }
 
   submit() {
     let formData = new FormData();
     formData.append('file',this.imageBack);
-    this.profileService.setImage(formData).subscribe(result=>console.log(result));
-
+    this.profileService.setImage(formData).subscribe(()=>{
+      this.dialogRef.close();
+    });
   }
 
   onSelectedFile($event: any) {

@@ -9,8 +9,9 @@ export interface Couple {
   playerName: string;
   coupleState: CoupleState;
   gender: Gender;
-  creationDate: Date
-
+  creationDate: Date;
+  captainImage?: any;
+  playerImage?: any
 }
 
 

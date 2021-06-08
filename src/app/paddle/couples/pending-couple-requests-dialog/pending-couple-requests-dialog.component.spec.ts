@@ -5,6 +5,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {RouterTestingModule} from "@angular/router/testing";
 import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
 import {Common} from "../../../shared/common";
+import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 
   describe('PendingCoupleRequestsDialogComponent', () => {
   let component: PendingCoupleRequestsDialogComponent;
@@ -16,8 +17,12 @@ import {Common} from "../../../shared/common";
         HttpClientTestingModule,
         MatSnackBarModule,
         RouterTestingModule,
+        MatDialogModule
       ],
       declarations: [ PendingCoupleRequestsDialogComponent ],
+      providers: [
+        { provide: MatDialogRef, useValue: {} },
+      ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();

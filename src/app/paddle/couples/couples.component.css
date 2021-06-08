@@ -2,7 +2,6 @@
   width: 100%;
 }
 
-.card-title{
-  text-decoration: underline;
-  text-decoration-color: #07d3dd;
+.underlined{
+  border-bottom: 1px solid #1c5253;
 }

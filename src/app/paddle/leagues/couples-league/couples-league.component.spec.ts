@@ -3,6 +3,9 @@ import {CouplesLeagueComponent} from './couples-league.component';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
 import {Common} from "../../../shared/common";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {RouterTestingModule} from "@angular/router/testing";
 
 describe('CouplesLeagueComponent', () => {
   let component: CouplesLeagueComponent;
@@ -11,9 +14,12 @@ describe('CouplesLeagueComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports:[
+        HttpClientTestingModule,
+        MatSnackBarModule,
+        RouterTestingModule
       ],
       providers: [
-        { provide: MAT_DIALOG_DATA, useValue: {} },
+        { provide: MAT_DIALOG_DATA, useValue: {data:Common.CONSOLIDATED_COUPLES} },
       ],
       declarations: [ CouplesLeagueComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
@@ -32,7 +38,7 @@ describe('CouplesLeagueComponent', () => {
   });
 
   it('should test the mat card', (done)=>{
-    component.couples = Common.CONSOLIDATED_COUPLES;
+    //component.couples = Common.CONSOLIDATED_COUPLES;
     fixture.detectChanges();
 
     fixture.whenStable().then(() => {

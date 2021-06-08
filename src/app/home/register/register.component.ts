@@ -5,6 +5,7 @@ import { User } from "../../shared/models/user.model";
 import { HomeService } from "../home.service";
 import { Role } from "../../core/role.model";
 import {DatePipe} from "@angular/common";
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(private homeService: HomeService,
               private fb: FormBuilder,
-              public datePipe: DatePipe) {
+              private datePipe: DatePipe,
+              private dialogRef: MatDialogRef<RegisterComponent>) {
     this.genders = Object.values(Gender).filter(gender=>gender!=Gender.MIXED);
   }
 
@@ -44,7 +46,7 @@ export class RegisterComponent implements OnInit {
       birthDate: this.datePipe.transform(this.getFormValue('birthDate'), 'yyyy-MM-dd')
     }
     this.homeService.register(this.user).subscribe(
-      result=>console.log(result),
+      ()=> this.dialogRef.close(),
       error => console.log(error));
   }
 

@@ -3,7 +3,7 @@ import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angul
 import {PaddleCourt} from "../../../shared/models/paddlecourt.model";
 import {PaddleCourtType} from "../../../shared/models/paddlecourttype.model";
 import {PaddleCourtService} from "../paddle-court.service";
-import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-add-update-paddle-court',
@@ -19,7 +19,8 @@ export class AddUpdatePaddleCourtComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private paddleCourtService: PaddleCourtService,
-              @Inject(MAT_DIALOG_DATA) data: any) {
+              @Inject(MAT_DIALOG_DATA) data: any,
+              private dialogRef: MatDialogRef<AddUpdatePaddleCourtComponent>) {
     this.paddleCourtType = Object.values(PaddleCourtType);
     this.paddleCourt = data.data ? data.data : {} as PaddleCourt;
     this.isAdd = data.add;
@@ -42,16 +43,6 @@ export class AddUpdatePaddleCourtComponent implements OnInit {
     }
   }
 
-  add(): void {
-    this.startTimes.push(this.fb.group({start:''}));
-    this.endTimes.push(this.fb.group({end:''}));
-  }
-
-  delete(index:number): void {
-    this.startTimes.removeAt(index);
-    this.endTimes.removeAt(index);
-  }
-
   submit(): void {
     this.getPaddleCourt();
     if(this.isAdd)
@@ -61,8 +52,8 @@ export class AddUpdatePaddleCourtComponent implements OnInit {
   }
 
   getPaddleCourt(): void{
-    let startTimesArray=new Array<string>();
-    let endTimesArray=new Array<string>();
+    let startTimesArray = new Array<string>();
+    let endTimesArray = new Array<string>();
     for(let i=0; i<this.startTimes.value.length; i++){
       startTimesArray.push(this.startTimes.value[i].start);
       endTimesArray.push(this.endTimes.value[i].end);
@@ -78,11 +69,21 @@ export class AddUpdatePaddleCourtComponent implements OnInit {
   }
 
   create(): void{
-    this.paddleCourtService.create(this.paddleCourt).subscribe(result=>console.log(result));
+    this.paddleCourtService.create(this.paddleCourt).subscribe(()=>this.dialogRef.close());
   }
 
   update(): void{
-    this.paddleCourtService.update(this.paddleCourt).subscribe(result=>console.log(result));
+    this.paddleCourtService.update(this.paddleCourt).subscribe(()=>this.dialogRef.close());
+  }
+
+  add(): void {
+    this.startTimes.push(this.fb.group({start:''}));
+    this.endTimes.push(this.fb.group({end:''}));
+  }
+
+  delete(index: number): void {
+    this.startTimes.removeAt(index);
+    this.endTimes.removeAt(index);
   }
 
   get startTimes() {

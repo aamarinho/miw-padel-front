@@ -1,37 +1,31 @@
-import { Component } from '@angular/core';
-import { AuthService } from "../core/auth.service";
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from "../core/auth.service";
 import {Router} from "@angular/router";
 import {ProfileService} from "./profile/profile.service";
+import {MatDialog} from "@angular/material/dialog";
+import {ProfileComponent} from "./profile/profile.component";
 
 @Component({
   selector: 'app-paddle',
   templateUrl: './paddle.component.html',
   styleUrls: ['./paddle.component.css']
 })
-export class PaddleComponent {
+export class PaddleComponent implements OnInit{
 
-  isShown:boolean = false;
-  image:any;
+  isShown: boolean = false;
 
-  constructor(private authService: AuthService,
+  constructor(public authService: AuthService,
               private router: Router,
-              private profileService: ProfileService) {
+              private profileService: ProfileService,
+              private dialog: MatDialog) {
+  }
+
+  ngOnInit(): void {
     this.getImage();
   }
 
   getImage(){
-    this.profileService.getImage(this.authService.getEmail()).subscribe(result=>{
-     this.createImageFromBlob(result);
-    });
-  }
-
-  createImageFromBlob(image: Blob) {
-    let reader = new FileReader();
-    reader.addEventListener("load",()=>{
-      this.image = reader.result;
-    },false);
-    if(image)
-      reader.readAsDataURL(image);
+    this.profileService.getImage(this.authService.getEmail()).subscribe( result=> this.authService.setImage(result));
   }
 
   isAuthenticated(): boolean {
@@ -52,9 +46,10 @@ export class PaddleComponent {
 
   logout() {
     this.authService.logout();
+    this.authService.image = "../../assets/images/default.png";
   }
 
   openProfile() {
-    this.router.navigate(["/paddle/profile"]);
+    this.dialog.open(ProfileComponent).afterClosed().subscribe(()=> this.ngOnInit());
   }
 }

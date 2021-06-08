@@ -48,7 +48,7 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should call register', () => {
+  it('should open register', () => {
     component.register();
     fixture.detectChanges();
     const labels = document.getElementsByTagName('mat-label') as HTMLCollectionOf<HTMLLabelElement>;

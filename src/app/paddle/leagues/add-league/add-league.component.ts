@@ -4,6 +4,7 @@ import {LeaguesService} from "../leagues.service";
 import {League} from "../../../shared/models/league.model";
 import {Gender} from "../../../shared/models/gender.model";
 import {DatePipe} from "@angular/common";
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-add-update-league',
@@ -17,7 +18,8 @@ export class AddLeagueComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private leaguesService: LeaguesService,
-              private datePipe: DatePipe) {
+              private datePipe: DatePipe,
+              private dialogRef: MatDialogRef<AddLeagueComponent>) {
     this.genders = Object.values(Gender);
     this.league = {} as League;
   }
@@ -41,7 +43,7 @@ export class AddLeagueComponent implements OnInit {
       startDate: this.datePipe.transform(this.getFormValue('startDate'), 'yyyy-MM-dd'),
       endDate: this.datePipe.transform(this.getFormValue('endDate'), 'yyyy-MM-dd')
     }
-    this.leaguesService.create(this.league).subscribe(()=>console.log(""));
+    this.leaguesService.create(this.league).subscribe(()=>this.dialogRef.close());
   }
 
   get getFormControl(){

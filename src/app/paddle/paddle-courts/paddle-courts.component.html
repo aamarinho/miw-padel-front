@@ -26,7 +26,7 @@
 
   <ng-container matColumnDef="delete">
     <th scope="col" mat-header-cell class="header" *matHeaderCellDef> - </th>
-    <td mat-cell class="font_size_higher" *matCellDef="let row"><mat-icon class="cursor_pointer" (click)="delete(row)">delete_outline</mat-icon></td>
+    <td mat-cell class="font_size_higher" *matCellDef="let row"><mat-icon class="cursor_pointer pink" (click)="delete(row)">delete_outline</mat-icon></td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

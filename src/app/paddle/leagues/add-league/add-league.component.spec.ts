@@ -4,7 +4,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {RouterTestingModule} from "@angular/router/testing";
-import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {MatDialogRef} from "@angular/material/dialog";
 import {DatePipe} from "@angular/common";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
@@ -28,7 +28,7 @@ describe('AddLeagueComponent', () => {
       ],
       declarations: [ AddLeagueComponent ],
       providers:[
-        { provide: MAT_DIALOG_DATA, useValue: {} },
+        { provide: MatDialogRef, useValue: {} },
         DatePipe
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
@@ -68,7 +68,7 @@ describe('AddLeagueComponent', () => {
     gender.setValue("");
     expect(gender.hasError('required')).toBeTruthy();
 
-    gender.setValue("Valid gender");
+    gender.setValue(Gender.MIXED);
     expect(gender.hasError('required')).toBeFalsy();
   });
 
@@ -79,8 +79,12 @@ describe('AddLeagueComponent', () => {
     maxCouples.setValue("");
     expect(maxCouples.hasError('required')).toBeTruthy();
 
+    maxCouples.setValue(1);
+    expect(maxCouples.hasError('min')).toBeTruthy();
+
     maxCouples.setValue(22);
     expect(maxCouples.hasError('required')).toBeFalsy();
+    expect(maxCouples.hasError('min')).toBeFalsy();
   });
 
   it('start date field validity', () => {

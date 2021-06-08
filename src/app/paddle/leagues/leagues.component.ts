@@ -31,16 +31,14 @@ export class LeaguesComponent implements OnInit {
 
   openCouples(couples: Couple[]) {
     this.dialog.open(CouplesLeagueComponent,{
-
       data: {
         data: couples
       }
-
     }).afterClosed().subscribe(result=>console.log(result));
   }
 
   openAddLeague() {
-    this.dialog.open(AddLeagueComponent).afterClosed().subscribe(()=>console.log("close add league"));
+    this.dialog.open(AddLeagueComponent).afterClosed().subscribe(()=>this.ngOnInit());
   }
 
   isAdmin(): boolean{
