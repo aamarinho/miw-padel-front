@@ -4,10 +4,9 @@ import {Couple} from "../../../shared/models/couple.model";
 import {CoupleState} from "../../../shared/models/couplestate.model";
 import {AuthService} from "../../../core/auth.service";
 import {IdDto} from "../../../shared/models/iddto.model";
-import {ProfileService} from "../../profile/profile.service";
+import {ProfileService} from "../../../shared/services/profile.service";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {ConfirmationDialogComponent} from "../../../shared/dialogs/confirmation-dialog/confirmation-dialog.component";
-import {Common} from "../../../shared/common";
 
 @Component({
   selector: 'app-pending-couple-requests-dialog',
@@ -32,7 +31,7 @@ export class PendingCoupleRequestsDialogComponent implements OnInit {
       this.couples = this.couples.filter(couple=>couple.coupleState==CoupleState.PENDING && couple.captainEmail!=this.authService.getEmail());
       this.couples.forEach(couple => {
         couple.captainImage = "../../../assets/images/default.png";
-        Common.getCaptainImageAndPut(this.profileService,couple);
+        this.profileService.getCaptainImageAndPut(couple);
       });
     });
   }

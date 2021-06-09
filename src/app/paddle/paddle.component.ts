@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../core/auth.service";
 import {Router} from "@angular/router";
-import {ProfileService} from "./profile/profile.service";
+import {ProfileService} from "../shared/services/profile.service";
 import {MatDialog} from "@angular/material/dialog";
 import {ProfileComponent} from "./profile/profile.component";
 

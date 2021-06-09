@@ -1,8 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {Couple} from "../../../shared/models/couple.model";
-import {Common} from "../../../shared/common";
-import {ProfileService} from "../../profile/profile.service";
+import {ProfileService} from "../../../shared/services/profile.service";
 
 @Component({
   selector: 'app-couples-league',
@@ -19,8 +18,8 @@ export class CouplesLeagueComponent implements OnInit{
   ngOnInit() {
     this.couples.forEach(couple => {
       couple.captainImage = couple.playerImage = "../../../assets/images/default.png";
-      Common.getCaptainImageAndPut(this.profileService,couple);
-      Common.getPlayerImageAndPut(this.profileService,couple);
+      this.profileService.getCaptainImageAndPut(couple);
+      this.profileService.getPlayerImageAndPut(couple);
     });
   }
 

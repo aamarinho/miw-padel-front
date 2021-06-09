@@ -2,7 +2,6 @@ import {Couple} from "./models/couple.model";
 import {CoupleState} from "./models/couplestate.model";
 import {Gender} from "./models/gender.model";
 import {League} from "./models/league.model";
-import {ProfileService} from "../paddle/profile/profile.service";
 
 export class Common {
 
@@ -32,25 +31,5 @@ export class Common {
     let yyyy = today.getFullYear();
 
     return yyyy + '-' + mm + '-' + dd;
-  }
-
-  static getPlayerImageAndPut(profileService: ProfileService,couple: Couple){
-    profileService.getImage(couple.playerEmail).subscribe(image => {
-      let reader = new FileReader();
-      reader.addEventListener("load", () =>
-        couple.playerImage = reader.result, false);
-      if(image)
-        reader.readAsDataURL(image);
-    });
-  }
-
-  static getCaptainImageAndPut(profileService: ProfileService, couple: Couple){
-    profileService.getImage(couple.captainEmail).subscribe(image => {
-      let reader = new FileReader();
-      reader.addEventListener("load", () =>
-        couple.captainImage = reader.result, false);
-      if(image)
-        reader.readAsDataURL(image);
-    });
   }
 }

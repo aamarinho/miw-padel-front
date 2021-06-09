@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ProfileService} from "./profile.service";
+import {ProfileService} from "../../shared/services/profile.service";
 import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({

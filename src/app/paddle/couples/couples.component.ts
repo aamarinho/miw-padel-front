@@ -6,8 +6,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {PendingCoupleRequestsDialogComponent} from "./pending-couple-requests-dialog/pending-couple-requests-dialog.component";
 import {SendCoupleRequestDialogComponent} from "./send-couple-request-dialog/send-couple-request-dialog.component";
 import {CoupleState} from "../../shared/models/couplestate.model";
-import {ProfileService} from "../profile/profile.service";
-import {Common} from "../../shared/common";
+import {ProfileService} from "../../shared/services/profile.service";
 
 @Component({
   selector: 'app-couples',
@@ -31,8 +30,8 @@ export class CouplesComponent implements OnInit {
       this.couples = this.couples.filter(couple=>couple.coupleState==CoupleState.CONSOLIDATED)
       this.couples.forEach(couple => {
         couple.captainImage = couple.playerImage = "../../../assets/images/default.png";
-        Common.getCaptainImageAndPut(this.profileService,couple);
-        Common.getPlayerImageAndPut(this.profileService,couple);
+        this.profileService.getCaptainImageAndPut(couple);
+        this.profileService.getPlayerImageAndPut(couple);
       });
     });
   }
