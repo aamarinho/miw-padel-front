@@ -14,10 +14,10 @@ html, body {
 }
 
 .bg-img{
-  background-image: url('assets/images/racket.png');
+  background-image: url('assets/images/racket.jpg');
   background-attachment: fixed;
   background-position: unset;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
@@ -25,27 +25,18 @@ table{
   width: 100%;
 }
 
-.pink{
-  color:#b6174b;
+.purple{
+  color:#493548;
 }
 
 .submit_button{
-  background: linear-gradient(to right, #b6174b, #bd748c);
+  background: linear-gradient(to right, #5c80bc, #70a9a1);
   color:white!important;
 }
 
 .cancel_button{
-  background-color: #393838;
+  background-color: #1f363d;
   color: white;
-}
-
-.primary_button{
-  background-color: #b6174b;
-  color:white!important;
-}
-
-.secondary_button{
-  background-color: #f3ffc6;
 }
 
 .cursor_pointer{
@@ -67,11 +58,11 @@ table{
 }
 
 .disabled{
-  background-color: #b6174b!important;
+  background-color: #493548!important;
 }
 
 .enabled{
-  background-color: #c3eb78;
+  background-color: #cfe0c3;
 }
 
 .timepicker-overlay {

@@ -14,12 +14,15 @@ import {AuthService} from "../../core/auth.service";
 export class LeaguesComponent implements OnInit {
 
   displayedColumns: string[];
-  dataSource:League[];
+  dataSource: League[];
 
   constructor(private leaguesService: LeaguesService, private dialog: MatDialog, private authService: AuthService) {
-    this.displayedColumns = ['name','gender','maxCouples','startDate','endDate','signUp'];
-    if(this.isAdmin())
-      this.displayedColumns.push('couples');
+
+    if(this.isAdmin()) {
+      this.displayedColumns = ['name','gender','maxCouples','startDate','endDate','couples'];
+    } else{
+      this.displayedColumns = ['name','gender','maxCouples','startDate','endDate','signUp'];
+    }
     this.dataSource = new Array<League>();
   }
 

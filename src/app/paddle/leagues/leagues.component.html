@@ -1,6 +1,6 @@
 <div class="row mb-4">
   <p class="titles col-10">LEAGUES</p>
-  <button *ngIf="isAdmin()" mat-raised-button class="primary_button" (click)="openAddLeague()">ADD LEAGUE</button>
+  <button *ngIf="isAdmin()" mat-raised-button color="accent" (click)="openAddLeague()">ADD LEAGUE</button>
 </div>
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" aria-describedby="paddleCourts">
 
@@ -31,13 +31,13 @@
 
   <ng-container matColumnDef="signUp">
     <th scope="col" mat-header-cell class="header" *matHeaderCellDef>-</th>
-    <td mat-cell class="font_size_higher" *matCellDef="let row"><button mat-raised-button type="button" class="secondary_button">SIGN UP</button></td>
+    <td mat-cell class="font_size_higher" *matCellDef="let row"><button mat-raised-button color="primary" type="button">SIGN UP</button></td>
   </ng-container>
 
   <ng-container matColumnDef="couples">
     <th scope="col" mat-header-cell class="header" *matHeaderCellDef>COUPLES</th>
     <td mat-cell class="font_size_higher" *matCellDef="let row">
-      <mat-icon class="cursor_pointer" (click)="openCouples(row.couples)">group</mat-icon>
+      <mat-icon class="cursor_pointer purple" (click)="openCouples(row.couples)">group</mat-icon>
     </td>
   </ng-container>
 

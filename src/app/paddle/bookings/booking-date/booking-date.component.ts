@@ -8,10 +8,12 @@ import {DatePipe} from "@angular/common";
 export class BookingDateComponent {
 
   date: Date;
+  minDate: Date;
   @Output() newItemEvent = new EventEmitter<any>();
 
   constructor(private datePipe: DatePipe) {
     this.date = new Date();
+    this.minDate = new Date();
   }
   submit() {
     let transformDate = this.datePipe.transform(this.date, 'yyyy-MM-dd');

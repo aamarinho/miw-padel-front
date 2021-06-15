@@ -1,6 +1,6 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {ConfirmationDialogComponent} from './confirmation-dialog.component';
-import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 
 describe('ConfirmationDialogComponent', () => {
   let component: ConfirmationDialogComponent;
@@ -11,10 +11,8 @@ describe('ConfirmationDialogComponent', () => {
       imports: [MatDialogModule],
       declarations: [ ConfirmationDialogComponent ],
       providers: [
-        {
-          provide: MatDialogRef,
-          useValue: {}
-        },
+        { provide: MatDialogRef, useValue: {} },
+        { provide: MAT_DIALOG_DATA, useValue: "Are you sure you want to delete?" },
       ]
     })
     .compileComponents();
@@ -28,5 +26,9 @@ describe('ConfirmationDialogComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should test the message', () => {
+    expect(component.confirmMessage).toEqual("Are you sure you want to delete?");
   });
 });

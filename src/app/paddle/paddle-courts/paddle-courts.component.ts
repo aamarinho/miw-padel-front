@@ -38,6 +38,7 @@ export class PaddleCourtsComponent implements OnInit {
 
   openUpdatePaddleCourt(row: PaddleCourt): void{
     this.dialog.open(AddUpdatePaddleCourtComponent, {
+      maxWidth:'700px',
       data: {
         add: false,
         data: row
@@ -47,9 +48,9 @@ export class PaddleCourtsComponent implements OnInit {
 
   delete(row: PaddleCourt): void {
     this.dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: "Are you sure you want to delete?",
       disableClose: false
     });
-    this.dialogRef.componentInstance.confirmMessage = "Are you sure you want to delete?";
 
     this.dialogRef.afterClosed().subscribe(result=> {
       if(result){

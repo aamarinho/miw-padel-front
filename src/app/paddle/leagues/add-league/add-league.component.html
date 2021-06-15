@@ -62,6 +62,6 @@
 
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button class="primary_button" [disabled]="!form.valid" (click)="submit()">SUBMIT</button>
-  <button mat-button mat-dialog-close class="secondary_button">CANCEL</button>
+  <button mat-raised-button color="accent" [disabled]="!form.valid" (click)="submit()">SUBMIT</button>
+  <button mat-raised-button mat-dialog-close color="primary">CANCEL</button>
 </mat-dialog-actions>

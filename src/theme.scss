@@ -5,22 +5,22 @@
 @include mat-core();
 
 // define a real custom palette (using http://mcg.mbitson.com)
-$my-green: (
-  500: #1c5253,
+$my-purple: (
+  500: #493548,
   contrast: (
     500: white,
   )
 );
 
-$my-blue: (
-  500: #1c5253,
+$my-green: (
+  500: #cfe0c3,
   contrast: (
-    500: white,
+    500: black,
   )
 );
 
 // mandatory stuff for theming
-$bv-palette-primary: mat-palette($my-blue);
+$bv-palette-primary: mat-palette($my-purple);
 $bv-palette-accent:  mat-palette($my-green);
 
 // include the custom theme components into a theme object

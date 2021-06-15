@@ -1,6 +1,6 @@
 <div class="row mb-4">
   <p class="titles col-10">PADDLE COURTS</p>
-  <button mat-raised-button class="primary_button" (click)="openAddPaddleCourt()">ADD PADDLE COURT</button>
+  <button mat-raised-button color="accent" (click)="openAddPaddleCourt()">ADD PADDLE COURT</button>
 </div>
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" aria-describedby="paddleCourts">
 
@@ -26,7 +26,7 @@
 
   <ng-container matColumnDef="delete">
     <th scope="col" mat-header-cell class="header" *matHeaderCellDef> - </th>
-    <td mat-cell class="font_size_higher" *matCellDef="let row"><mat-icon class="cursor_pointer pink" (click)="delete(row)">delete_outline</mat-icon></td>
+    <td mat-cell class="font_size_higher" *matCellDef="let row"><mat-icon class="cursor_pointer purple" (click)="delete(row)">delete_outline</mat-icon></td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

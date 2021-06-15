@@ -24,7 +24,7 @@ export class BookingsComponent implements OnInit{
       this.displayedColumns = ['user', 'paddleCourt', 'timeRange', 'cancel'];
       this.title = 'BOOKINGS';
     } else{
-      this.displayedColumns = ['user', 'paddleCourt', 'date', 'timeRange', 'cancel'];
+      this.displayedColumns = ['paddleCourt', 'date', 'timeRange', 'cancel'];
       this.title = 'MY BOOKINGS';
     }
   }
@@ -41,9 +41,9 @@ export class BookingsComponent implements OnInit{
 
   delete(booking: BookingDto): void {
     this.dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: "Are you sure you want to delete?",
       disableClose: false
     });
-    this.dialogRef.componentInstance.confirmMessage = "Are you sure you want to delete?";
 
     this.dialogRef.afterClosed().subscribe(result=> {
       if(result){
