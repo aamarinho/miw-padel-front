@@ -29,11 +29,6 @@ table{
   color:#493548;
 }
 
-.submit_button{
-  background: linear-gradient(to right, #5c80bc, #70a9a1);
-  color:white!important;
-}
-
 .cancel_button{
   background-color: #1f363d;
   color: white;

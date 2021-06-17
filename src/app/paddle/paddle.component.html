@@ -7,7 +7,7 @@
   <div class="collapse navbar-collapse" [ngClass]="{ 'show': isShown }" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto items">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/paddle">HOME<span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="/paddle/home">HOME<span class="sr-only">(current)</span></a>
       </li>
       <li *ngIf="isAdmin()" class="nav-item">
         <a class="nav-link" routerLink="/paddle/paddle-courts">PADDLE COURTS</a>
@@ -33,6 +33,6 @@
   </div>
 </nav>
 
-<div class="container mt-5 mb-5">
+<div class="container mt-5 pb-5">
   <router-outlet></router-outlet>
 </div>

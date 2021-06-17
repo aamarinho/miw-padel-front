@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
   login(): void {
     this.authService.login(this.form.get('email')?.value,this.form.get('password')?.value).subscribe(()=>{
       document.body.classList.remove('bg-img');
-      this.router.navigate(['paddle']).then().finally(() => this.dialog.closeAll());
+      this.router.navigate(['paddle/home']).then().finally(() => this.dialog.closeAll());
     });
     }
 

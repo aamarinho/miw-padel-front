@@ -10,6 +10,7 @@ import {PaddleCourtsComponent} from "./paddle-courts/paddle-courts.component";
 import {CouplesComponent} from "./couples/couples.component";
 import {LeaguesComponent} from "./leagues/leagues.component";
 import {ProfileComponent} from "./profile/profile.component";
+import {HomePageComponent} from "./home-page/home-page.component";
 
 const routes: Routes = [
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
     canActivate: [RoleGuardService],
     data: {roles: [Role.ROLE_ADMIN, Role.ROLE_PLAYER]},
     children: [
+      {path: 'home', component: HomePageComponent},
       {path: 'profile', component: ProfileComponent},
       {path: 'bookings', component: BookingsComponent},
       {path: 'booking-date', component: BookingDateComponent},

@@ -55,8 +55,10 @@ export class AddUpdatePaddleCourtComponent implements OnInit {
     let startTimesArray = new Array<string>();
     let endTimesArray = new Array<string>();
     for(let i=0; i<this.startTimes.value.length; i++){
-      startTimesArray.push(this.startTimes.value[i].start);
-      endTimesArray.push(this.endTimes.value[i].end);
+      if(this.startTimes.value[i].start != '')
+        startTimesArray.push(this.startTimes.value[i].start);
+      if(this.endTimes.value[i].end != '')
+        endTimesArray.push(this.endTimes.value[i].end);
     }
     this.paddleCourt = {
       id: this.paddleCourt.id,

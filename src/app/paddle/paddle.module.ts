@@ -17,6 +17,7 @@ import { LeaguesComponent } from './leagues/leagues.component';
 import { CouplesLeagueComponent } from './leagues/couples-league/couples-league.component';
 import { AddLeagueComponent } from './leagues/add-league/add-league.component';
 import { ProfileComponent } from './profile/profile.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ProfileComponent } from './profile/profile.component';
     LeaguesComponent,
     CouplesLeagueComponent,
     AddLeagueComponent,
-    ProfileComponent
+    ProfileComponent,
+    HomePageComponent
   ],
   entryComponents: [
   ],
