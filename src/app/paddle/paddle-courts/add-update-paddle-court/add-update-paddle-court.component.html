@@ -1,4 +1,5 @@
-<p class="titles mb-4">ADD PADDLE COURT</p>
+<p class="titles mb-4" *ngIf="isAdd">ADD PADDLE COURT</p>
+<p class="titles mb-4" *ngIf="!isAdd">EDIT PADDLE COURT</p>
 <mat-dialog-content [formGroup]="form">
 
   <mat-form-field>

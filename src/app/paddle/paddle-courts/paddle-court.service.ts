@@ -16,11 +16,13 @@ export class PaddleCourtService {
   getAvailability(date: string): Observable<PaddleCourtAvailabilityDto[]>{
     return this.httpService
       .param("date",date)
+      .successful('')
       .get(this.url+'/available');
   }
 
   get(): Observable<PaddleCourt[]>{
     return this.httpService
+      .successful('')
       .get(this.url);
   }
 

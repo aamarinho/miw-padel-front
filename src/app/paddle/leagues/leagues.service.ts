@@ -13,11 +13,14 @@ export class LeaguesService {
   constructor(private httpService: HttpService) { }
 
   get(): Observable<League[]>{
-    return this.httpService.get(this.url);
+    return this.httpService
+      .successful('')
+      .get(this.url);
   }
 
   create(league: League): Observable<League>{
-    return this.httpService.successful('league successfully created')
+    return this.httpService
+      .successful('league successfully created')
       .post(this.url,league);
   }
 }

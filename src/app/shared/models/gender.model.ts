@@ -1,5 +1,6 @@
 export enum Gender{
   MALE = "MALE",
   FEMALE = "FEMALE",
-  MIXED = "MIXED"
+  MIXED = "MIXED",
+  NULL = "NULL"
 }

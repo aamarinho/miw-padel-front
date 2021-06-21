@@ -15,6 +15,7 @@ export class BookingsService {
   get(date?: string): Observable<BookingDto[]>{
     return this.httpService
       .param("date",date)
+      .successful('')
       .get(this.url);
   }
 

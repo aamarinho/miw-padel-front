@@ -6,6 +6,7 @@ import {Couple} from "../../shared/models/couple.model";
 import {CouplesLeagueComponent} from "./couples-league/couples-league.component";
 import {AddLeagueComponent} from "./add-league/add-league.component";
 import {AuthService} from "../../core/auth.service";
+import {Gender} from "../../shared/models/gender.model";
 
 @Component({
   selector: 'app-leagues',
@@ -46,6 +47,14 @@ export class LeaguesComponent implements OnInit {
 
   isAdmin(): boolean{
     return this.authService.isAdmin();
+  }
+
+  isGender(gender: Gender): boolean{
+    return this.authService.getGender() == gender;
+  }
+
+  isMixed(gender: Gender): boolean{
+    return gender == Gender.MIXED;
   }
 
 }

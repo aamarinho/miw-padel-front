@@ -31,7 +31,9 @@
 
   <ng-container matColumnDef="signUp">
     <th scope="col" mat-header-cell class="header" *matHeaderCellDef>-</th>
-    <td mat-cell class="font_size_higher" *matCellDef="let row"><button mat-raised-button color="primary" type="button">SIGN UP</button></td>
+    <td mat-cell class="font_size_higher" *matCellDef="let row">
+      <button [disabled]="!isGender(row.gender) && !isMixed(row.gender)" mat-raised-button color="primary" type="button">SIGN UP</button>
+    </td>
   </ng-container>
 
   <ng-container matColumnDef="couples">

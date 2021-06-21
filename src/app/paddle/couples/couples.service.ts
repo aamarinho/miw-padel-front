@@ -15,11 +15,14 @@ export class CouplesService {
   constructor(private httpService: HttpService) { }
 
   get(): Observable<Couple[]> {
-    return this.httpService.get(this.url);
+    return this.httpService
+      .successful('')
+      .get(this.url);
   }
 
   create(emailDto: EmailDto): Observable<Couple> {
-    return this.httpService.successful('Request successfully sent')
+    return this.httpService
+      .successful('Request successfully sent')
       .post(this.url,emailDto);
   }
 
@@ -30,7 +33,8 @@ export class CouplesService {
   }
 
   decline(id: string): Observable<Couple> {
-    return this.httpService.successful('Request successfully rejected')
+    return this.httpService
+      .successful('Request successfully rejected')
       .param("id",id)
       .delete(this.url);
   }

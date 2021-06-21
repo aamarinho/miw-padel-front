@@ -7,6 +7,7 @@ import {JwtHelperService} from '@auth0/angular-jwt';
 import {User} from "./user.model";
 import {Role} from "./role.model";
 import {HttpService} from "./http.service";
+import {Gender} from "../shared/models/gender.model";
 
 @Injectable({
   providedIn: 'root',
@@ -22,6 +23,7 @@ export class AuthService {
     this.user = {
       token: "",
       email: "",
+      gender: Gender.NULL,
       roles: []
     }
     this.image = "../../assets/images/default.png";
@@ -37,7 +39,7 @@ export class AuthService {
           this.user = jsonToken;
           this.user.email = jwtHelper.decodeToken(jsonToken.token).sub;
           this.user.roles = jwtHelper.decodeToken(jsonToken.token).role;
-
+          this.user.gender = jwtHelper.decodeToken(jsonToken.token).gender;
           this.password = password;
           console.log(this.user);
           this.onLogin$.next(this.user);
@@ -81,6 +83,10 @@ export class AuthService {
 
   getToken(): string | undefined {
     return this.user ? this.user.token : undefined;
+  }
+
+  getGender(): Gender | undefined {
+    return this.user ? this.user.gender : undefined;
   }
 
   getRoles(): Role[] | undefined {

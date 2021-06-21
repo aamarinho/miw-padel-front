@@ -15,11 +15,14 @@ export class ProfileService {
   }
 
   setImage(formData: FormData): Observable<any>{
-    return this.httpService.post(this.url,formData);
+    return this.httpService
+      .successful('Profile photo successfully updated')
+      .post(this.url,formData);
   }
 
   getImage(email: string | undefined): Observable<Blob>{
-    return this.http.get(this.url+'?email='+email,{responseType: 'blob'});
+    return this.http
+      .get(this.url+'?email='+email,{responseType: 'blob'});
   }
 
   getPlayerImageAndPut(couple: Couple){

@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import {ConfirmationDialogComponent} from "./dialogs/confirmation-dialog/confirmation-dialog.component";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {NotFoundComponent} from "./not-found/not-found.component";
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
     FontAwesomeModule
   ],
   declarations: [
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    NotFoundComponent
   ],
   providers: [
   ],
