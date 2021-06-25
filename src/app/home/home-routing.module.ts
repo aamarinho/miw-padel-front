@@ -5,10 +5,7 @@ import {HomeComponent} from './home.component';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
-    children: [
-      //{path: 'complaints', component: ComplaintsComponent, canActivate: [RoleGuardService], data: {roles: [Role.CUSTOMER]}},
-    ]
+    component: HomeComponent
   }
 ];
 

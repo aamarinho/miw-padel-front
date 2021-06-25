@@ -38,7 +38,6 @@ describe('CouplesLeagueComponent', () => {
   });
 
   it('should test the mat card', (done)=>{
-    //component.couples = Common.CONSOLIDATED_COUPLES;
     fixture.detectChanges();
 
     fixture.whenStable().then(() => {

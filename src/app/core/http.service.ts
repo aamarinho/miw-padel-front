@@ -4,7 +4,6 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {EMPTY, Observable, throwError} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 import {MatSnackBar} from '@angular/material/snack-bar';
-
 import {Error} from "./error.model";
 import {ErrorNotification} from "./error.notification.model";
 
@@ -32,14 +31,8 @@ export class HttpService {
 
   param(key: string, value: string | undefined): HttpService {
     if (value != null) {
-      this.params = this.params.append(key, value); // This class is immutable
+      this.params = this.params.append(key, value);
     }
-    return this;
-  }
-
-  paramsFrom(dto: any): HttpService {
-    Object.getOwnPropertyNames(dto)
-      .forEach(item => this.param(item, dto[item]));
     return this;
   }
 
@@ -80,15 +73,6 @@ export class HttpService {
       );
   }
 
-  patch(endpoint: string, body?: object): Observable<any> {
-    return this.http
-      .patch(endpoint, body, this.createOptions())
-      .pipe(
-        map(response => this.extractData(response)),
-        catchError(error => this.handleError(error))
-      );
-  }
-
   delete(endpoint: string): Observable<any> {
     return this.http
       .delete(endpoint, this.createOptions())
@@ -103,7 +87,7 @@ export class HttpService {
 
   header(key: string, value: string): HttpService {
     if (value != null) {
-      this.headers = this.headers.append(key, value); // This class is immutable
+      this.headers = this.headers.append(key, value);
     }
     return this;
   }
@@ -135,7 +119,7 @@ export class HttpService {
     const contentType = response.headers.get('content-type');
     if (contentType) {
       if (contentType.indexOf('application/json') !== -1) {
-        return response.body; // with 'text': JSON.parse(response.body);
+        return response.body;
       }
     } else {
       return response;
@@ -165,7 +149,7 @@ export class HttpService {
       return EMPTY;
     } else {
       try {
-        error = response.error; // with 'text': JSON.parse(response.error);
+        error = response.error;
         this.showError(error.error + ' (' + response.status + '): ' + error.message);
         return throwError(error);
       } catch (e) {

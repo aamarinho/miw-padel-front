@@ -57,13 +57,11 @@ describe('BookingsComponent', () => {
       expect(tableRows.length).toBe(3);
 
       let headerRow = tableRows[0];
-      //expect(headerRow.cells[0].innerHTML).toBe('USER');
       expect(headerRow.cells[0].innerHTML).toBe('PADDLE COURT');
       expect(headerRow.cells[1].innerHTML).toBe('DATE');
       expect(headerRow.cells[2].innerHTML).toBe('TIME RANGE');
 
       let row1 = tableRows[1];
-      //expect(row1.cells[0].innerHTML).toEqual('player@player.com');
       expect(row1.cells[0].innerHTML).toEqual('Paddle Court 2');
       expect(datePipe.transform(row1.cells[1].innerHTML,'yyyy-MM-dd')).toEqual(Common.getTodayDate());
       expect(row1.cells[2].innerHTML).toEqual('12:00-14:00');
