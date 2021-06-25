@@ -32,6 +32,7 @@ export class AuthService {
   login(email: string, password: string): Observable<User> {
     const body={email: email, password: password};
     return this.httpService.authBasic(email, password)
+      .successful('')
       .post(AuthService.END_POINT, body)
       .pipe(
         map<any,any>(jsonToken => {

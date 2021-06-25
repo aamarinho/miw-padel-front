@@ -30,7 +30,7 @@ export class CouplesService {
   accept(idDto: IdDto): Observable<Couple> {
     return this.httpService
       .successful('Request successfully accepted')
-      .post(this.url+'/acceptance',idDto)
+      .put(this.url,idDto)
   }
 
   decline(id: string): Observable<Couple> {
