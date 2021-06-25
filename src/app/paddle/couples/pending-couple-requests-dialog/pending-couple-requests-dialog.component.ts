@@ -43,8 +43,7 @@ export class PendingCoupleRequestsDialogComponent implements OnInit {
 
   decline(couple: Couple) {
     this.dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-      data: "Are you sure you want to decline?",
-      disableClose: false
+      data: "Are you sure you want to decline?"
     });
 
     this.dialogRef.afterClosed().subscribe(result=> {

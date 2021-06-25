@@ -15,6 +15,7 @@ export class BookingDateComponent {
     this.date = new Date();
     this.minDate = new Date();
   }
+
   submit() {
     let transformDate = this.datePipe.transform(this.date, 'yyyy-MM-dd');
     this.newItemEvent.emit(transformDate);

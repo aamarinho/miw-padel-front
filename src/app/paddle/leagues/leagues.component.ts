@@ -18,12 +18,11 @@ export class LeaguesComponent implements OnInit {
   dataSource: League[];
 
   constructor(private leaguesService: LeaguesService, private dialog: MatDialog, private authService: AuthService) {
-
-    if(this.isAdmin()) {
+    if(this.isAdmin())
       this.displayedColumns = ['name','gender','maxCouples','startDate','endDate','couples'];
-    } else{
+    else
       this.displayedColumns = ['name','gender','maxCouples','startDate','endDate','signUp'];
-    }
+
     this.dataSource = new Array<League>();
   }
 
@@ -38,7 +37,7 @@ export class LeaguesComponent implements OnInit {
       data: {
         data: couples
       }
-    }).afterClosed().subscribe(result=>console.log(result));
+    });
   }
 
   openAddLeague() {

@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from './material.module';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MaterialModule} from './material.module';
 import {ConfirmationDialogComponent} from "./dialogs/confirmation-dialog/confirmation-dialog.component";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {NotFoundComponent} from "./not-found/not-found.component";
@@ -9,10 +9,10 @@ import {NotFoundComponent} from "./not-found/not-found.component";
 @NgModule({
   imports: [
     CommonModule,
+    FontAwesomeModule,
     FormsModule,
     MaterialModule,
-    ReactiveFormsModule,
-    FontAwesomeModule
+    ReactiveFormsModule
   ],
   declarations: [
     ConfirmationDialogComponent,
@@ -22,10 +22,10 @@ import {NotFoundComponent} from "./not-found/not-found.component";
   ],
   exports: [
     CommonModule,
+    FontAwesomeModule,
     FormsModule,
     MaterialModule,
-    ReactiveFormsModule,
-    FontAwesomeModule
+    ReactiveFormsModule
   ],
   entryComponents: [
     ConfirmationDialogComponent

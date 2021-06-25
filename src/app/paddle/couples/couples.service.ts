@@ -4,13 +4,14 @@ import {HttpService} from "../../core/http.service";
 import {Observable} from "rxjs";
 import {IdDto} from "../../shared/models/iddto.model";
 import {EmailDto} from "../../shared/models/emaildto.model";
+import {environment} from "../../../environments/environment.prod";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CouplesService {
 
-  url: string = 'https://miw-padel-back.herokuapp.com/couple'
+  url: string = environment.REST + '/couple';
 
   constructor(private httpService: HttpService) { }
 

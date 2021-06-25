@@ -3,7 +3,7 @@
 <mat-dialog-content [formGroup]="form">
 
   <mat-form-field>
-    <label id="paddle_court_name">Name</label>
+    <label>Name</label>
     <input formControlName="name" matInput type="text"/>
   </mat-form-field>
   <div *ngIf="getFormControl.name.touched && getFormControl.name.invalid" class="alert alert-danger">
@@ -14,7 +14,7 @@
   <br/>
 
   <mat-form-field>
-    <label id="paddle_court_type">Paddle court type</label>
+    <label>Paddle court type</label>
     <mat-select formControlName="paddleCourtType" ngDefaultControl>
       <mat-option *ngFor="let type of paddleCourtType" [value]="type">{{type}}</mat-option>
     </mat-select>
@@ -26,12 +26,12 @@
   </div>
   <br/>
 
-  <label id="paddle_court_range_times">Range times</label>
+  <label>Range times</label>
   <div class="row">
     <div formArrayName="startTimes" class="col-6">
       <div *ngFor="let item of startTimes.controls; let startIndex=index" [formGroupName]="startIndex">
         <label>
-          Start time <input formControlName="start" [format]=24 [ngxTimepicker]="picker">
+          Start time<input formControlName="start" [format]=24 [ngxTimepicker]="picker">
           <ngx-material-timepicker #picker [enableKeyboardInput]=true></ngx-material-timepicker>
         </label>
         <button mat-raised-button type="button" class="hidden mb-1">Delete range time</button>
@@ -42,7 +42,7 @@
     <div formArrayName="endTimes" class="col-6">
       <div *ngFor="let item of endTimes.controls; let endIndex=index" [formGroupName]="endIndex">
         <label>
-          End time <input formControlName="end" [format]=24 [ngxTimepicker]="picker">
+          End time<input formControlName="end" [format]=24 [ngxTimepicker]="picker">
           <ngx-material-timepicker #picker [enableKeyboardInput]=true></ngx-material-timepicker>
         </label>
         <button mat-raised-button type="button" class="cancel_button mb-1" (click)="delete(endIndex)">Delete range time</button>
@@ -52,7 +52,7 @@
   <br/>
 
   <mat-form-field>
-    <label id="paddle_court_disabled">Disabled</label>
+    <label>Disabled</label>
     <mat-select formControlName="disabled" ngDefaultControl>
       <mat-option [value]="true">TRUE</mat-option>
       <mat-option [value]="false">FALSE</mat-option>

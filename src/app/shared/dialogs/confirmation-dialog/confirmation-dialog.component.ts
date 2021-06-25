@@ -9,7 +9,7 @@ export class ConfirmationDialogComponent {
 
   public confirmMessage: string;
 
-  constructor(public dialogRef: MatDialogRef<ConfirmationDialogComponent>,@Inject(MAT_DIALOG_DATA) data: any) {
+  constructor(public dialogRef: MatDialogRef<ConfirmationDialogComponent>, @Inject(MAT_DIALOG_DATA) data: any) {
     this.confirmMessage = data;
   }
 

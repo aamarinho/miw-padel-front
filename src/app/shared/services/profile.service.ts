@@ -3,13 +3,14 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {HttpService} from "../../core/http.service";
 import {Couple} from "../models/couple.model";
+import {environment} from "../../../environments/environment.prod";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
 
-  url: string = 'https://miw-padel-back.herokuapp.com/user/photo';
+  url: string = environment.REST + '/user/photo';
 
   constructor(private http: HttpClient, private httpService: HttpService) {
   }

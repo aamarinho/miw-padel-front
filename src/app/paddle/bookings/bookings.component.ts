@@ -15,9 +15,11 @@ import {ConfirmationDialogComponent} from "../../shared/dialogs/confirmation-dia
 export class BookingsComponent implements OnInit{
 
   displayedColumns: string[];
-  dataSource:any;
+  dataSource: any;
   dialogRef!: MatDialogRef<ConfirmationDialogComponent> | null;
   title: string;
+
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private bookingsService: BookingsService, private authService: AuthService, public dialog: MatDialog) {
     if(this.authService.isAdmin()){
@@ -29,8 +31,6 @@ export class BookingsComponent implements OnInit{
     }
   }
 
-  @ViewChild(MatSort) sort!: MatSort;
-
   ngOnInit() {
     if(!this.authService.isAdmin()){
       this.getBookingByDate();
@@ -41,22 +41,18 @@ export class BookingsComponent implements OnInit{
 
   delete(booking: BookingDto): void {
     this.dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-      data: "Are you sure you want to delete?",
-      disableClose: false
+      data: "Are you sure you want to delete?"
     });
 
     this.dialogRef.afterClosed().subscribe(result=> {
       if(result){
-            this.bookingsService.delete(booking.id).subscribe(()=>{
-            if(this.authService.isAdmin()) {
-              this.getBookingByDate(booking.date.toString());
-            } else
-              this.ngOnInit();
-        }, error=>{
-          console.log(error);
+        this.bookingsService.delete(booking.id).subscribe(()=>{
+        if(this.authService.isAdmin())
+          this.getBookingByDate(booking.date.toString());
+        else
+          this.ngOnInit();
         });
       }
-      this.dialogRef = null;
     });
   }
 

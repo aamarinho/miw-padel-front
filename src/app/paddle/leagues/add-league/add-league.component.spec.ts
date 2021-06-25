@@ -113,8 +113,8 @@ describe('AddLeagueComponent', () => {
     component.form.controls['name'].setValue('name');
     component.form.controls['gender'].setValue(Gender.FEMALE)
     component.form.controls['maxCouples'].setValue(1);
-    component.form.controls['startDate'].setValue('2020-06-03');
-    component.form.controls['endDate'].setValue('2020-06-30');
+    component.form.controls['startDate'].setValue('2022-06-03');
+    component.form.controls['endDate'].setValue('2022-06-30');
     expect(component.form.valid).toBeFalsy();
     component.form.controls['maxCouples'].setValue(10);
     component.submit();

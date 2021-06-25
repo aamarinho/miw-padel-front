@@ -11,16 +11,17 @@ import {MatDialogRef} from "@angular/material/dialog";
   templateUrl: './add-league.component.html'
 })
 export class AddLeagueComponent implements OnInit {
-
   form!: FormGroup;
   league: League;
   genders: Gender[];
+  minDate: Date;
 
   constructor(private fb: FormBuilder,
               private leaguesService: LeaguesService,
               private datePipe: DatePipe,
               private dialogRef: MatDialogRef<AddLeagueComponent>) {
-    this.genders = Object.values(Gender);
+    this.minDate = new Date();
+    this.genders = Object.values(Gender).filter(gender => gender != Gender.NULL);
     this.league = {} as League;
   }
 
@@ -50,7 +51,7 @@ export class AddLeagueComponent implements OnInit {
     return this.form.controls;
   }
 
-  getFormValue(value:string): any{
+  getFormValue(value: string): any{
     return this.form.get(value)?.value;
   }
 }

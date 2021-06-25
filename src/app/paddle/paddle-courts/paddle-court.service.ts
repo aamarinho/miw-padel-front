@@ -1,15 +1,16 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpService} from "../../core/http.service";
 import {Observable} from "rxjs";
 import {PaddleCourtAvailabilityDto} from "../../shared/models/paddlecourtavailabilitydto.model";
 import {PaddleCourt} from "../../shared/models/paddlecourt.model";
+import {environment} from "../../../environments/environment.prod";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PaddleCourtService {
 
-  url: string = 'https://miw-padel-back.herokuapp.com/paddle-court'
+  url: string = environment.REST + '/paddle-court';
 
   constructor(private httpService: HttpService) { }
 

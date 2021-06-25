@@ -6,10 +6,10 @@
     <br/>
     <input formControlName="email" class="input" type="text" id="login_email">
     <div *ngIf="getFormControl.email.touched && getFormControl.email.invalid" class="alert alert-danger">
-      <small id="required_error" *ngIf="getFormControl.email.errors?.required">
+      <small *ngIf="getFormControl.email.errors?.required">
         Email is required.
       </small>
-      <small class="email_error" *ngIf="getFormControl.email.errors?.email">
+      <small *ngIf="getFormControl.email.errors?.email">
         Email must be an email.
       </small>
     </div>
@@ -18,8 +18,7 @@
     <label for="login_password">Password</label>
     <br/>
     <input formControlName="password" class="input" type="password" id="login_password"/>
-    <div *ngIf="getFormControl.password.touched && getFormControl.password.invalid"
-         class="alert alert-danger">
+    <div *ngIf="getFormControl.password.touched && getFormControl.password.invalid" class="alert alert-danger">
       <small *ngIf="getFormControl.password.errors?.required">
         Password is required.
       </small>

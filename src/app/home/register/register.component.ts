@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
-import { Gender } from "../../shared/models/gender.model";
-import { User } from "../../shared/models/user.model";
-import { HomeService } from "../home.service";
-import { Role } from "../../core/role.model";
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {Gender} from "../../shared/models/gender.model";
+import {User} from "../../shared/models/user.model";
+import {HomeService} from "../home.service";
+import {Role} from "../../core/role.model";
 import {DatePipe} from "@angular/common";
 import {MatDialogRef} from "@angular/material/dialog";
 
@@ -16,12 +16,14 @@ export class RegisterComponent implements OnInit {
   form!: FormGroup;
   genders: Gender[];
   user: User = {} as User;
+  maxDate: Date;
 
   constructor(private homeService: HomeService,
               private fb: FormBuilder,
               private datePipe: DatePipe,
               private dialogRef: MatDialogRef<RegisterComponent>) {
-    this.genders = Object.values(Gender).filter(gender=>gender!=Gender.MIXED);
+    this.maxDate = new Date();
+    this.genders = Object.values(Gender).filter(gender => gender != Gender.MIXED && gender != Gender.NULL);
   }
 
   ngOnInit(): void {
@@ -45,9 +47,7 @@ export class RegisterComponent implements OnInit {
       gender: this.getFormValue('gender'),
       birthDate: this.datePipe.transform(this.getFormValue('birthDate'), 'yyyy-MM-dd')
     }
-    this.homeService.register(this.user).subscribe(
-      ()=> this.dialogRef.close(),
-      error => console.log(error));
+    this.homeService.register(this.user).subscribe(()=> this.dialogRef.close());
   }
 
   get getFormControl(){

@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   email: string;
   password: string;
   form!: FormGroup;
-  isShown:boolean = false;
+  isShown: boolean = false;
 
   constructor(private authService: AuthService,
               private fb: FormBuilder,
@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
   login(): void {
     this.authService.login(this.form.get('email')?.value,this.form.get('password')?.value).subscribe(()=>{
       document.body.classList.remove('bg-img');
-      this.router.navigate(['paddle/home']).then().finally(() => this.dialog.closeAll());
+      this.router.navigate(['paddle/home']).then().finally();
     });
     }
 
@@ -46,14 +46,11 @@ export class HomeComponent implements OnInit {
     this.dialog.open(RegisterComponent, {
       minWidth: '340px',
       minHeight: '200px'
-    })
-      .afterClosed()
-      .subscribe(()=> console.log("Closing register"));
+    });
   }
 
   get getFormControl(){
     return this.form.controls;
   }
 
-  //getFormValue
 }

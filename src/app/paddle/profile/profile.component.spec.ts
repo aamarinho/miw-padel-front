@@ -40,7 +40,7 @@ describe('ProfileComponent', () => {
 
   it('button disabled when not image', () => {
     expect(fixture.debugElement.nativeElement.querySelector('button').disabled).toBeTruthy();
-    component.imageBack = "file.png";
+    component.image = "file.png";
     fixture.detectChanges();
     expect(fixture.debugElement.nativeElement.querySelector('button').disabled).toBeFalsy();
   });

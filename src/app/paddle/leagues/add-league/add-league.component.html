@@ -2,7 +2,7 @@
 <mat-dialog-content [formGroup]="form">
 
   <mat-form-field>
-    <label id="league_name">Name</label>
+    <label>Name</label>
     <input formControlName="name" matInput type="text"/>
   </mat-form-field>
   <div *ngIf="getFormControl.name.touched && getFormControl.name.invalid" class="alert alert-danger">
@@ -13,7 +13,7 @@
   <br/>
 
   <mat-form-field>
-    <label id="league_gender">Gender</label>
+    <label>Gender</label>
     <mat-select formControlName="gender" ngDefaultControl>
       <mat-option *ngFor="let gender of genders" [value]="gender">{{gender}}</mat-option>
     </mat-select>
@@ -27,7 +27,7 @@
   <br/>
 
   <mat-form-field>
-    <label id="league_max_couples">Max couples</label>
+    <label>Max couples</label>
     <input formControlName="maxCouples" matInput type="number"/>
   </mat-form-field>
   <div *ngIf="getFormControl.maxCouples.touched && getFormControl.maxCouples.invalid" class="alert alert-danger">
@@ -42,7 +42,7 @@
 
   <mat-form-field appearance="fill">
     <mat-label>Enter a date range</mat-label>
-    <mat-date-range-input [rangePicker]="picker">
+    <mat-date-range-input [min]="minDate" [rangePicker]="picker">
       <input matStartDate formControlName="startDate" placeholder="Start date">
       <input matEndDate formControlName="endDate" placeholder="End date">
     </mat-date-range-input>

@@ -41,6 +41,6 @@ export class CouplesComponent implements OnInit {
   }
 
   openSendCoupleRequest() {
-    this.dialog.open(SendCoupleRequestDialogComponent).afterClosed().subscribe();
+    this.dialog.open(SendCoupleRequestDialogComponent);
   }
 }

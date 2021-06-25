@@ -60,23 +60,20 @@ describe('PaddleCourtsComponent', () => {
     spyOn(mockService, 'get').and.callFake(()=> {
       return of(PADDLECOURTS);
     });
-
     component.ngOnInit();
-
     expect(component.dataSource).toEqual(PADDLECOURTS);
   });
 
   it('should open add dialog',()=>{
     component.openAddPaddleCourt();
     fixture.detectChanges();
-    const name = document.getElementById('paddle_court_name') as HTMLHeadElement;
-    expect(name.innerText).toEqual('Name');
-    const paddleCourtType = document.getElementById('paddle_court_type') as HTMLHeadElement;
-    expect(paddleCourtType.innerText).toEqual('Paddle court type');
-    const rangeTimes = document.getElementById('paddle_court_range_times') as HTMLHeadElement;
-    expect(rangeTimes.innerText).toEqual('Range times');
-    const disabled = document.getElementById('paddle_court_disabled') as HTMLHeadElement;
-    expect(disabled.innerText).toEqual('Disabled');
+    const labels = document.getElementsByTagName('label') as HTMLCollectionOf<HTMLLabelElement>;
+    expect(labels[0].innerText).toEqual('Name');
+    expect(labels[1].innerText).toEqual('Paddle court type');
+    expect(labels[2].innerText).toEqual('Range times');
+    expect(labels[3].innerText).toEqual('Start time');
+    expect(labels[4].innerText).toEqual('End time');
+    expect(labels[5].innerText).toEqual('Disabled');
   });
 
   it('should open update dialog',()=>{
@@ -89,22 +86,5 @@ describe('PaddleCourtsComponent', () => {
     expect(inputs[3].value).toEqual('14:00');
     expect(inputs[4].value).toEqual('16:00');
   });
-
-  /*it('should delete the item if confirm',()=>{
-    const spy = spyOn(mockService,'delete').and.returnValue(
-      of(PADDLECOURTS[0])
-    );
-    component.dataSource = PADDLECOURTS;
-    component.delete(PADDLECOURTS[0]);
-    //const button = fixture.nativeElement.querySelector('mat-icon');
-    const deleteButton = document.getElementsByTagName('button') as HTMLCollectionOf<HTMLHeadElement>;
-    deleteButton[1].dispatchEvent(new Event('click'));
-    fixture.detectChanges();
-    const confirmButton = document.getElementById('confirmButton') as HTMLHeadElement;
-    //const buttons = document.getElementsByTagName('button') as HTMLCollectionOf<HTMLButtonElement>;
-    confirmButton.dispatchEvent(new Event('click'));
-    fixture.detectChanges();
-    expect(spy).toHaveBeenCalledWith(PADDLECOURTS[0].name);
-  });*/
 
 });

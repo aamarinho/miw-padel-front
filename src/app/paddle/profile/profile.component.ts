@@ -7,21 +7,20 @@ import {MatDialogRef} from "@angular/material/dialog";
   templateUrl: './profile.component.html'
 })
 export class ProfileComponent{
-
-  imageBack:any;
+  image: any;
 
   constructor(private profileService: ProfileService, private dialogRef: MatDialogRef<ProfileComponent>) {
   }
 
   submit() {
     let formData = new FormData();
-    formData.append('file',this.imageBack);
+    formData.append('file',this.image);
     this.profileService.setImage(formData).subscribe(()=>{
       this.dialogRef.close();
     });
   }
 
   onSelectedFile($event: any) {
-    this.imageBack = $event.target.files[0];
+    this.image = $event.target.files[0];
   }
 }

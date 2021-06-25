@@ -3,20 +3,20 @@ import {Router} from '@angular/router';
 import {Observable, Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {JwtHelperService} from '@auth0/angular-jwt';
-
 import {User} from "./user.model";
 import {Role} from "./role.model";
 import {HttpService} from "./http.service";
 import {Gender} from "../shared/models/gender.model";
+import {environment} from "../../environments/environment.prod";
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  static END_POINT = "https://miw-padel-back.herokuapp.com/user/login";
+  static END_POINT = environment.REST + '/user/login';
   private user: User;
   image: any;
-  password: any = undefined;
+  password: string = '';
   private onLogin$ = new Subject<User>();
 
   constructor(private httpService: HttpService, private router: Router) {
@@ -41,7 +41,6 @@ export class AuthService {
           this.user.roles = jwtHelper.decodeToken(jsonToken.token).role;
           this.user.gender = jwtHelper.decodeToken(jsonToken.token).gender;
           this.password = password;
-          console.log(this.user);
           this.onLogin$.next(this.user);
           return this.user;
         })
@@ -89,15 +88,7 @@ export class AuthService {
     return this.user ? this.user.gender : undefined;
   }
 
-  getRoles(): Role[] | undefined {
-    return this.user ? this.user.roles : undefined;
-  }
-
-  getPassword(): string{
-    return this.user ? this.password : undefined;
-  }
-
-  setImage(image:any): void{
+  setImage(image: any): void{
     let reader = new FileReader();
     reader.addEventListener("load",()=>{
       this.image = reader.result;
@@ -107,12 +98,5 @@ export class AuthService {
     }
   }
 
-  setEmail(email: string): void {
-    this.user.email = email;
-  }
-
-  setUser(user: User): void{
-    this.user = user;
-  }
 
 }

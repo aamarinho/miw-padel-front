@@ -47,12 +47,7 @@ export class PaddleCourtAvailabilityComponent implements OnInit {
       date: this.paddleCourtAvailabilityDto.date,
       timeRange: booking.initialHour.trim()+' - '+booking.endHour.trim()
     }
-    this.bookingsService.create(bookingDto).subscribe(result=>{
-      booking.availability = false;
-      console.log(result);
-    }, error=>{
-      console.log(error);
-    });
+    this.bookingsService.create(bookingDto).subscribe(()=> booking.availability = false);
   }
 
 
